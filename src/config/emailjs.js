@@ -1,17 +1,10 @@
 /**
  * EmailJS Configuration for Portfolio Contact Transmission
- * 
- * You can set these keys in a .env file:
- * VITE_EMAILJS_SERVICE_ID=your_service_id
- * VITE_EMAILJS_TEMPLATE_ID=your_template_id
- * VITE_EMAILJS_PUBLIC_KEY=your_public_key
- * 
- * Or update the fallback values directly below:
  */
 export const emailjsConfig = {
-  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || '',
-  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
-  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '',
+  serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_y3dt24j',
+  templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_smi0okc',
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'hBstXmj3nqVx7Ufwj',
   recipientEmail: 'sakthikailash500@gmail.com',
 };
 
