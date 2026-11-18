@@ -6,5 +6,17 @@ export default defineConfig({
   server: {
     port: 3000,
     open: false
+  },
+  build: {
+    chunkSizeWarningLimit: 1500,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'pdfjs': ['pdfjs-dist'],
+          'framer-motion': ['framer-motion'],
+          'lucide': ['lucide-react']
+        }
+      }
+    }
   }
 });

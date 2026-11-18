@@ -293,13 +293,13 @@ export const CadShowcase = () => {
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-between px-6 py-4 border-t border-titanium-800 bg-graphite-850/90 text-xs font-mono">
-                <span className="text-metallic-steel">
+              <div className="flex items-center justify-between gap-3 px-4 sm:px-6 py-4 border-t border-titanium-800 bg-graphite-850/90 text-xs font-mono">
+                <span className="text-metallic-steel truncate max-w-[180px] sm:max-w-none">
                   Sakthi Kailash // Autodesk Fusion 360 & SolidWorks Portfolio
                 </span>
                 <button
                   onClick={() => setSelectedModel(null)}
-                  className="px-4 py-2 rounded-lg bg-copper-500 text-white font-semibold hover:bg-copper-400 transition-colors shadow-sm"
+                  className="px-4 py-2 rounded-lg bg-copper-500 text-white font-semibold hover:bg-copper-400 transition-colors shadow-sm shrink-0"
                 >
                   Close Blueprint
                 </button>

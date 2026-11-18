@@ -1,23 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, BookOpen, Trophy, Cloud, FileCheck, CheckCircle2, ArrowUpRight, Check } from 'lucide-react';
+import { 
+  Award, 
+  BookOpen, 
+  Trophy, 
+  Cloud, 
+  FileCheck, 
+  CheckCircle2, 
+  ArrowUpRight, 
+  Check, 
+  X, 
+  ZoomIn, 
+  Download, 
+  ExternalLink,
+  ShieldCheck
+} from 'lucide-react';
 import { SectionHeader } from '../components/SectionHeader';
 import { certificationsAndAchievements } from '../data/portfolioData';
 import { TiltCard } from '../components/TiltCard';
+import { CertificateCanvas } from '../components/CertificateCanvas';
 
 /**
  * ELECTRO-MECHANICAL 3D ANIMATED CERTIFICATIONS & CREDENTIALS SECTION
  * Engraved metallic plaque aesthetic with 3D perspective tilt displaying
- * accredited NPTEL (IIT) certifications, LinkedIn Learning credentials, and competitions.
+ * visual certificate previews, accredited NPTEL (IIT) certifications,
+ * LinkedIn Learning credentials, and competitions.
+ * Optimized for mobile, tablet, and desktop viewing.
  */
 export const Certifications = () => {
   const { nptelCertifications, linkedinCertifications, workshops, competitions } = certificationsAndAchievements;
   const [activeTab, setActiveTab] = useState('all'); // 'all' | 'nptel' | 'linkedin' | 'engagements'
+  const [modalCert, setModalCert] = useState(null);
 
   const totalCertCount = (nptelCertifications?.length || 0) + (linkedinCertifications?.length || 0);
 
+  // Close modal on Escape key press and prevent background scrolling
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setModalCert(null);
+    };
+    if (modalCert) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [modalCert]);
+
   return (
-    <section id="achievements" className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section id="achievements" className="relative py-20 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           index="06"
@@ -26,10 +61,10 @@ export const Certifications = () => {
         />
 
         {/* Filter Navigation Tabs (Brushed Metallic) */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-12">
           <button
             onClick={() => setActiveTab('all')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'all'
                 ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
@@ -43,7 +78,7 @@ export const Certifications = () => {
 
           <button
             onClick={() => setActiveTab('nptel')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'nptel'
                 ? 'bg-gradient-to-r from-amber-500 to-copper-500 text-white font-bold shadow-[0_0_15px_rgba(245,158,11,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-amber-400 border border-titanium-750'
@@ -58,7 +93,7 @@ export const Certifications = () => {
 
           <button
             onClick={() => setActiveTab('linkedin')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'linkedin'
                 ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-cyber-neon border border-cyber-cyan/50 font-bold shadow-[0_0_15px_rgba(0,245,255,0.3)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-cyber-cyan border border-titanium-750'
@@ -73,7 +108,7 @@ export const Certifications = () => {
 
           <button
             onClick={() => setActiveTab('engagements')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'engagements'
                 ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold shadow-[0_0_15px_rgba(16,185,129,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-emerald-400 border border-titanium-750'
@@ -101,7 +136,7 @@ export const Certifications = () => {
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-xl text-white">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-white">
                     NPTEL (IIT) Online Certifications
                   </h3>
                   <p className="text-xs font-mono text-metallic-steel">
@@ -120,16 +155,16 @@ export const Certifications = () => {
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
                     className="h-full"
                   >
-                    <TiltCard maxTilt={9} scale={1.02} glareColor="rgba(245, 158, 11, 0.2)">
-                      <div className="h-full p-6 md:p-7 rounded-2xl bg-gradient-to-br from-graphite-900 via-graphite-900 to-graphite-950 border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between group hover:shadow-[0_12px_40px_rgba(245,158,11,0.22)] preserve-3d">
+                    <TiltCard maxTilt={8} scale={1.015} glareColor="rgba(245, 158, 11, 0.2)">
+                      <div className="h-full p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-graphite-900 via-graphite-900 to-graphite-950 border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between group hover:shadow-[0_12px_40px_rgba(245,158,11,0.22)] preserve-3d">
                         <div>
                           {/* Badge bar */}
                           <div 
                             style={{ transform: 'translateZ(14px)' }}
-                            className="flex flex-wrap items-center justify-between gap-2 mb-3 preserve-3d"
+                            className="flex flex-wrap items-center justify-between gap-2 mb-3.5 preserve-3d"
                           >
                             <span className="font-mono text-xs text-amber-300 bg-amber-500/15 px-2.5 py-1 rounded-md border border-amber-500/30 flex items-center gap-1.5">
-                              <CheckCircle2 className="w-3 h-3 text-amber-400" />
+                              <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
                               <span>{cert.status}</span>
                             </span>
                             <span className="font-mono text-xs text-metallic-steel">
@@ -137,10 +172,38 @@ export const Certifications = () => {
                             </span>
                           </div>
 
+                          {/* ======================================================== */}
+                          {/* VISUAL CERTIFICATE PREVIEW (Outside directly on card)    */}
+                          {/* ======================================================== */}
+                          <div
+                            style={{ transform: 'translateZ(18px)' }}
+                            className="mb-4 preserve-3d"
+                          >
+                            <CertificateCanvas
+                              pdfUrl={cert.link}
+                              title={cert.title}
+                              organization={cert.organization}
+                              credentialId={cert.credentialId}
+                              score={cert.score}
+                              onExpand={() => setModalCert({
+                                pdfUrl: cert.link,
+                                title: cert.title,
+                                organization: cert.organization,
+                                credentialId: cert.credentialId,
+                                score: cert.score,
+                                period: cert.period,
+                                credits: cert.credits,
+                                instructor: cert.instructor,
+                                notes: cert.notes,
+                                type: 'nptel'
+                              })}
+                            />
+                          </div>
+
                           {/* Course Title */}
                           <h4 
-                            style={{ transform: 'translateZ(18px)' }}
-                            className="font-display font-bold text-xl text-white group-hover:text-amber-300 transition-colors mb-1.5 preserve-3d"
+                            style={{ transform: 'translateZ(16px)' }}
+                            className="font-display font-bold text-lg sm:text-xl text-white group-hover:text-amber-300 transition-colors mb-1.5 preserve-3d"
                           >
                             {cert.title}
                           </h4>
@@ -153,7 +216,7 @@ export const Certifications = () => {
 
                           <p 
                             style={{ transform: 'translateZ(10px)' }}
-                            className="text-sm text-metallic-pewter leading-relaxed mb-4 preserve-3d"
+                            className="text-xs sm:text-sm text-metallic-pewter leading-relaxed mb-4 preserve-3d"
                           >
                             {cert.notes}
                           </p>
@@ -185,21 +248,42 @@ export const Certifications = () => {
                         {/* Footer Actions */}
                         <div 
                           style={{ transform: 'translateZ(16px)' }}
-                          className="pt-4 border-t border-titanium-800 flex items-center justify-between preserve-3d"
+                          className="pt-4 border-t border-titanium-800 flex items-center justify-between gap-2 preserve-3d"
                         >
-                          <span className="font-mono text-[11px] text-metallic-steel">
+                          <span className="font-mono text-[11px] text-metallic-steel truncate">
                             ROLL: {cert.credentialId}
                           </span>
-                          <a
-                            href={cert.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-titanium-800 hover:bg-amber-500 text-amber-300 hover:text-dark-950 text-xs font-mono font-semibold border border-amber-500/40 transition-all shadow-sm"
-                          >
-                            <FileCheck className="w-3.5 h-3.5" />
-                            <span>View Certificate PDF</span>
-                            <ArrowUpRight className="w-3 h-3" />
-                          </a>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <button
+                              onClick={() => setModalCert({
+                                pdfUrl: cert.link,
+                                title: cert.title,
+                                organization: cert.organization,
+                                credentialId: cert.credentialId,
+                                score: cert.score,
+                                period: cert.period,
+                                credits: cert.credits,
+                                instructor: cert.instructor,
+                                notes: cert.notes,
+                                type: 'nptel'
+                              })}
+                              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-titanium-850 hover:bg-titanium-750 text-metallic-silver text-xs font-mono border border-titanium-700 transition-all"
+                              title="Inspect certificate preview"
+                            >
+                              <ZoomIn className="w-3.5 h-3.5 text-copper-400" />
+                              <span className="hidden sm:inline">Inspect</span>
+                            </button>
+                            <a
+                              href={cert.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-titanium-800 hover:bg-amber-500 text-amber-300 hover:text-dark-950 text-xs font-mono font-semibold border border-amber-500/40 transition-all shadow-sm"
+                            >
+                              <FileCheck className="w-3.5 h-3.5" />
+                              <span>PDF</span>
+                              <ArrowUpRight className="w-3 h-3" />
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </TiltCard>
@@ -221,7 +305,7 @@ export const Certifications = () => {
                   <Cloud className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-xl text-white">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-white">
                     LinkedIn Learning Professional Credentials
                   </h3>
                   <p className="text-xs font-mono text-metallic-steel">
@@ -240,8 +324,8 @@ export const Certifications = () => {
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
                     className="h-full"
                   >
-                    <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(0, 245, 255, 0.16)">
-                      <div className="h-full p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-cyber-cyan/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group hover:shadow-[0_12px_35px_rgba(0,245,255,0.18)] preserve-3d">
+                    <TiltCard maxTilt={8} scale={1.015} glareColor="rgba(0, 245, 255, 0.16)">
+                      <div className="h-full p-5 sm:p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-cyber-cyan/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group hover:shadow-[0_12px_35px_rgba(0,245,255,0.18)] preserve-3d">
                         <div>
                           <div 
                             style={{ transform: 'translateZ(14px)' }}
@@ -253,8 +337,34 @@ export const Certifications = () => {
                             <span className="text-metallic-steel">{cert.date}</span>
                           </div>
 
-                          <h4 
+                          {/* ======================================================== */}
+                          {/* VISUAL CERTIFICATE PREVIEW (Outside directly on card)    */}
+                          {/* ======================================================== */}
+                          <div
                             style={{ transform: 'translateZ(18px)' }}
+                            className="mb-4 preserve-3d"
+                          >
+                            <CertificateCanvas
+                              pdfUrl={cert.link}
+                              title={cert.title}
+                              organization={cert.organization}
+                              credentialId={cert.id}
+                              score="VERIFIED"
+                              onExpand={() => setModalCert({
+                                pdfUrl: cert.link,
+                                title: cert.title,
+                                organization: cert.organization,
+                                credentialId: cert.id,
+                                date: cert.date,
+                                skills: cert.skills,
+                                notes: cert.notes,
+                                type: 'linkedin'
+                              })}
+                            />
+                          </div>
+
+                          <h4 
+                            style={{ transform: 'translateZ(16px)' }}
                             className="font-display font-bold text-base text-white group-hover:text-copper-400 transition-colors mb-2 preserve-3d"
                           >
                             {cert.title}
@@ -288,25 +398,44 @@ export const Certifications = () => {
                           </div>
                         </div>
 
-                        {/* PDF link */}
+                        {/* PDF link & Inspection */}
                         <div 
                           style={{ transform: 'translateZ(16px)' }}
-                          className="pt-3 border-t border-titanium-800 flex items-center justify-between preserve-3d"
+                          className="pt-3 border-t border-titanium-800 flex items-center justify-between gap-2 preserve-3d"
                         >
                           <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
                             <Check className="w-3 h-3" />
                             VERIFIED
                           </span>
-                          <a
-                            href={cert.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-titanium-800 hover:bg-copper-500 text-slate-300 hover:text-white text-xs font-mono font-medium border border-titanium-700 hover:border-copper-500 transition-all"
-                          >
-                            <FileCheck className="w-3.5 h-3.5" />
-                            <span>PDF</span>
-                            <ArrowUpRight className="w-3 h-3" />
-                          </a>
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => setModalCert({
+                                pdfUrl: cert.link,
+                                title: cert.title,
+                                organization: cert.organization,
+                                credentialId: cert.id,
+                                date: cert.date,
+                                skills: cert.skills,
+                                notes: cert.notes,
+                                type: 'linkedin'
+                              })}
+                              className="inline-flex items-center gap-1 px-2 py-1 rounded bg-titanium-850 hover:bg-titanium-750 text-metallic-silver text-xs font-mono border border-titanium-700 transition-all"
+                              title="Inspect certificate preview"
+                            >
+                              <ZoomIn className="w-3.5 h-3.5 text-cyber-cyan" />
+                              <span className="hidden sm:inline">Inspect</span>
+                            </button>
+                            <a
+                              href={cert.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-titanium-800 hover:bg-copper-500 text-slate-300 hover:text-white text-xs font-mono font-medium border border-titanium-700 hover:border-copper-500 transition-all"
+                            >
+                              <FileCheck className="w-3.5 h-3.5" />
+                              <span>PDF</span>
+                              <ArrowUpRight className="w-3 h-3" />
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </TiltCard>
@@ -328,15 +457,15 @@ export const Certifications = () => {
               <div>
                 <div className="flex items-center gap-2 mb-6">
                   <BookOpen className="w-5 h-5 text-copper-400" />
-                  <h3 className="font-display font-bold text-xl text-white">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-white">
                     Technical Workshops & Hands-on Seminars
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {workshops.map((ws, idx) => (
-                    <TiltCard key={ws.id} maxTilt={10} scale={1.02}>
-                      <div className="p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-copper-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] preserve-3d">
+                    <TiltCard key={ws.id} maxTilt={8} scale={1.015}>
+                      <div className="p-5 sm:p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-copper-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] preserve-3d">
                         <div 
                           style={{ transform: 'translateZ(12px)' }}
                           className="flex items-center justify-between mb-2 text-xs font-mono preserve-3d"
@@ -372,15 +501,15 @@ export const Certifications = () => {
               <div>
                 <div className="flex items-center gap-2 mb-6">
                   <Trophy className="w-5 h-5 text-emerald-400" />
-                  <h3 className="font-display font-bold text-xl text-white">
+                  <h3 className="font-display font-bold text-lg sm:text-xl text-white">
                     Hackathons & Engineering Competitions
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {competitions.map((comp, idx) => (
-                    <TiltCard key={comp.id} maxTilt={10} scale={1.02}>
-                      <div className="p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-emerald-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between preserve-3d">
+                    <TiltCard key={comp.id} maxTilt={8} scale={1.015}>
+                      <div className="p-5 sm:p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-emerald-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between preserve-3d">
                         <div>
                           <div 
                             style={{ transform: 'translateZ(12px)' }}
@@ -425,6 +554,110 @@ export const Certifications = () => {
           )}
         </div>
       </div>
+
+      {/* ======================================================== */}
+      {/* HIGH-RESOLUTION CERTIFICATE LIGHTBOX MODAL               */}
+      {/* ======================================================== */}
+      <AnimatePresence>
+        {modalCert && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
+            {/* Backdrop with Blur */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setModalCert(null)}
+              className="fixed inset-0 bg-graphite-950/90 backdrop-blur-xl"
+            />
+
+            {/* Modal Dialog Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 320 }}
+              className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-2xl bg-gradient-to-b from-graphite-900 via-graphite-900 to-graphite-950 border border-copper-500/50 shadow-[0_20px_60px_rgba(0,0,0,0.9)] p-4 sm:p-6 z-10 flex flex-col justify-between"
+            >
+              {/* Modal Header */}
+              <div className="flex items-start justify-between gap-4 pb-4 border-b border-titanium-800">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-copper-500/15 text-copper-400 border border-copper-500/30 flex items-center gap-1 font-semibold">
+                      <ShieldCheck className="w-3.5 h-3.5 text-copper-400" />
+                      <span>OFFICIALLY VERIFIED CREDENTIAL</span>
+                    </span>
+                    {modalCert.period && (
+                      <span className="text-xs font-mono text-metallic-steel hidden sm:inline">
+                        {modalCert.period}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-lg sm:text-2xl font-bold font-display text-white">
+                    {modalCert.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-mono text-copper-400">
+                    {modalCert.organization}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => setModalCert(null)}
+                  className="p-2 rounded-xl bg-graphite-800/80 hover:bg-copper-500 text-slate-300 hover:text-white border border-titanium-700 transition-colors shrink-0"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Modal Certificate Canvas / Interactive View */}
+              <div className="my-5 w-full bg-graphite-950 rounded-xl p-2 sm:p-4 border border-titanium-800 shadow-inner flex justify-center items-center">
+                <div className="w-full max-w-3xl">
+                  <CertificateCanvas
+                    pdfUrl={modalCert.pdfUrl}
+                    title={modalCert.title}
+                    organization={modalCert.organization}
+                    credentialId={modalCert.credentialId}
+                    score={modalCert.score}
+                  />
+                </div>
+              </div>
+
+              {/* Modal Footer with Metadata & Download Options */}
+              <div className="pt-4 border-t border-titanium-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
+                <div className="text-metallic-steel text-center sm:text-left">
+                  {modalCert.credentialId && (
+                    <span>CREDENTIAL ID: <strong className="text-metallic-silver">{modalCert.credentialId}</strong></span>
+                  )}
+                  {modalCert.score && (
+                    <span className="ml-3 sm:ml-4 text-amber-400">SCORE: {modalCert.score}</span>
+                  )}
+                </div>
+
+                <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+                  <a
+                    href={modalCert.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-titanium-800 hover:bg-titanium-700 text-slate-200 border border-titanium-700 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>Open Full PDF</span>
+                  </a>
+
+                  <a
+                    href={modalCert.pdfUrl}
+                    download
+                    className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-copper-500 to-copper-600 hover:from-copper-400 hover:to-copper-500 text-white font-semibold shadow-md transition-all"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>Download</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

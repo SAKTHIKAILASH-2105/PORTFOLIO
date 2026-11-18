@@ -364,7 +364,7 @@ export const Hero = ({ onOpenResume }) => {
           className="lg:col-span-5 flex justify-center items-center relative perspective-1200"
         >
           {/* Outer Multi-Layered Rotating Involute Gear Aperture */}
-          <div className="relative w-[340px] h-[480px] sm:w-[420px] sm:h-[530px] flex items-center justify-center">
+          <div className="relative w-full max-w-[340px] sm:max-w-[420px] h-[480px] sm:h-[530px] flex items-center justify-center">
             {/* Spinning Mechanical Gear Ring (Laser-Cut Involute Teeth) */}
             <svg
               className="absolute inset-0 w-full h-full animate-gear-slow pointer-events-none opacity-25"
