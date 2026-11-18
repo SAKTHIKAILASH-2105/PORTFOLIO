@@ -1,29 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Clock, Calendar, ArrowRight, Sparkles, Cpu } from 'lucide-react';
+import { CheckCircle2, Clock, Cog } from 'lucide-react';
 import { SectionHeader } from '../components/SectionHeader';
 import { StatusBadge } from '../components/StatusBadge';
 import { learningJourney } from '../data/portfolioData';
 
 /**
- * Learning Journey Section
- * Modern vertical circuit timeline depicting progression from foundational logic to VLSI
+ * ELECTRO-MECHANICAL LEARNING JOURNEY SECTION
+ * Vertical mechatronics transmission line depicting progression from foundational logic to VLSI.
  */
 export const Journey = () => {
   return (
-    <section id="journey" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-dark-950/40">
+    <section id="journey" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-graphite-950/40">
       <div className="max-w-5xl mx-auto">
         <SectionHeader
-          index="04"
+          index="05"
           title="Learning Journey & Roadmap"
           subtitle="A structured technical path through digital fundamentals, embedded firmware, HDL synthesis, and silicon design."
         />
 
         {/* Timeline Roadmap */}
         <div className="relative mt-12">
-          {/* Central Vertical Circuit Bus Line */}
-          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-dark-800 sm:-translate-x-1/2">
-            <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-emerald-500 via-cyber-cyan to-transparent" />
+          {/* Central Vertical Transmission Drive Shaft & Copper Bus Line */}
+          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2.5px] bg-titanium-800 sm:-translate-x-1/2">
+            <div className="absolute top-0 left-0 right-0 h-3/5 bg-gradient-to-b from-emerald-500 via-copper-500 to-transparent" />
           </div>
 
           <div className="space-y-12">
@@ -50,16 +50,18 @@ export const Journey = () => {
                       isEven ? 'sm:text-left sm:pl-0' : 'sm:text-left sm:pr-0'
                     }`}
                   >
-                    <div className={`p-6 rounded-2xl bg-dark-900/90 border backdrop-blur-xl transition-all shadow-cyber-card ${
-                      isOngoing
-                        ? 'border-cyber-cyan/50 shadow-[0_0_25px_rgba(0,210,255,0.15)]'
-                        : isCompleted
-                        ? 'border-dark-750 hover:border-emerald-500/40'
-                        : 'border-dark-800 opacity-85'
-                    }`}>
+                    <div
+                      className={`p-6 rounded-2xl bg-graphite-900/90 border backdrop-blur-xl transition-all shadow-[0_10px_35px_rgba(0,0,0,0.5)] ${
+                        isOngoing
+                          ? 'border-copper-500/60 shadow-[0_0_25px_rgba(234,126,59,0.2)]'
+                          : isCompleted
+                          ? 'border-titanium-750 hover:border-emerald-500/40'
+                          : 'border-titanium-800 opacity-85'
+                      }`}
+                    >
                       {/* Card Header & Status */}
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="font-mono text-xs text-cyber-cyan">
+                        <span className="font-mono text-xs text-copper-400 font-medium">
                           {step.period}
                         </span>
                         <StatusBadge status={step.status} size="xs" />
@@ -69,20 +71,20 @@ export const Journey = () => {
                         {step.title}
                       </h3>
 
-                      <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                      <p className="text-xs text-metallic-pewter leading-relaxed mb-4">
                         {step.description}
                       </p>
 
                       {/* Skill tags */}
                       <div>
-                        <span className="text-[10px] font-mono text-slate-400 block mb-1.5 uppercase tracking-wider">
+                        <span className="text-[10px] font-mono text-metallic-steel block mb-1.5 uppercase tracking-wider">
                           Key Concepts Explored:
                         </span>
                         <div className="flex flex-wrap gap-1.5">
                           {step.skillsAcquired.map((skill, sIdx) => (
                             <span
                               key={sIdx}
-                              className="px-2 py-0.5 text-[11px] font-mono rounded bg-dark-950 border border-dark-800 text-slate-300"
+                              className="px-2 py-0.5 text-[11px] font-mono rounded bg-graphite-950 border border-titanium-800 text-slate-300"
                             >
                               {skill}
                             </span>
@@ -92,21 +94,23 @@ export const Journey = () => {
                     </div>
                   </motion.div>
 
-                  {/* Central Node Checkpoint on the Bus Line */}
+                  {/* Central Rotary Encoder Bearing Node */}
                   <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 flex items-center justify-center">
-                    <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
-                      isCompleted
-                        ? 'border-emerald-500 bg-dark-950 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.5)]'
-                        : isOngoing
-                        ? 'border-cyber-neon bg-dark-950 text-cyber-neon shadow-[0_0_15px_rgba(0,245,255,0.6)] animate-pulse'
-                        : 'border-slate-700 bg-dark-950 text-slate-600'
-                    }`}>
+                    <div
+                      className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${
+                        isCompleted
+                          ? 'border-emerald-500 bg-graphite-950 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.5)]'
+                          : isOngoing
+                          ? 'border-copper-500 bg-graphite-950 text-copper-400 shadow-[0_0_15px_rgba(234,126,59,0.6)] animate-pulse'
+                          : 'border-titanium-700 bg-graphite-950 text-titanium-500'
+                      }`}
+                    >
                       {isCompleted ? (
                         <CheckCircle2 className="w-4 h-4" />
                       ) : isOngoing ? (
                         <Clock className="w-4 h-4" />
                       ) : (
-                        <div className="w-2 h-2 rounded-full bg-slate-600" />
+                        <div className="w-2 h-2 rounded-full bg-titanium-600" />
                       )}
                     </div>
                   </div>
