@@ -31,7 +31,9 @@ export async function sendContactEmail({ name, email, subject, message }) {
     template_id: templateId,
     user_id: publicKey,
     template_params: {
+      name: name,
       from_name: name,
+      email: email,
       from_email: email,
       reply_to: email,
       subject: subject,
