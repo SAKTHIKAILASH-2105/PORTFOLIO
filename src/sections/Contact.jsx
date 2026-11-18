@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Linkedin, Github, Send, Copy, Check, Terminal, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Mail, 
+  Linkedin, 
+  Github, 
+  Send, 
+  Copy, 
+  Check, 
+  Terminal, 
+  Sparkles, 
+  AlertCircle, 
+  ExternalLink,
+  Loader2 
+} from 'lucide-react';
 import { SectionHeader } from '../components/SectionHeader';
 import { personalInfo } from '../data/portfolioData';
 import { TiltCard } from '../components/TiltCard';
+import { sendContactEmail, emailjsConfig } from '../config/emailjs';
 
 /**
  * ELECTRO-MECHANICAL 3D ANIMATED CONTACT SECTION
  * Terminal control console aesthetic with 3D perspective boxes,
- * recessed input fields, and tactile transmission triggers.
+ * recessed input fields, live EmailJS transmission, and direct mailto fallback.
  */
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +32,8 @@ export const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [fallbackMailto, setFallbackMailto] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleChange = (e) => {
@@ -26,17 +41,40 @@ export const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
+    setFallbackMailto('');
 
-    // Simulate sending packet
-    setTimeout(() => {
+    try {
+      await sendContactEmail(formData);
       setIsSubmitting(false);
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitted(false), 6000);
-    }, 1200);
+      setTimeout(() => setSubmitted(false), 8000);
+    } catch (err) {
+      setIsSubmitting(false);
+      console.warn('EmailJS transmission failed:', err);
+
+      // Create fallback mailto link so user message is never lost
+      const mailto = `mailto:${personalInfo.socialLinks.email}?subject=${encodeURIComponent(
+        formData.subject || 'Portfolio Inquiry'
+      )}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      setFallbackMailto(mailto);
+
+      if (err.message === 'EMAILJS_NOT_CONFIGURED') {
+        setErrorMessage(
+          'EmailJS service keys are pending configuration. You can dispatch your message directly via your email client using the button below:'
+        );
+      } else {
+        setErrorMessage(
+          'Automated EmailJS transmission encountered a network issue. Please dispatch directly via email:'
+        );
+      }
+    }
   };
 
   const copyEmailToClipboard = () => {
@@ -80,7 +118,7 @@ export const Contact = () => {
                   style={{ transform: 'translateZ(18px)' }}
                   className="text-2xl md:text-3xl font-bold font-display text-white tracking-tight leading-snug preserve-3d"
                 >
-                  "Let's Connect, Collaborate & Build Something Innovative."
+                  "Let's Connect, Collaborate &amp; Build Something Innovative."
                 </h3>
 
                 <p 
@@ -95,7 +133,7 @@ export const Contact = () => {
             {/* 3D Direct Connect Options */}
             <div className="space-y-3">
               {/* Email Card with One-Click Copy */}
-              <TiltCard maxTilt={12} scale={1.03}>
+              <TiltCard maxTilt={10} scale={1.02}>
                 <div className="p-4 rounded-xl bg-graphite-900/90 border border-titanium-750 hover:border-copper-500/50 transition-all flex items-center justify-between shadow-sm preserve-3d">
                   <div 
                     style={{ transform: 'translateZ(14px)' }}
@@ -130,7 +168,7 @@ export const Contact = () => {
               </TiltCard>
 
               {/* LinkedIn Card */}
-              <TiltCard maxTilt={12} scale={1.03}>
+              <TiltCard maxTilt={10} scale={1.02}>
                 <a
                   href={personalInfo.socialLinks.linkedin}
                   target="_blank"
@@ -157,7 +195,7 @@ export const Contact = () => {
               </TiltCard>
 
               {/* GitHub Card */}
-              <TiltCard maxTilt={12} scale={1.03}>
+              <TiltCard maxTilt={10} scale={1.02}>
                 <a
                   href={personalInfo.socialLinks.github}
                   target="_blank"
@@ -197,119 +235,155 @@ export const Contact = () => {
               <div className="p-6 md:p-8 rounded-2xl bg-graphite-900/90 border border-titanium-750 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.6)] preserve-3d">
                 <div 
                   style={{ transform: 'translateZ(14px)' }}
-                  className="flex items-center gap-2 mb-6 preserve-3d"
+                  className="flex items-center justify-between mb-6 preserve-3d"
                 >
-                  <Terminal className="w-4 h-4 text-copper-400" />
-                  <h3 className="font-mono text-xs text-copper-400 uppercase tracking-wider font-semibold">
-                    DISPATCH_MESSAGE // TRANSMISSION FORM
-                  </h3>
+                  <div className="flex items-center gap-2">
+                    <Terminal className="w-4 h-4 text-copper-400" />
+                    <h3 className="font-mono text-xs text-copper-400 uppercase tracking-wider font-semibold">
+                      DISPATCH_MESSAGE // EMAILJS TRANSMISSION
+                    </h3>
+                  </div>
+                  <span className="px-2 py-0.5 rounded bg-graphite-950 text-[10px] font-mono text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    LIVE DISPATCH
+                  </span>
                 </div>
 
-                {submitted ? (
+                {/* Success Message Banner */}
+                {submitted && (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     style={{ transform: 'translateZ(18px)' }}
-                    className="p-6 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-center space-y-3 preserve-3d"
+                    className="p-6 rounded-xl bg-emerald-950/40 border border-emerald-500/50 text-center space-y-3 mb-6 preserve-3d"
                   >
-                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto shadow-md">
                       <Check className="w-6 h-6" />
                     </div>
                     <h4 className="font-display font-bold text-lg text-white">
                       Transmission Dispatched Successfully!
                     </h4>
-                    <p className="text-xs font-mono text-slate-300">
-                      Thank you for reaching out. Sakthi Kailash will review your message and reply promptly.
+                    <p className="text-xs font-mono text-slate-300 max-w-md mx-auto">
+                      Thank you for reaching out. Your message has been routed to <strong>{personalInfo.socialLinks.email}</strong>. Sakthi Kailash will get back to you promptly.
                     </p>
                   </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div 
-                      style={{ transform: 'translateZ(12px)' }}
-                      className="grid grid-cols-1 sm:grid-cols-2 gap-4 preserve-3d"
-                    >
-                      <div>
-                        <label className="block text-xs font-mono text-metallic-steel uppercase tracking-wider mb-1.5">
-                          Your Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="e.g. Alex Johnson"
-                          className="w-full px-4 py-3 rounded-xl bg-graphite-950/80 border border-titanium-750 text-white placeholder-titanium-500 focus:outline-none focus:border-copper-500 focus:ring-1 focus:ring-copper-500 text-sm transition-all"
-                        />
-                      </div>
+                )}
 
-                      <div>
-                        <label className="block text-xs font-mono text-metallic-steel uppercase tracking-wider mb-1.5">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="alex@company.com"
-                          className="w-full px-4 py-3 rounded-xl bg-graphite-950/80 border border-titanium-750 text-white placeholder-titanium-500 focus:outline-none focus:border-copper-500 focus:ring-1 focus:ring-copper-500 text-sm transition-all"
-                        />
-                      </div>
+                {/* Error / Fallback Banner */}
+                {errorMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{ transform: 'translateZ(16px)' }}
+                    className="p-4 rounded-xl bg-amber-950/30 border border-amber-500/50 space-y-3 mb-6 preserve-3d"
+                  >
+                    <div className="flex items-start gap-2.5">
+                      <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                      <p className="text-xs font-mono text-slate-200">
+                        {errorMessage}
+                      </p>
                     </div>
+                    {fallbackMailto && (
+                      <div className="pt-2 flex justify-end">
+                        <a
+                          href={fallbackMailto}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-copper-500 hover:bg-copper-400 text-white font-mono text-xs font-bold transition-all shadow-md"
+                        >
+                          <Send className="w-3.5 h-3.5" />
+                          <span>Dispatch via Mail Client</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
 
-                    <div style={{ transform: 'translateZ(14px)' }} className="preserve-3d">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div 
+                    style={{ transform: 'translateZ(12px)' }}
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-4 preserve-3d"
+                  >
+                    <div>
                       <label className="block text-xs font-mono text-metallic-steel uppercase tracking-wider mb-1.5">
-                        Subject / Purpose *
+                        Your Name *
                       </label>
                       <input
                         type="text"
-                        name="subject"
+                        name="name"
                         required
-                        value={formData.subject}
+                        value={formData.name}
                         onChange={handleChange}
-                        placeholder="e.g. Internship Inquiry / Hardware Project Collaboration"
+                        placeholder="e.g. Alex Johnson"
                         className="w-full px-4 py-3 rounded-xl bg-graphite-950/80 border border-titanium-750 text-white placeholder-titanium-500 focus:outline-none focus:border-copper-500 focus:ring-1 focus:ring-copper-500 text-sm transition-all"
                       />
                     </div>
 
-                    <div style={{ transform: 'translateZ(14px)' }} className="preserve-3d">
+                    <div>
                       <label className="block text-xs font-mono text-metallic-steel uppercase tracking-wider mb-1.5">
-                        Message Packet *
+                        Email Address *
                       </label>
-                      <textarea
-                        name="message"
-                        rows={5}
+                      <input
+                        type="email"
+                        name="email"
                         required
-                        value={formData.message}
+                        value={formData.email}
                         onChange={handleChange}
-                        placeholder="Briefly describe your proposal, project scope, or opportunity..."
-                        className="w-full px-4 py-3 rounded-xl bg-graphite-950/80 border border-titanium-750 text-white placeholder-titanium-500 focus:outline-none focus:border-copper-500 focus:ring-1 focus:ring-copper-500 text-sm transition-all resize-none"
+                        placeholder="alex@company.com"
+                        className="w-full px-4 py-3 rounded-xl bg-graphite-950/80 border border-titanium-750 text-white placeholder-titanium-500 focus:outline-none focus:border-copper-500 focus:ring-1 focus:ring-copper-500 text-sm transition-all"
                       />
                     </div>
+                  </div>
 
-                    <div style={{ transform: 'translateZ(18px)' }} className="preserve-3d">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 hover:from-copper-400 hover:to-amber-500 text-white font-bold font-mono text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(234,126,59,0.35)] hover:shadow-[0_0_30px_rgba(234,126,59,0.5)] transition-all disabled:opacity-50"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                            <span>ENCRYPTING & TRANSMITTING...</span>
-                          </>
-                        ) : (
-                          <>
-                            <Send className="w-4 h-4" />
-                            <span>SEND MESSAGE TRANSMISSION</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-                  </form>
-                )}
+                  <div style={{ transform: 'translateZ(14px)' }} className="preserve-3d">
+                    <label className="block text-xs font-mono text-metallic-steel uppercase tracking-wider mb-1.5">
+                      Subject / Purpose *
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="e.g. Internship Inquiry / Hardware Project Collaboration"
+                      className="w-full px-4 py-3 rounded-xl bg-graphite-950/80 border border-titanium-750 text-white placeholder-titanium-500 focus:outline-none focus:border-copper-500 focus:ring-1 focus:ring-copper-500 text-sm transition-all"
+                    />
+                  </div>
+
+                  <div style={{ transform: 'translateZ(14px)' }} className="preserve-3d">
+                    <label className="block text-xs font-mono text-metallic-steel uppercase tracking-wider mb-1.5">
+                      Message Packet *
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={5}
+                      required
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Briefly describe your proposal, project scope, or opportunity..."
+                      className="w-full px-4 py-3 rounded-xl bg-graphite-950/80 border border-titanium-750 text-white placeholder-titanium-500 focus:outline-none focus:border-copper-500 focus:ring-1 focus:ring-copper-500 text-sm transition-all resize-none"
+                    />
+                  </div>
+
+                  <div style={{ transform: 'translateZ(18px)' }} className="preserve-3d">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 hover:from-copper-400 hover:to-amber-500 text-white font-bold font-mono text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(234,126,59,0.35)] hover:shadow-[0_0_30px_rgba(234,126,59,0.5)] transition-all disabled:opacity-50"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin text-white" />
+                          <span>DISPATCHING VIA EMAILJS...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          <span>SEND MESSAGE TRANSMISSION</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </form>
               </div>
             </TiltCard>
           </motion.div>
