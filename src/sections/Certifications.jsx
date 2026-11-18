@@ -18,7 +18,7 @@ import {
 import { SectionHeader } from '../components/SectionHeader';
 import { certificationsAndAchievements } from '../data/portfolioData';
 import { TiltCard } from '../components/TiltCard';
-import { CertificateCanvas } from '../components/CertificateCanvas';
+import { CertificateImage } from '../components/CertificateImage';
 
 /**
  * ELECTRO-MECHANICAL 3D ANIMATED CERTIFICATIONS & CREDENTIALS SECTION
@@ -179,13 +179,15 @@ export const Certifications = () => {
                             style={{ transform: 'translateZ(18px)' }}
                             className="mb-4 preserve-3d"
                           >
-                            <CertificateCanvas
+                            <CertificateImage
+                              imageUrl={cert.imageUrl}
                               pdfUrl={cert.link}
                               title={cert.title}
                               organization={cert.organization}
                               credentialId={cert.credentialId}
                               score={cert.score}
                               onExpand={() => setModalCert({
+                                imageUrl: cert.imageUrl,
                                 pdfUrl: cert.link,
                                 title: cert.title,
                                 organization: cert.organization,
@@ -256,6 +258,7 @@ export const Certifications = () => {
                           <div className="flex items-center gap-2 shrink-0">
                             <button
                               onClick={() => setModalCert({
+                                imageUrl: cert.imageUrl,
                                 pdfUrl: cert.link,
                                 title: cert.title,
                                 organization: cert.organization,
@@ -344,13 +347,15 @@ export const Certifications = () => {
                             style={{ transform: 'translateZ(18px)' }}
                             className="mb-4 preserve-3d"
                           >
-                            <CertificateCanvas
+                            <CertificateImage
+                              imageUrl={cert.imageUrl}
                               pdfUrl={cert.link}
                               title={cert.title}
                               organization={cert.organization}
                               credentialId={cert.id}
                               score="VERIFIED"
                               onExpand={() => setModalCert({
+                                imageUrl: cert.imageUrl,
                                 pdfUrl: cert.link,
                                 title: cert.title,
                                 organization: cert.organization,
@@ -410,6 +415,7 @@ export const Certifications = () => {
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => setModalCert({
+                                imageUrl: cert.imageUrl,
                                 pdfUrl: cert.link,
                                 title: cert.title,
                                 organization: cert.organization,
@@ -609,15 +615,13 @@ export const Certifications = () => {
                 </button>
               </div>
 
-              {/* Modal Certificate Canvas / Interactive View */}
+              {/* Modal Certificate High-Res Image View */}
               <div className="my-5 w-full bg-graphite-950 rounded-xl p-2 sm:p-4 border border-titanium-800 shadow-inner flex justify-center items-center">
                 <div className="w-full max-w-3xl">
-                  <CertificateCanvas
-                    pdfUrl={modalCert.pdfUrl}
-                    title={modalCert.title}
-                    organization={modalCert.organization}
-                    credentialId={modalCert.credentialId}
-                    score={modalCert.score}
+                  <img
+                    src={modalCert.imageUrl}
+                    alt={modalCert.title}
+                    className="w-full h-auto object-contain rounded-lg shadow-2xl border border-titanium-700"
                   />
                 </div>
               </div>

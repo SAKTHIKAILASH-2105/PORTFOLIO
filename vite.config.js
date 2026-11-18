@@ -8,11 +8,10 @@ export default defineConfig({
     open: false
   },
   build: {
-    chunkSizeWarningLimit: 1500,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
         manualChunks: {
-          'pdfjs': ['pdfjs-dist'],
           'framer-motion': ['framer-motion'],
           'lucide': ['lucide-react']
         }

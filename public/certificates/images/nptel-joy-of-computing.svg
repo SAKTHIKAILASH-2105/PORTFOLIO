@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <linearGradient id="parchment" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffdf7"/>
+      <stop offset="50%" stop-color="#fdfbf2"/>
+      <stop offset="100%" stop-color="#f7f2e4"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="50%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#aa7c11"/>
+    </linearGradient>
+    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <pattern id="guilloche" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 0 10 Q 5 0, 10 10 T 20 10" fill="none" stroke="#d4af37" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="url(#parchment)"/>
+
+  <!-- Guilloche Security Pattern Border -->
+  <rect x="25" y="25" width="950" height="650" fill="none" stroke="url(#navyGrad)" stroke-width="8"/>
+  <rect x="36" y="36" width="928" height="628" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
+  <rect x="42" y="42" width="916" height="616" fill="url(#guilloche)"/>
+  <rect x="42" y="42" width="916" height="616" fill="none" stroke="#0a192f" stroke-width="1.5"/>
+
+  <!-- Corner Ornamental Fasteners -->
+  <g fill="url(#goldGrad)">
+    <circle cx="36" cy="36" r="6"/>
+    <circle cx="964" cy="36" r="6"/>
+    <circle cx="36" cy="664" r="6"/>
+    <circle cx="964" cy="664" r="6"/>
+  </g>
+
+  <!-- Header: Government of India / NPTEL / SWAYAM -->
+  <g transform="translate(500, 85)" text-anchor="middle">
+    <!-- NPTEL Logo Icon / Crest -->
+    <circle cx="-280" cy="15" r="30" fill="url(#navyGrad)"/>
+    <text x="-280" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">NPTEL</text>
+    
+    <text x="0" y="0" font-family="'Times New Roman', serif" font-size="14" letter-spacing="3" fill="#4a5568" font-weight="bold">GOVERNMENT OF INDIA • MINISTRY OF EDUCATION</text>
+    <text x="0" y="24" font-family="'Times New Roman', serif" font-size="24" font-weight="bold" letter-spacing="2" fill="#0a192f">NATIONAL PROGRAMME ON TECHNOLOGY ENHANCED LEARNING</text>
+    <text x="0" y="46" font-family="'Georgia', serif" font-size="16" font-style="italic" fill="#b45309">SWAYAM ONLINE LEARNING INITIATIVE</text>
+
+    <!-- IIT Crest Placeholder -->
+    <circle cx="280" cy="15" r="30" fill="url(#navyGrad)"/>
+    <text x="280" y="22" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffd700" text-anchor="middle">MADRAS</text>
+  </g>
+
+  <!-- Decorative Divider Bar -->
+  <path d="M 200 155 L 450 155 M 550 155 L 800 155" stroke="url(#goldGrad)" stroke-width="2"/>
+  <polygon points="500,147 508,155 500,163 492,155" fill="url(#goldGrad)"/>
+
+  <!-- Certificate Heading -->
+  <g transform="translate(500, 205)" text-anchor="middle">
+    <text x="0" y="0" font-family="'Times New Roman', serif" font-size="34" font-weight="bold" letter-spacing="4" fill="#0a192f">CERTIFICATE OF ACHIEVEMENT</text>
+    <text x="0" y="32" font-family="'Georgia', serif" font-size="15" font-style="italic" fill="#4a5568">This is to certify that</text>
+  </g>
+
+  <!-- Candidate Name -->
+  <g transform="translate(500, 280)" text-anchor="middle">
+    <text x="0" y="0" font-family="'Georgia', serif" font-size="36" font-weight="bold" letter-spacing="2" fill="#b45309">SAKTHI KAILASH P</text>
+    <line x1="-220" y1="12" x2="220" y2="12" stroke="url(#goldGrad)" stroke-width="1.5"/>
+    <text x="0" y="36" font-family="'Georgia', serif" font-size="15" font-style="italic" fill="#4a5568">has successfully completed the Jan – Apr 2026 accredited course</text>
+  </g>
+
+  <!-- Course Title -->
+  <g transform="translate(500, 365)" text-anchor="middle">
+    <rect x="-380" y="-30" width="760" height="52" rx="8" fill="#0a192f" filter="url(#shadow)"/>
+    <text x="0" y="4" font-family="'Times New Roman', serif" font-size="24" font-weight="bold" fill="#ffffff" letter-spacing="1">The Joy of Computing using Python</text>
+    <text x="0" y="44" font-family="'Georgia', serif" font-size="14" font-weight="bold" fill="#0a192f">Offered by IIT Madras</text>
+  </g>
+
+  <!-- Score & Credits Badge -->
+  <g transform="translate(500, 470)" text-anchor="middle">
+    <!-- Golden Medal Rosette -->
+    <circle cx="-160" cy="0" r="32" fill="url(#goldGrad)" filter="url(#shadow)"/>
+    <circle cx="-160" cy="0" r="27" fill="#0a192f"/>
+    <text x="-160" y="-5" font-family="'Helvetica Neue', sans-serif" font-size="10" font-weight="bold" fill="#ffd700" letter-spacing="1">ELITE</text>
+    <text x="-160" y="10" font-family="'Helvetica Neue', sans-serif" font-size="13" font-weight="bold" fill="#fff">55%</text>
+
+    <rect x="-80" y="-24" width="320" height="48" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="80" y="-4" font-family="'Courier New', monospace" font-size="12" font-weight="bold" fill="#0f172a">CONSOLIDATED SCORE: <tspan fill="#b45309">55% (Assignment: 22.44/25 | Exam: 33/75)</tspan></text>
+    <text x="80" y="14" font-family="'Courier New', monospace" font-size="11" fill="#475569">ACADEMIC CREDITS: <tspan font-weight="bold" fill="#0a192f">4 Credits Recommended</tspan></text>
+  </g>
+
+  <!-- Signatures & Verification Bar -->
+  <g transform="translate(100, 580)">
+    <!-- Coordinator 1 -->
+    <g transform="translate(80, 0)" text-anchor="center">
+      <path d="M 0 0 Q 30 -25, 60 5 T 120 -15" fill="none" stroke="#1e293b" stroke-width="2"/>
+      <line x1="-10" y1="15" x2="150" y2="15" stroke="#94a3b8" stroke-width="1"/>
+      <text x="70" y="32" font-family="'Times New Roman', serif" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Prof. Andrew Thangaraj</text>
+      <text x="70" y="46" font-family="'Helvetica Neue', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">NPTEL Coordinator, IIT Madras</text>
+    </g>
+
+    <!-- Center Official Seal -->
+    <g transform="translate(400, 0)" text-anchor="middle">
+      <circle cx="0" cy="5" r="38" fill="url(#goldGrad)" stroke="#b45309" stroke-width="2"/>
+      <circle cx="0" cy="5" r="33" fill="#fffdf7" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="4 2"/>
+      <text x="0" y="-3" font-family="'Times New Roman', serif" font-size="9" font-weight="bold" fill="#0a192f">IIT &amp; NPTEL</text>
+      <text x="0" y="10" font-family="'Times New Roman', serif" font-size="11" font-weight="bold" fill="#b45309">VERIFIED</text>
+      <text x="0" y="21" font-family="'Courier New', monospace" font-size="8" fill="#64748b">2026</text>
+    </g>
+
+    <!-- Coordinator 2 / Instructor -->
+    <g transform="translate(620, 0)" text-anchor="center">
+      <path d="M 0 5 Q 35 -30, 70 0 T 130 -10" fill="none" stroke="#1e293b" stroke-width="2"/>
+      <line x1="-10" y1="15" x2="150" y2="15" stroke="#94a3b8" stroke-width="1"/>
+      <text x="70" y="32" font-family="'Times New Roman', serif" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">IIT Madras Faculty</text>
+      <text x="70" y="46" font-family="'Helvetica Neue', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">IIT Madras</text>
+    </g>
+  </g>
+
+  <!-- Bottom Roll / Verification ID -->
+  <g transform="translate(500, 658)" text-anchor="middle">
+    <text x="0" y="0" font-family="'Courier New', monospace" font-size="11" fill="#64748b">ROLL NO: <tspan font-weight="bold" fill="#0a192f">NPTEL26CS84S350504711</tspan> | VERIFY AT: <tspan fill="#b45309">nptel.ac.in/noc</tspan></text>
+  </g>
+</svg>
