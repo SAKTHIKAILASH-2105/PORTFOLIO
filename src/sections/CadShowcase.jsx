@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Box, Layers, Maximize2, X, Wrench, Eye, CheckCircle2 } from 'lucide-react';
+import { Box, Maximize2, X, Wrench } from 'lucide-react';
 import { SectionHeader } from '../components/SectionHeader';
 import { cadModels } from '../data/portfolioData';
+import { TiltCard } from '../components/TiltCard';
 
 /**
- * ELECTRO-MECHANICAL CAD MODELING & MECHANICAL DESIGN SHOWCASE
- * Features authentic 3D parametric models modeled in Autodesk Fusion 360 and SolidWorks.
- * Embellished with technical blueprint frames, coordinate marks, and metallic borders.
+ * ELECTRO-MECHANICAL 3D ANIMATED CAD SHOWCASE
+ * Features authentic 3D parametric models with 3D perspective tilt,
+ * blueprint coordinate watermarks, and spatial Z-axis popout.
  */
 export const CadShowcase = () => {
   const [selectedModel, setSelectedModel] = useState(null);
@@ -78,7 +79,7 @@ export const CadShowcase = () => {
           </button>
         </div>
 
-        {/* CAD Gallery Grid */}
+        {/* CAD Gallery Grid with 3D Perspective Tilt */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
             {filteredModels.map((model, idx) => {
@@ -92,92 +93,116 @@ export const CadShowcase = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  onClick={() => setSelectedModel(model)}
-                  className="rounded-2xl bg-graphite-900/90 border border-titanium-750 hover:border-copper-500/60 transition-all duration-300 shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between overflow-hidden cursor-pointer group hover:shadow-[0_12px_40px_rgba(234,126,59,0.2)] relative"
+                  className="h-full"
                 >
-                  {/* Subtle Blueprint Coordinate Mark */}
-                  <div className="absolute top-1 right-2 text-[8px] font-mono text-titanium-500 pointer-events-none z-20">
-                    DWG_0{idx + 1}
-                  </div>
-
-                  <div>
-                    {/* CAD Preview Image Frame */}
-                    <div className="relative aspect-[16/10] bg-graphite-950 overflow-hidden border-b border-titanium-800">
-                      <img
-                        src={model.image}
-                        alt={model.title}
-                        className="w-full h-full object-cover object-center filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-
-                      {/* Vignette overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/85 via-transparent to-transparent pointer-events-none" />
-
-                      {/* Top Badges */}
-                      <div className="absolute top-2.5 left-2.5 z-10 flex flex-wrap gap-1.5">
-                        <span
-                          className={`px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-md ${
-                            isSolidworks
-                              ? 'bg-titanium-900/90 text-rose-300 border-rose-500/40'
-                              : 'bg-copper-950/85 text-copper-300 border-copper-500/40'
-                          }`}
-                        >
-                          {model.software}
-                        </span>
+                  <TiltCard maxTilt={12} scale={1.03} glareColor="rgba(0, 245, 255, 0.16)">
+                    <div
+                      onClick={() => setSelectedModel(model)}
+                      className="h-full rounded-2xl bg-graphite-900/90 border border-titanium-750 hover:border-copper-500/60 transition-all duration-300 shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between overflow-hidden cursor-pointer group hover:shadow-[0_14px_45px_rgba(234,126,59,0.22)] relative preserve-3d"
+                    >
+                      {/* Subtle Blueprint Coordinate Mark */}
+                      <div className="absolute top-1 right-2 text-[8px] font-mono text-titanium-500 pointer-events-none z-20">
+                        DWG_0{idx + 1}
                       </div>
 
-                      {/* Click to Expand Action Pill */}
-                      <div className="absolute bottom-2.5 right-2.5 z-10 px-2 py-1 rounded bg-graphite-950/90 border border-titanium-700 text-slate-300 group-hover:text-copper-400 group-hover:border-copper-500/50 text-[10px] font-mono flex items-center gap-1 transition-colors">
-                        <Maximize2 className="w-3 h-3" />
-                        <span>Inspect Blueprint</span>
-                      </div>
-                    </div>
-
-                    {/* Content Body */}
-                    <div className="p-5 space-y-3">
                       <div>
-                        <span className="text-[10px] font-mono text-copper-400 block mb-1">
-                          {model.category.toUpperCase()}
-                        </span>
-                        <h4 className="font-display font-bold text-lg text-white group-hover:text-copper-400 transition-colors leading-snug">
-                          {model.title}
-                        </h4>
-                      </div>
+                        {/* CAD Preview Image Frame (3D Popout) */}
+                        <div 
+                          style={{ transform: 'translateZ(20px)' }}
+                          className="relative aspect-[16/10] bg-graphite-950 overflow-hidden border-b border-titanium-800 preserve-3d"
+                        >
+                          <img
+                            src={model.image}
+                            alt={model.title}
+                            className="w-full h-full object-cover object-center filter contrast-[1.03] group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
 
-                      <p className="text-xs text-metallic-pewter leading-relaxed line-clamp-3">
-                        {model.description}
-                      </p>
+                          {/* Vignette overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-graphite-950/85 via-transparent to-transparent pointer-events-none" />
 
-                      {/* Views list */}
-                      <div className="pt-2">
-                        <span className="text-[10px] font-mono text-metallic-steel block mb-1 uppercase">
-                          Projections / Views:
-                        </span>
-                        <div className="flex flex-wrap gap-1">
-                          {model.views.map((v, vIdx) => (
+                          {/* Top Badges */}
+                          <div className="absolute top-2.5 left-2.5 z-10 flex flex-wrap gap-1.5">
                             <span
-                              key={vIdx}
-                              className="px-2 py-0.5 rounded bg-graphite-950 border border-titanium-800 text-[10px] font-mono text-slate-300"
+                              className={`px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-md ${
+                                isSolidworks
+                                  ? 'bg-titanium-900/90 text-rose-300 border-rose-500/40'
+                                  : 'bg-copper-950/85 text-copper-300 border-copper-500/40'
+                              }`}
                             >
-                              {v}
+                              {model.software}
                             </span>
-                          ))}
+                          </div>
+
+                          {/* Click to Expand Action Pill */}
+                          <div className="absolute bottom-2.5 right-2.5 z-10 px-2 py-1 rounded bg-graphite-950/90 border border-titanium-700 text-slate-300 group-hover:text-copper-400 group-hover:border-copper-500/50 text-[10px] font-mono flex items-center gap-1 transition-colors">
+                            <Maximize2 className="w-3 h-3" />
+                            <span>Inspect Blueprint</span>
+                          </div>
+                        </div>
+
+                        {/* Content Body */}
+                        <div className="p-5 space-y-3">
+                          <div>
+                            <span 
+                              style={{ transform: 'translateZ(10px)' }}
+                              className="text-[10px] font-mono text-copper-400 block mb-1 preserve-3d"
+                            >
+                              {model.category.toUpperCase()}
+                            </span>
+                            <h4 
+                              style={{ transform: 'translateZ(16px)' }}
+                              className="font-display font-bold text-lg text-white group-hover:text-copper-400 transition-colors leading-snug preserve-3d"
+                            >
+                              {model.title}
+                            </h4>
+                          </div>
+
+                          <p 
+                            style={{ transform: 'translateZ(8px)' }}
+                            className="text-xs text-metallic-pewter leading-relaxed line-clamp-3 preserve-3d"
+                          >
+                            {model.description}
+                          </p>
+
+                          {/* Views list */}
+                          <div 
+                            style={{ transform: 'translateZ(12px)' }}
+                            className="pt-2 preserve-3d"
+                          >
+                            <span className="text-[10px] font-mono text-metallic-steel block mb-1 uppercase">
+                              Projections / Views:
+                            </span>
+                            <div className="flex flex-wrap gap-1">
+                              {model.views.map((v, vIdx) => (
+                                <span
+                                  key={vIdx}
+                                  className="px-2 py-0.5 rounded bg-graphite-950 border border-titanium-800 text-[10px] font-mono text-slate-300"
+                                >
+                                  {v}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* Footer Tags */}
-                  <div className="p-5 pt-0 mt-3 border-t border-titanium-800/80 flex flex-wrap gap-1.5 pt-3">
-                    {model.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-[10px] font-mono text-metallic-steel bg-titanium-850 px-2 py-0.5 rounded"
+                      {/* Footer Tags */}
+                      <div 
+                        style={{ transform: 'translateZ(10px)' }}
+                        className="p-5 pt-0 mt-3 border-t border-titanium-800/80 flex flex-wrap gap-1.5 pt-3 preserve-3d"
                       >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
+                        {model.tags.map((tag, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="text-[10px] font-mono text-metallic-steel bg-titanium-850 px-2 py-0.5 rounded"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </TiltCard>
                 </motion.div>
               );
             })}

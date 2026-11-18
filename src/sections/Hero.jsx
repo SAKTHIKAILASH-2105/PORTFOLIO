@@ -19,15 +19,16 @@ import {
   Sparkles
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { TiltCard } from '../components/TiltCard';
 
 /**
- * ELECTRO-MECHANICAL UNIQUE HERO SECTION
+ * ELECTRO-MECHANICAL 3D ANIMATED HERO SECTION
  * High-impact Mechatronics Landing Experience:
- * - Interactive 3D Perspective Tilt on the Mechatronics Core HUD
+ * - Full 3D Interactive Perspective Depth on all cards and metric boxes
+ * - Spatial Z-axis multi-layer parallax on the Core HUD
  * - Live Subsystem Telemetry Switcher (Mech-CAD / Silicon-VLSI / Embedded-DSP)
  * - Real-time Simulated DSP / Oscilloscope Waveform
  * - Tactile "Engage System Pulse" Micro-interaction
- * - Quick-Metric Engineering Counters
  * - Continuous Mechatronics Telemetry Ticker Bar
  */
 export const Hero = ({ onOpenResume }) => {
@@ -64,8 +65,8 @@ export const Hero = ({ onOpenResume }) => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotX = ((y - centerY) / centerY) * -10; // Max tilt 10 deg
-    const rotY = ((x - centerX) / centerX) * 10;
+    const rotX = ((y - centerY) / centerY) * -12; // Max tilt 12 deg
+    const rotY = ((x - centerX) / centerX) * 12;
 
     setRotateX(rotX);
     setRotateY(rotY);
@@ -308,37 +309,48 @@ export const Hero = ({ onOpenResume }) => {
             </div>
           </motion.div>
 
-          {/* Quick-Metric Engineering Badges Bar */}
+          {/* Quick-Metric Engineering 3D Animated Badges Bar */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl"
           >
-            <div className="p-3 rounded-xl bg-graphite-900/80 border border-titanium-800 shadow-inner">
-              <span className="text-xl font-bold font-display text-white block">04+</span>
-              <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
-                Prototypes
-              </span>
-            </div>
-            <div className="p-3 rounded-xl bg-graphite-900/80 border border-titanium-800 shadow-inner">
-              <span className="text-xl font-bold font-display text-copper-400 block">07</span>
-              <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
-                3D CAD Models
-              </span>
-            </div>
-            <div className="p-3 rounded-xl bg-graphite-900/80 border border-titanium-800 shadow-inner">
-              <span className="text-xl font-bold font-display text-cyber-neon block">02</span>
-              <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
-                NPTEL IIT Certs
-              </span>
-            </div>
-            <div className="p-3 rounded-xl bg-graphite-900/80 border border-titanium-800 shadow-inner">
-              <span className="text-xl font-bold font-display text-emerald-400 block">3-in-1</span>
-              <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
-                Mechatronics
-              </span>
-            </div>
+            <TiltCard maxTilt={14} scale={1.05}>
+              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-copper-500/50 transition-colors">
+                <span className="text-xl font-bold font-display text-white block">04+</span>
+                <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
+                  Prototypes
+                </span>
+              </div>
+            </TiltCard>
+
+            <TiltCard maxTilt={14} scale={1.05}>
+              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-copper-500/50 transition-colors">
+                <span className="text-xl font-bold font-display text-copper-400 block">07</span>
+                <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
+                  3D CAD Models
+                </span>
+              </div>
+            </TiltCard>
+
+            <TiltCard maxTilt={14} scale={1.05}>
+              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-cyber-cyan/50 transition-colors">
+                <span className="text-xl font-bold font-display text-cyber-neon block">02</span>
+                <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
+                  NPTEL IIT Certs
+                </span>
+              </div>
+            </TiltCard>
+
+            <TiltCard maxTilt={14} scale={1.05}>
+              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-emerald-500/50 transition-colors">
+                <span className="text-xl font-bold font-display text-emerald-400 block">3-in-1</span>
+                <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
+                  Mechatronics
+                </span>
+              </div>
+            </TiltCard>
           </motion.div>
         </div>
 
@@ -349,7 +361,7 @@ export const Hero = ({ onOpenResume }) => {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="lg:col-span-5 flex justify-center items-center relative perspective-[1200px]"
+          className="lg:col-span-5 flex justify-center items-center relative perspective-1200"
         >
           {/* Outer Multi-Layered Rotating Involute Gear Aperture */}
           <div className="relative w-[340px] h-[480px] sm:w-[420px] sm:h-[530px] flex items-center justify-center">
@@ -433,8 +445,11 @@ export const Hero = ({ onOpenResume }) => {
               <span className="absolute bottom-2.5 left-2.5 w-2 h-2 rounded-full bg-gradient-to-br from-copper-300 to-copper-600 shadow-xs border border-copper-700/60" />
               <span className="absolute bottom-2.5 right-2.5 w-2 h-2 rounded-full bg-gradient-to-br from-copper-300 to-copper-600 shadow-xs border border-copper-700/60" />
 
-              {/* CARD HEADER: Telemetry Status & System Mode Indicator */}
-              <div className="flex items-center justify-between pb-3 border-b border-titanium-800 text-[10px] font-mono">
+              {/* CARD HEADER: Telemetry Status & System Mode Indicator (3D Popout) */}
+              <div 
+                style={{ transform: 'translateZ(15px)' }}
+                className="flex items-center justify-between pb-3 border-b border-titanium-800 text-[10px] font-mono preserve-3d"
+              >
                 <div className="flex items-center gap-1.5 text-copper-400 font-semibold">
                   <Cog className="w-3.5 h-3.5 animate-spin [animation-duration:10s]" />
                   <span>CORE_REACTOR // ID_2105</span>
@@ -445,8 +460,11 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* REAL PORTRAIT INTEGRATED WITH HIGH-PRECISION IC CASING */}
-              <div className="relative my-3 text-center">
+              {/* REAL PORTRAIT INTEGRATED WITH HIGH-PRECISION IC CASING (3D Popout) */}
+              <div 
+                style={{ transform: 'translateZ(25px)' }}
+                className="relative my-3 text-center preserve-3d"
+              >
                 <div className="relative mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-graphite-950 border-2 border-copper-500/60 p-1.5 shadow-[0_0_28px_rgba(234,126,59,0.25)] flex items-center justify-center group overflow-hidden">
                   {/* Real Portrait Image */}
                   <img
@@ -495,8 +513,11 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* LIVE SIMULATED SIGNAL OSCILLOSCOPE (DSP / NOISE CANCELLATION SENSOR SWEEP) */}
-              <div className="p-2.5 rounded-xl bg-graphite-950/80 border border-titanium-800 my-1">
+              {/* LIVE SIMULATED SIGNAL OSCILLOSCOPE (3D Popout) */}
+              <div 
+                style={{ transform: 'translateZ(18px)' }}
+                className="p-2.5 rounded-xl bg-graphite-950/80 border border-titanium-800 my-1 preserve-3d"
+              >
                 <div className="flex items-center justify-between text-[9px] font-mono text-metallic-steel mb-1">
                   <span className="flex items-center gap-1">
                     <Activity className="w-3 h-3 text-copper-400" />
@@ -528,8 +549,11 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* INTERACTIVE SUBSYSTEM MODE SWITCHER (Click to Switch Telemetry!) */}
-              <div className="pt-2">
+              {/* INTERACTIVE SUBSYSTEM MODE SWITCHER (3D Popout) */}
+              <div 
+                style={{ transform: 'translateZ(20px)' }}
+                className="pt-2 preserve-3d"
+              >
                 <div className="flex items-center justify-between text-[10px] font-mono text-metallic-steel mb-1.5 uppercase">
                   <span>SELECT ACTIVE SUBSYSTEM:</span>
                   <span className="text-copper-400">CLICK_TO_PROBE</span>
@@ -582,7 +606,8 @@ export const Hero = ({ onOpenResume }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.2 }}
-                  className="space-y-1.5 pt-2.5 text-[10px] font-mono"
+                  style={{ transform: 'translateZ(16px)' }}
+                  className="space-y-1.5 pt-2.5 text-[10px] font-mono preserve-3d"
                 >
                   {currentTel.specs.map((item, sIdx) => (
                     <div
@@ -598,8 +623,11 @@ export const Hero = ({ onOpenResume }) => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* TACTILE MICRO-INTERACTION BUTTON: TRIGGER HARDWARE PULSE */}
-              <div className="pt-3">
+              {/* TACTILE MICRO-INTERACTION BUTTON: TRIGGER HARDWARE PULSE (3D Popout) */}
+              <div 
+                style={{ transform: 'translateZ(24px)' }}
+                className="pt-3 preserve-3d"
+              >
                 <button
                   onClick={triggerSystemPulse}
                   className={`w-full py-2 px-3 rounded-xl border text-[11px] font-mono font-bold flex items-center justify-center gap-2 transition-all duration-300 ${

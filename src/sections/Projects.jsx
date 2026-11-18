@@ -5,10 +5,12 @@ import { SectionHeader } from '../components/SectionHeader';
 import { StatusBadge } from '../components/StatusBadge';
 import { ProjectModal } from '../components/ProjectModal';
 import { projects } from '../data/portfolioData';
+import { TiltCard } from '../components/TiltCard';
 
 /**
- * ELECTRO-MECHANICAL FEATURED ENGINEERING PROJECTS SECTION
- * Categorized into Hardware & Embedded Systems and Software & Intelligent Systems.
+ * ELECTRO-MECHANICAL 3D ANIMATED FEATURED PROJECTS SECTION
+ * Heavy-duty mechatronic equipment enclosures featuring true 3D perspective tilt,
+ * internal Z-axis component depth, and specular metallic light sheen.
  */
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -239,7 +241,7 @@ export const Projects = () => {
           </button>
         </div>
 
-        {/* Project Cards Grid */}
+        {/* Project Cards Grid with 3D Perspective Tilt */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <AnimatePresence>
             {filteredProjects.map((project, idx) => (
@@ -250,104 +252,125 @@ export const Projects = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className={`rounded-2xl bg-graphite-900/90 border transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col overflow-hidden group hover:shadow-[0_14px_45px_rgba(234,126,59,0.18)] ${
-                  project.category === 'hardware'
-                    ? 'border-titanium-750 hover:border-copper-500/50'
-                    : 'border-titanium-750 hover:border-cyber-cyan/40'
-                }`}
+                className="h-full"
               >
-                {/* Technical Schematic Image Placeholder */}
-                <div className="relative border-b border-titanium-800">
-                  {renderProjectIllustration(project.schematicType, project.number)}
-
-                  {/* Top Left: Project Number & Category Badge */}
-                  <div className="absolute top-3 left-3 z-20 flex flex-wrap items-center gap-2">
-                    <span className="px-2.5 py-1 rounded bg-graphite-950/90 border border-titanium-700 font-mono text-xs text-copper-400 backdrop-blur-md">
-                      PROJ {project.number}
-                    </span>
-                    <span
-                      className={`px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-md ${
-                        project.category === 'hardware'
-                          ? 'bg-emerald-950/80 text-emerald-400 border-emerald-500/40'
-                          : 'bg-titanium-850/90 text-cyber-neon border-cyber-cyan/40'
-                      }`}
+                <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(234, 126, 59, 0.18)">
+                  <div
+                    className={`h-full rounded-2xl bg-graphite-900/90 border transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between overflow-hidden group hover:shadow-[0_16px_50px_rgba(234,126,59,0.22)] preserve-3d ${
+                      project.category === 'hardware'
+                        ? 'border-titanium-750 hover:border-copper-500/60'
+                        : 'border-titanium-750 hover:border-cyber-cyan/50'
+                    }`}
+                  >
+                    {/* Technical Schematic Image Placeholder (3D Popout) */}
+                    <div 
+                      style={{ transform: 'translateZ(18px)' }}
+                      className="relative border-b border-titanium-800 preserve-3d"
                     >
-                      {project.category === 'hardware' ? 'HARDWARE' : 'SOFTWARE'}
-                    </span>
-                  </div>
+                      {renderProjectIllustration(project.schematicType, project.number)}
 
-                  {/* Top Right: Status Badge */}
-                  <div className="absolute top-3 right-3 z-20">
-                    <StatusBadge status={project.status} size="xs" />
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6 md:p-7 flex-1 flex flex-col justify-between space-y-5">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-bold font-display text-white group-hover:text-copper-400 transition-colors">
-                      {project.title}
-                    </h3>
-
-                    <p className="mt-3 text-metallic-pewter text-sm leading-relaxed">
-                      {project.shortDescription}
-                    </p>
-                  </div>
-
-                  {/* Technologies List */}
-                  <div>
-                    <span className="text-[11px] font-mono text-metallic-steel block mb-2 uppercase tracking-wider">
-                      Technologies & Frameworks
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.map((tech, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-2.5 py-1 text-xs font-mono rounded bg-graphite-950/80 border border-titanium-800 text-slate-300 group-hover:border-titanium-700 transition-colors"
-                        >
-                          {tech}
+                      {/* Top Left: Project Number & Category Badge */}
+                      <div className="absolute top-3 left-3 z-20 flex flex-wrap items-center gap-2">
+                        <span className="px-2.5 py-1 rounded bg-graphite-950/90 border border-titanium-700 font-mono text-xs text-copper-400 backdrop-blur-md">
+                          PROJ {project.number}
                         </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Card Actions */}
-                  <div className="pt-4 border-t border-titanium-800 flex flex-wrap items-center justify-between gap-2">
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-titanium-800 hover:bg-copper-600 text-copper-400 hover:text-white border border-copper-500/40 font-mono text-xs font-bold transition-all shadow-sm"
-                    >
-                      <span>View Details</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </button>
-
-                    <div className="flex items-center gap-2">
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-500 text-emerald-400 hover:text-dark-950 border border-emerald-500/40 font-mono text-xs font-bold transition-all shadow-sm"
-                          title="Open Live Deployed Web App"
+                        <span
+                          className={`px-2 py-0.5 rounded text-[10px] font-mono border backdrop-blur-md ${
+                            project.category === 'hardware'
+                              ? 'bg-emerald-950/80 text-emerald-400 border-emerald-500/40'
+                              : 'bg-titanium-850/90 text-cyber-neon border-cyber-cyan/40'
+                          }`}
                         >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          <span>Live Demo</span>
-                        </a>
-                      )}
+                          {project.category === 'hardware' ? 'HARDWARE' : 'SOFTWARE'}
+                        </span>
+                      </div>
 
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-metallic-steel hover:text-white hover:bg-titanium-800 font-mono text-xs transition-colors"
-                        title="View GitHub Repository"
+                      {/* Top Right: Status Badge */}
+                      <div className="absolute top-3 right-3 z-20">
+                        <StatusBadge status={project.status} size="xs" />
+                      </div>
+                    </div>
+
+                    {/* Card Body */}
+                    <div className="p-6 md:p-7 flex-1 flex flex-col justify-between space-y-5">
+                      <div>
+                        <h3 
+                          style={{ transform: 'translateZ(16px)' }}
+                          className="text-xl md:text-2xl font-bold font-display text-white group-hover:text-copper-400 transition-colors preserve-3d"
+                        >
+                          {project.title}
+                        </h3>
+
+                        <p 
+                          style={{ transform: 'translateZ(10px)' }}
+                          className="mt-3 text-metallic-pewter text-sm leading-relaxed preserve-3d"
+                        >
+                          {project.shortDescription}
+                        </p>
+                      </div>
+
+                      {/* Technologies List (3D Layered) */}
+                      <div 
+                        style={{ transform: 'translateZ(14px)' }}
+                        className="preserve-3d"
                       >
-                        <Github className="w-4 h-4" />
-                        <span className="hidden sm:inline">GitHub</span>
-                      </a>
+                        <span className="text-[11px] font-mono text-metallic-steel block mb-2 uppercase tracking-wider">
+                          Technologies & Frameworks
+                        </span>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.technologies.map((tech, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className="px-2.5 py-1 text-xs font-mono rounded bg-graphite-950/80 border border-titanium-800 text-slate-300 group-hover:border-titanium-700 transition-colors shadow-xs"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Card Actions (3D Popout) */}
+                      <div 
+                        style={{ transform: 'translateZ(20px)' }}
+                        className="pt-4 border-t border-titanium-800 flex flex-wrap items-center justify-between gap-2 preserve-3d"
+                      >
+                        <button
+                          onClick={() => setSelectedProject(project)}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-titanium-800 hover:bg-copper-600 text-copper-400 hover:text-white border border-copper-500/40 font-mono text-xs font-bold transition-all shadow-sm"
+                        >
+                          <span>View Details</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </button>
+
+                        <div className="flex items-center gap-2">
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-500 text-emerald-400 hover:text-dark-950 border border-emerald-500/40 font-mono text-xs font-bold transition-all shadow-sm"
+                              title="Open Live Deployed Web App"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              <span>Live Demo</span>
+                            </a>
+                          )}
+
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-metallic-steel hover:text-white hover:bg-titanium-800 font-mono text-xs transition-colors"
+                            title="View GitHub Repository"
+                          >
+                            <Github className="w-4 h-4" />
+                            <span className="hidden sm:inline">GitHub</span>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </TiltCard>
               </motion.div>
             ))}
           </AnimatePresence>

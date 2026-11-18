@@ -3,11 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Award, BookOpen, Trophy, Cloud, FileCheck, CheckCircle2, ArrowUpRight, Check } from 'lucide-react';
 import { SectionHeader } from '../components/SectionHeader';
 import { certificationsAndAchievements } from '../data/portfolioData';
+import { TiltCard } from '../components/TiltCard';
 
 /**
- * ELECTRO-MECHANICAL CERTIFICATIONS & CREDENTIALS SECTION
- * Engraved metallic plaque aesthetic displaying accredited NPTEL (IIT) certifications,
- * LinkedIn Learning cloud/IoT credentials, and engineering competitions.
+ * ELECTRO-MECHANICAL 3D ANIMATED CERTIFICATIONS & CREDENTIALS SECTION
+ * Engraved metallic plaque aesthetic with 3D perspective tilt displaying
+ * accredited NPTEL (IIT) certifications, LinkedIn Learning credentials, and competitions.
  */
 export const Certifications = () => {
   const { nptelCertifications, linkedinCertifications, workshops, competitions } = certificationsAndAchievements;
@@ -88,7 +89,7 @@ export const Certifications = () => {
 
         {/* Content Container */}
         <div className="space-y-16">
-          {/* Track 1: NPTEL Online Certifications (IIT Madras & IIT Kharagpur) */}
+          {/* Track 1: NPTEL Online Certifications (IIT Madras & IIT Kharagpur) with 3D Tilt */}
           {(activeTab === 'all' || activeTab === 'nptel') && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -117,76 +118,98 @@ export const Certifications = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
-                    className="p-6 md:p-7 rounded-2xl bg-gradient-to-br from-graphite-900 via-graphite-900 to-graphite-950 border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between group hover:shadow-[0_12px_40px_rgba(245,158,11,0.18)]"
+                    className="h-full"
                   >
-                    <div>
-                      {/* Badge bar */}
-                      <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                        <span className="font-mono text-xs text-amber-300 bg-amber-500/15 px-2.5 py-1 rounded-md border border-amber-500/30 flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3 h-3 text-amber-400" />
-                          <span>{cert.status}</span>
-                        </span>
-                        <span className="font-mono text-xs text-metallic-steel">
-                          {cert.period}
-                        </span>
-                      </div>
-
-                      {/* Course Title */}
-                      <h4 className="font-display font-bold text-xl text-white group-hover:text-amber-300 transition-colors mb-1.5">
-                        {cert.title}
-                      </h4>
-                      <p className="text-xs font-mono text-copper-400 mb-3">
-                        {cert.organization}
-                      </p>
-
-                      <p className="text-sm text-metallic-pewter leading-relaxed mb-4">
-                        {cert.notes}
-                      </p>
-
-                      {/* Score / Credit highlights */}
-                      <div className="p-3 rounded-xl bg-graphite-950/80 border border-titanium-800 space-y-1.5 mb-4 text-xs font-mono">
-                        {cert.score && (
-                          <div className="flex justify-between text-slate-300">
-                            <span className="text-metallic-steel">EXAMINATION SCORE:</span>
-                            <span className="text-amber-400 font-semibold">{cert.score}</span>
+                    <TiltCard maxTilt={9} scale={1.02} glareColor="rgba(245, 158, 11, 0.2)">
+                      <div className="h-full p-6 md:p-7 rounded-2xl bg-gradient-to-br from-graphite-900 via-graphite-900 to-graphite-950 border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between group hover:shadow-[0_12px_40px_rgba(245,158,11,0.22)] preserve-3d">
+                        <div>
+                          {/* Badge bar */}
+                          <div 
+                            style={{ transform: 'translateZ(14px)' }}
+                            className="flex flex-wrap items-center justify-between gap-2 mb-3 preserve-3d"
+                          >
+                            <span className="font-mono text-xs text-amber-300 bg-amber-500/15 px-2.5 py-1 rounded-md border border-amber-500/30 flex items-center gap-1.5">
+                              <CheckCircle2 className="w-3 h-3 text-amber-400" />
+                              <span>{cert.status}</span>
+                            </span>
+                            <span className="font-mono text-xs text-metallic-steel">
+                              {cert.period}
+                            </span>
                           </div>
-                        )}
-                        <div className="flex justify-between text-slate-300">
-                          <span className="text-metallic-steel">ACADEMIC CREDITS:</span>
-                          <span className="text-metallic-silver font-medium">{cert.credits}</span>
+
+                          {/* Course Title */}
+                          <h4 
+                            style={{ transform: 'translateZ(18px)' }}
+                            className="font-display font-bold text-xl text-white group-hover:text-amber-300 transition-colors mb-1.5 preserve-3d"
+                          >
+                            {cert.title}
+                          </h4>
+                          <p 
+                            style={{ transform: 'translateZ(12px)' }}
+                            className="text-xs font-mono text-copper-400 mb-3 preserve-3d"
+                          >
+                            {cert.organization}
+                          </p>
+
+                          <p 
+                            style={{ transform: 'translateZ(10px)' }}
+                            className="text-sm text-metallic-pewter leading-relaxed mb-4 preserve-3d"
+                          >
+                            {cert.notes}
+                          </p>
+
+                          {/* Score / Credit highlights */}
+                          <div 
+                            style={{ transform: 'translateZ(14px)' }}
+                            className="p-3 rounded-xl bg-graphite-950/80 border border-titanium-800 space-y-1.5 mb-4 text-xs font-mono preserve-3d"
+                          >
+                            {cert.score && (
+                              <div className="flex justify-between text-slate-300">
+                                <span className="text-metallic-steel">EXAMINATION SCORE:</span>
+                                <span className="text-amber-400 font-semibold">{cert.score}</span>
+                              </div>
+                            )}
+                            <div className="flex justify-between text-slate-300">
+                              <span className="text-metallic-steel">ACADEMIC CREDITS:</span>
+                              <span className="text-metallic-silver font-medium">{cert.credits}</span>
+                            </div>
+                            {cert.instructor && (
+                              <div className="flex justify-between text-slate-300">
+                                <span className="text-metallic-steel">INSTRUCTOR:</span>
+                                <span className="text-metallic-silver">{cert.instructor}</span>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        {cert.instructor && (
-                          <div className="flex justify-between text-slate-300">
-                            <span className="text-metallic-steel">INSTRUCTOR:</span>
-                            <span className="text-metallic-silver">{cert.instructor}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
 
-                    {/* Footer Actions */}
-                    <div className="pt-4 border-t border-titanium-800 flex items-center justify-between">
-                      <span className="font-mono text-[11px] text-metallic-steel">
-                        ROLL: {cert.credentialId}
-                      </span>
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-titanium-800 hover:bg-amber-500 text-amber-300 hover:text-dark-950 text-xs font-mono font-semibold border border-amber-500/40 transition-all shadow-sm"
-                      >
-                        <FileCheck className="w-3.5 h-3.5" />
-                        <span>View Certificate PDF</span>
-                        <ArrowUpRight className="w-3 h-3" />
-                      </a>
-                    </div>
+                        {/* Footer Actions */}
+                        <div 
+                          style={{ transform: 'translateZ(16px)' }}
+                          className="pt-4 border-t border-titanium-800 flex items-center justify-between preserve-3d"
+                        >
+                          <span className="font-mono text-[11px] text-metallic-steel">
+                            ROLL: {cert.credentialId}
+                          </span>
+                          <a
+                            href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-titanium-800 hover:bg-amber-500 text-amber-300 hover:text-dark-950 text-xs font-mono font-semibold border border-amber-500/40 transition-all shadow-sm"
+                          >
+                            <FileCheck className="w-3.5 h-3.5" />
+                            <span>View Certificate PDF</span>
+                            <ArrowUpRight className="w-3 h-3" />
+                          </a>
+                        </div>
+                      </div>
+                    </TiltCard>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           )}
 
-          {/* Track 2: LinkedIn Learning Certifications (AWS, Cloud & IoT) */}
+          {/* Track 2: LinkedIn Learning Certifications with 3D Tilt */}
           {(activeTab === 'all' || activeTab === 'linkedin') && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -215,66 +238,85 @@ export const Certifications = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    className="p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-cyber-cyan/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group hover:shadow-[0_10px_35px_rgba(0,245,255,0.15)]"
+                    className="h-full"
                   >
-                    <div>
-                      <div className="flex items-center justify-between mb-3 text-xs font-mono">
-                        <span className="text-cyber-cyan bg-titanium-850 px-2.5 py-0.5 rounded border border-titanium-700">
-                          {cert.organization}
-                        </span>
-                        <span className="text-metallic-steel">{cert.date}</span>
-                      </div>
-
-                      <h4 className="font-display font-bold text-base text-white group-hover:text-copper-400 transition-colors mb-2">
-                        {cert.title}
-                      </h4>
-
-                      <p className="text-xs text-metallic-pewter leading-relaxed mb-4">
-                        {cert.notes}
-                      </p>
-
-                      {/* Skills Covered */}
-                      <div className="mb-4">
-                        <span className="text-[10px] font-mono text-metallic-steel block mb-1.5 uppercase">
-                          Skills Covered:
-                        </span>
-                        <div className="flex flex-wrap gap-1">
-                          {cert.skills.map((skill, sIdx) => (
-                            <span
-                              key={sIdx}
-                              className="px-2 py-0.5 text-[10px] font-mono rounded bg-graphite-950 border border-titanium-800 text-slate-300"
-                            >
-                              {skill}
+                    <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(0, 245, 255, 0.16)">
+                      <div className="h-full p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-cyber-cyan/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group hover:shadow-[0_12px_35px_rgba(0,245,255,0.18)] preserve-3d">
+                        <div>
+                          <div 
+                            style={{ transform: 'translateZ(14px)' }}
+                            className="flex items-center justify-between mb-3 text-xs font-mono preserve-3d"
+                          >
+                            <span className="text-cyber-cyan bg-titanium-850 px-2.5 py-0.5 rounded border border-titanium-700">
+                              {cert.organization}
                             </span>
-                          ))}
+                            <span className="text-metallic-steel">{cert.date}</span>
+                          </div>
+
+                          <h4 
+                            style={{ transform: 'translateZ(18px)' }}
+                            className="font-display font-bold text-base text-white group-hover:text-copper-400 transition-colors mb-2 preserve-3d"
+                          >
+                            {cert.title}
+                          </h4>
+
+                          <p 
+                            style={{ transform: 'translateZ(10px)' }}
+                            className="text-xs text-metallic-pewter leading-relaxed mb-4 preserve-3d"
+                          >
+                            {cert.notes}
+                          </p>
+
+                          {/* Skills Covered */}
+                          <div 
+                            style={{ transform: 'translateZ(12px)' }}
+                            className="mb-4 preserve-3d"
+                          >
+                            <span className="text-[10px] font-mono text-metallic-steel block mb-1.5 uppercase">
+                              Skills Covered:
+                            </span>
+                            <div className="flex flex-wrap gap-1">
+                              {cert.skills.map((skill, sIdx) => (
+                                <span
+                                  key={sIdx}
+                                  className="px-2 py-0.5 text-[10px] font-mono rounded bg-graphite-950 border border-titanium-800 text-slate-300"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* PDF link */}
+                        <div 
+                          style={{ transform: 'translateZ(16px)' }}
+                          className="pt-3 border-t border-titanium-800 flex items-center justify-between preserve-3d"
+                        >
+                          <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                            <Check className="w-3 h-3" />
+                            VERIFIED
+                          </span>
+                          <a
+                            href={cert.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-titanium-800 hover:bg-copper-500 text-slate-300 hover:text-white text-xs font-mono font-medium border border-titanium-700 hover:border-copper-500 transition-all"
+                          >
+                            <FileCheck className="w-3.5 h-3.5" />
+                            <span>PDF</span>
+                            <ArrowUpRight className="w-3 h-3" />
+                          </a>
                         </div>
                       </div>
-                    </div>
-
-                    {/* PDF link */}
-                    <div className="pt-3 border-t border-titanium-800 flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
-                        <Check className="w-3 h-3" />
-                        VERIFIED
-                      </span>
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-titanium-800 hover:bg-copper-500 text-slate-300 hover:text-white text-xs font-mono font-medium border border-titanium-700 hover:border-copper-500 transition-all"
-                      >
-                        <FileCheck className="w-3.5 h-3.5" />
-                        <span>PDF</span>
-                        <ArrowUpRight className="w-3 h-3" />
-                      </a>
-                    </div>
+                    </TiltCard>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
           )}
 
-          {/* Track 3: Workshops & Hackathon Symposia */}
+          {/* Track 3: Workshops & Hackathons with 3D Tilt */}
           {(activeTab === 'all' || activeTab === 'engagements') && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -293,24 +335,35 @@ export const Certifications = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {workshops.map((ws, idx) => (
-                    <div
-                      key={ws.id}
-                      className="p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-copper-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-                    >
-                      <div className="flex items-center justify-between mb-2 text-xs font-mono">
-                        <span className="text-copper-400 font-medium">{ws.host}</span>
-                        <span className="text-metallic-steel">{ws.date}</span>
+                    <TiltCard key={ws.id} maxTilt={10} scale={1.02}>
+                      <div className="p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-copper-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] preserve-3d">
+                        <div 
+                          style={{ transform: 'translateZ(12px)' }}
+                          className="flex items-center justify-between mb-2 text-xs font-mono preserve-3d"
+                        >
+                          <span className="text-copper-400 font-medium">{ws.host}</span>
+                          <span className="text-metallic-steel">{ws.date}</span>
+                        </div>
+                        <h4 
+                          style={{ transform: 'translateZ(16px)' }}
+                          className="font-display font-bold text-lg text-white mb-2 preserve-3d"
+                        >
+                          {ws.title}
+                        </h4>
+                        <p 
+                          style={{ transform: 'translateZ(10px)' }}
+                          className="text-xs text-metallic-pewter leading-relaxed mb-3 preserve-3d"
+                        >
+                          <span className="text-metallic-steel">Core Focus:</span> {ws.focus}
+                        </p>
+                        <div 
+                          style={{ transform: 'translateZ(14px)' }}
+                          className="p-3 rounded-lg bg-graphite-950/70 border border-titanium-800 text-xs text-slate-300 font-mono preserve-3d"
+                        >
+                          <span className="text-copper-400">Key Outcome:</span> {ws.highlight}
+                        </div>
                       </div>
-                      <h4 className="font-display font-bold text-lg text-white mb-2">
-                        {ws.title}
-                      </h4>
-                      <p className="text-xs text-metallic-pewter leading-relaxed mb-3">
-                        <span className="text-metallic-steel">Core Focus:</span> {ws.focus}
-                      </p>
-                      <div className="p-3 rounded-lg bg-graphite-950/70 border border-titanium-800 text-xs text-slate-300 font-mono">
-                        <span className="text-copper-400">Key Outcome:</span> {ws.highlight}
-                      </div>
-                    </div>
+                    </TiltCard>
                   ))}
                 </div>
               </div>
@@ -326,31 +379,45 @@ export const Certifications = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {competitions.map((comp, idx) => (
-                    <div
-                      key={comp.id}
-                      className="p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-emerald-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-2 text-xs font-mono">
-                          <span className="text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
-                            {comp.status}
-                          </span>
-                          <span className="text-metallic-steel">{comp.category}</span>
+                    <TiltCard key={comp.id} maxTilt={10} scale={1.02}>
+                      <div className="p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-emerald-500/40 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between preserve-3d">
+                        <div>
+                          <div 
+                            style={{ transform: 'translateZ(12px)' }}
+                            className="flex items-center justify-between mb-2 text-xs font-mono preserve-3d"
+                          >
+                            <span className="text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
+                              {comp.status}
+                            </span>
+                            <span className="text-metallic-steel">{comp.category}</span>
+                          </div>
+                          <h4 
+                            style={{ transform: 'translateZ(16px)' }}
+                            className="font-display font-bold text-lg text-white mb-2 preserve-3d"
+                          >
+                            {comp.title}
+                          </h4>
+                          <p 
+                            style={{ transform: 'translateZ(10px)' }}
+                            className="text-xs font-mono text-copper-400 mb-2 preserve-3d"
+                          >
+                            Role: {comp.role}
+                          </p>
+                          <p 
+                            style={{ transform: 'translateZ(8px)' }}
+                            className="text-sm text-metallic-pewter leading-relaxed preserve-3d"
+                          >
+                            {comp.details}
+                          </p>
                         </div>
-                        <h4 className="font-display font-bold text-lg text-white mb-2">
-                          {comp.title}
-                        </h4>
-                        <p className="text-xs font-mono text-copper-400 mb-2">
-                          Role: {comp.role}
-                        </p>
-                        <p className="text-sm text-metallic-pewter leading-relaxed">
-                          {comp.details}
-                        </p>
+                        <div 
+                          style={{ transform: 'translateZ(12px)' }}
+                          className="mt-4 pt-3 border-t border-titanium-800 text-[11px] font-mono text-metallic-steel preserve-3d"
+                        >
+                          HARDWARE-SOFTWARE TELEMETRY // INNOVATION
+                        </div>
                       </div>
-                      <div className="mt-4 pt-3 border-t border-titanium-800 text-[11px] font-mono text-metallic-steel">
-                        HARDWARE-SOFTWARE TELEMETRY // INNOVATION
-                      </div>
-                    </div>
+                    </TiltCard>
                   ))}
                 </div>
               </div>

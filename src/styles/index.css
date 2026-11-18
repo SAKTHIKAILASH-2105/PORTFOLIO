@@ -120,6 +120,28 @@
   box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
+/* 3D Perspective & Spatial Depth System */
+.perspective-800 { perspective: 800px; }
+.perspective-1000 { perspective: 1000px; }
+.perspective-1200 { perspective: 1200px; }
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+
+.translate-z-6 { transform: translateZ(6px); }
+.translate-z-12 { transform: translateZ(12px); }
+.translate-z-20 { transform: translateZ(20px); }
+.translate-z-30 { transform: translateZ(30px); }
+.translate-z-40 { transform: translateZ(40px); }
+
+/* Interactive 3D Specular Sheen */
+.card-3d-sheen {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+}
+
 /* Reduced Motion Respect */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
