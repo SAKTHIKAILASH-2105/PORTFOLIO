@@ -123,7 +123,7 @@ export const Hero = ({ onOpenResume }) => {
         { label: "PRECISION ASSEMBLED", val: "7 Verified 3D CAD Enclosures" },
         { label: "KINEMATICS & TOLERANCE", val: "±0.05mm Fit & Flange Clearances" },
       ],
-      waveformColor: "#c084fc",
+      waveformColor: "#ea7e3b",
     },
     vlsi: {
       title: "DIGITAL SILICON & RTL DESIGN",
@@ -135,7 +135,7 @@ export const Hero = ({ onOpenResume }) => {
         { label: "DIGITAL LOGIC", val: "FSM State Machines & ALU Pipelines" },
         { label: "TARGET FREQUENCY", val: "Synchronous 240MHz Clock Domains" },
       ],
-      waveformColor: "#f8fafc",
+      waveformColor: "#ffedd5",
     },
     embedded: {
       title: "EMBEDDED FIRMWARE & DSP SYSTEMS",
@@ -173,49 +173,75 @@ export const Hero = ({ onOpenResume }) => {
         {/* LEFT COLUMN: Strategic Identity, Bio & CTAs (7 cols)    */}
         {/* ======================================================== */}
         <div className="lg:col-span-7 text-left space-y-6">
-          {/* Engineering Status Pill with Live Core Telemetry */}
+          {/* Industrial Copper Theme Capsule Badge from Theme Blueprint */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-graphite-900/90 border border-titanium-700/80 text-xs font-mono text-copper-400 shadow-sm"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-copper-950/90 via-graphite-900 to-copper-950/90 border border-copper-500/50 text-xs font-mono shadow-[0_0_20px_rgba(234,126,59,0.25)]"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-neon opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-copper-400" />
+            <span className="w-2 h-2 rounded-full bg-copper-400 animate-pulse shadow-[0_0_8px_#ea7e3b]" />
+            <span className="text-white font-bold tracking-wide">
+              1. Industrial Copper Theme
             </span>
-            <span className="tracking-wide text-metallic-silver font-medium">
-              SYS_ONLINE // MECHATRONICS & VLSI ARCHITECTURE
-            </span>
-            <span className="text-titanium-600 hidden sm:inline">|</span>
-            <span className="text-[10px] text-copper-400/90 hidden sm:inline uppercase">
-              REVISION 2.4
+            <span className="text-cream-300 font-mono text-[11px] hidden sm:inline">
+              (Black + Copper + Cream)
             </span>
           </motion.div>
 
-          {/* Main Greeting and Architect Name */}
+          {/* Institutional Campus Header: Rathinam Technical Campus */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-titanium-800/80"
+          >
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 rounded-xl bg-copper-500/10 border border-copper-500/30 text-copper-400 shadow-xs">
+                <Cog className="w-5 h-5 animate-spin [animation-duration:12s]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm sm:text-base font-bold font-display text-white tracking-wider uppercase">
+                  RATHINAM TECHNICAL CAMPUS
+                </span>
+                <span className="text-[10px] font-mono text-copper-300 tracking-wider">
+                  DEPARTMENT OF MECHATRONICS ENGINEERING
+                </span>
+              </div>
+            </div>
+            <div className="text-[11px] font-mono text-cream-200 tracking-widest uppercase px-3 py-1 rounded-lg bg-graphite-900/90 border border-titanium-700/60 shadow-xs">
+              Innovate • Design • Build
+            </div>
+          </motion.div>
+
+          {/* Main Mechatronics Portfolio Heading */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-2"
+            className="space-y-3"
           >
-            <span className="text-xs md:text-sm font-mono tracking-widest text-copper-400 block uppercase flex items-center gap-2 font-medium">
-              <span className="w-2.5 h-[1.5px] bg-copper-500" />
-              {personalInfo.heroHeading}
-            </span>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display text-white tracking-tight leading-[1.08]">
-              Engineering Ideas Into{' '}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-copper-400 via-lavender-300 to-cyber-neon bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(192,132,252,0.45)]">
-                  Intelligent
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display tracking-tight leading-[1.08]">
+              <span className="block text-cream-100 font-display">
+                MECHATRONICS
+              </span>
+              <span className="relative inline-block mt-1">
+                <span className="bg-gradient-to-r from-copper-400 via-cream-200 to-copper-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(234,126,59,0.5)]">
+                  PORTFOLIO
                 </span>
                 {/* Underline circuit trace accent */}
-                <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-gradient-to-r from-copper-500 via-lavender-400 to-transparent" />
-              </span>{' '}
-              Solutions.
+                <span className="absolute left-0 -bottom-1 w-full h-[2.5px] bg-gradient-to-r from-copper-500 via-cream-300 to-transparent shadow-[0_0_10px_#ea7e3b]" />
+              </span>
             </h1>
+
+            <p className="text-base sm:text-xl font-display text-cream-200 font-medium tracking-wide">
+              Engineering Intelligence for a Smarter Tomorrow
+            </p>
+
+            <div className="pt-1 flex items-center gap-2 text-copper-300 font-serif italic text-base sm:text-lg">
+              <Sparkles className="w-4 h-4 text-copper-400 shrink-0" />
+              <span>"Dream Big... Build Bigger..."</span>
+            </div>
           </motion.div>
 
           {/* Dynamic Typing Subrole with Interactive Toggle */}
@@ -269,7 +295,7 @@ export const Hero = ({ onOpenResume }) => {
             {/* View Projects Button (Electro-Mechanical High-Impact Glow) */}
             <a
               href="#projects"
-              className="relative group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-lavender-500 to-copper-600 text-white font-bold font-mono text-sm shadow-[0_0_25px_rgba(192,132,252,0.45)] hover:shadow-[0_0_35px_rgba(192,132,252,0.65)] transition-all duration-300 transform hover:-translate-y-0.5 overflow-hidden"
+              className="relative group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 text-white font-bold font-mono text-sm shadow-[0_0_25px_rgba(234,126,59,0.45)] hover:shadow-[0_0_35px_rgba(234,126,59,0.65)] transition-all duration-300 transform hover:-translate-y-0.5 overflow-hidden"
             >
               {/* Shiny reflection beam */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out" />
@@ -292,7 +318,7 @@ export const Hero = ({ onOpenResume }) => {
                 href={personalInfo.socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-copper-400 hover:border-copper-500/60 hover:shadow-[0_0_15px_rgba(192,132,252,0.35)] transition-all"
+                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-copper-400 hover:border-copper-500/60 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
                 aria-label="GitHub Profile"
               >
                 <Github className="w-5 h-5" />
@@ -301,7 +327,7 @@ export const Hero = ({ onOpenResume }) => {
                 href={personalInfo.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-copper-400 hover:border-copper-500/60 hover:shadow-[0_0_15px_rgba(192,132,252,0.35)] transition-all"
+                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-copper-400 hover:border-copper-500/60 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-5 h-5" />
@@ -374,7 +400,7 @@ export const Hero = ({ onOpenResume }) => {
                 cx="200"
                 cy="200"
                 r="180"
-                stroke="#c084fc"
+                stroke="#ea7e3b"
                 strokeWidth="1.5"
                 strokeDasharray="6 8"
                 fill="none"
@@ -383,7 +409,7 @@ export const Hero = ({ onOpenResume }) => {
                 cx="200"
                 cy="200"
                 r="165"
-                stroke="#cbd5e1"
+                stroke="#fed7aa"
                 strokeWidth="1"
                 strokeDasharray="2 6"
                 fill="none"
@@ -396,7 +422,7 @@ export const Hero = ({ onOpenResume }) => {
                   y1="15"
                   x2="200"
                   y2="28"
-                  stroke="#c084fc"
+                  stroke="#ea7e3b"
                   strokeWidth="2"
                   transform={`rotate(${i * 30} 200 200)`}
                 />
@@ -435,7 +461,7 @@ export const Hero = ({ onOpenResume }) => {
               <div
                 className="absolute inset-0 pointer-events-none opacity-40 transition-opacity duration-300"
                 style={{
-                  background: `radial-gradient(circle at ${glintPos.x}% ${glintPos.y}%, rgba(192, 132, 252, 0.22) 0%, transparent 60%)`,
+                  background: `radial-gradient(circle at ${glintPos.x}% ${glintPos.y}%, rgba(234, 126, 59, 0.22) 0%, transparent 60%)`,
                 }}
               />
 
@@ -465,7 +491,7 @@ export const Hero = ({ onOpenResume }) => {
                 style={{ transform: 'translateZ(25px)' }}
                 className="relative my-3 text-center preserve-3d"
               >
-                <div className="relative mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-graphite-950 border-2 border-copper-500/60 p-1.5 shadow-[0_0_28px_rgba(192,132,252,0.35)] flex items-center justify-center group overflow-hidden">
+                <div className="relative mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-graphite-950 border-2 border-copper-500/60 p-1.5 shadow-[0_0_28px_rgba(234,126,59,0.35)] flex items-center justify-center group overflow-hidden">
                   {/* Real Portrait Image */}
                   <img
                     src={personalInfo.profileImage || "/profile.jpg"}
@@ -481,12 +507,12 @@ export const Hero = ({ onOpenResume }) => {
                     MECHATRONICS
                   </div>
 
-                  {/* Chrome Lead Pins (Top & Bottom) */}
+                  {/* Copper Lead Pins (Top & Bottom) */}
                   <div className="absolute -top-1 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <span
                         key={i}
-                        className="w-1 h-1 bg-copper-400 rounded-xs shadow-[0_0_4px_#c084fc]"
+                        className="w-1 h-1 bg-copper-400 rounded-xs shadow-[0_0_4px_#ea7e3b]"
                       />
                     ))}
                   </div>
@@ -494,7 +520,7 @@ export const Hero = ({ onOpenResume }) => {
                     {[1, 2, 3, 4, 5].map((i) => (
                       <span
                         key={i}
-                        className="w-1 h-1 bg-copper-400 rounded-xs shadow-[0_0_4px_#c084fc]"
+                        className="w-1 h-1 bg-copper-400 rounded-xs shadow-[0_0_4px_#ea7e3b]"
                       />
                     ))}
                   </div>
@@ -564,7 +590,7 @@ export const Hero = ({ onOpenResume }) => {
                     onClick={() => setActiveSubsystem('mech')}
                     className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 ${
                       activeSubsystem === 'mech'
-                        ? 'bg-copper-500/20 border-copper-500 text-copper-300 shadow-[0_0_12px_rgba(192,132,252,0.45)]'
+                        ? 'bg-copper-500/20 border-copper-500 text-copper-300 shadow-[0_0_12px_rgba(234,126,59,0.45)]'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
@@ -576,7 +602,7 @@ export const Hero = ({ onOpenResume }) => {
                     onClick={() => setActiveSubsystem('vlsi')}
                     className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 ${
                       activeSubsystem === 'vlsi'
-                        ? 'bg-cyber-cyan/20 border-cyber-cyan text-cyber-neon shadow-[0_0_12px_rgba(192,132,252,0.45)]'
+                        ? 'bg-cyber-cyan/20 border-cyber-cyan text-cyber-neon shadow-[0_0_12px_rgba(234,126,59,0.45)]'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
@@ -632,7 +658,7 @@ export const Hero = ({ onOpenResume }) => {
                   onClick={triggerSystemPulse}
                   className={`w-full py-2 px-3 rounded-xl border text-[11px] font-mono font-bold flex items-center justify-center gap-2 transition-all duration-300 ${
                     isPulsing
-                      ? 'bg-copper-500 text-white border-copper-400 shadow-[0_0_20px_#c084fc]'
+                      ? 'bg-copper-500 text-white border-copper-400 shadow-[0_0_20px_#ea7e3b]'
                       : 'bg-titanium-850 hover:bg-copper-600 text-copper-400 hover:text-white border-copper-500/40 hover:border-copper-400'
                   }`}
                 >

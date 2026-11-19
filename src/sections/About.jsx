@@ -40,7 +40,7 @@ export const About = () => {
             className="lg:col-span-4 space-y-6"
           >
             {/* 3D High-Tech Industrial Profile Frame */}
-            <TiltCard maxTilt={8} scale={1.02} glareColor="rgba(192, 132, 252, 0.25)">
+            <TiltCard maxTilt={8} scale={1.02} glareColor="rgba(234, 126, 59, 0.25)">
               <div className="p-5 rounded-2xl bg-gradient-to-b from-graphite-900/95 to-graphite-950/98 border border-titanium-700/80 shadow-[0_12px_40px_rgba(0,0,0,0.65)] backdrop-blur-xl relative group overflow-hidden preserve-3d">
                 {/* Corner Brass Fastener Brackets */}
                 <div className="absolute top-2 left-2 w-3.5 h-3.5 border-t-2 border-l-2 border-copper-500" />
@@ -58,7 +58,7 @@ export const About = () => {
                     SYS_PORTRAIT // ID_01
                   </span>
                   <span className="flex items-center gap-1 text-copper-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-copper-400 animate-pulse shadow-[0_0_8px_#c084fc]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-copper-400 animate-pulse shadow-[0_0_8px_#ea7e3b]" />
                     ONLINE
                   </span>
                 </div>
@@ -66,7 +66,7 @@ export const About = () => {
                 {/* Image Container with Champagne Bevel (3D Popout) */}
                 <div 
                   style={{ transform: 'translateZ(24px)' }}
-                  className="relative mx-auto w-full aspect-[4/5] rounded-xl overflow-hidden border border-copper-500/40 bg-graphite-950 shadow-[0_0_25px_rgba(192, 132, 252,0.3)] preserve-3d"
+                  className="relative mx-auto w-full aspect-[4/5] rounded-xl overflow-hidden border border-copper-500/40 bg-graphite-950 shadow-[0_0_25px_rgba(234, 126, 59,0.3)] preserve-3d"
                 >
                   <img
                     src={personalInfo.profileImage || "/profile.jpg"}
@@ -138,7 +138,7 @@ export const About = () => {
             className="lg:col-span-8 space-y-6"
           >
             {/* 3D Metallic Narrative Card */}
-            <TiltCard maxTilt={6} scale={1.01} glareColor="rgba(192, 132, 252, 0.12)">
+            <TiltCard maxTilt={6} scale={1.01} glareColor="rgba(234, 126, 59, 0.12)">
               <div className="p-6 md:p-8 rounded-2xl bg-graphite-900/85 border border-titanium-700/80 backdrop-blur-xl relative overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.5)] preserve-3d">
                 {/* Top Copper Circuit Trace Accent */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-copper-500 via-amber-400 to-cyber-cyan" />
@@ -163,7 +163,7 @@ export const About = () => {
                   style={{ transform: 'translateZ(18px)' }}
                   className="mt-6 pt-5 border-t border-titanium-800 flex items-center gap-3 preserve-3d"
                 >
-                  <div className="w-1.5 h-10 rounded-full bg-copper-500 shadow-[0_0_8px_#c084fc]" />
+                  <div className="w-1.5 h-10 rounded-full bg-copper-500 shadow-[0_0_8px_#ea7e3b]" />
                   <p className="text-sm font-mono text-copper-400 italic">
                     "{personalInfo.tagline}"
                   </p>
@@ -182,7 +182,7 @@ export const About = () => {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                 >
                   <TiltCard maxTilt={12} scale={1.03}>
-                    <div className="p-5 rounded-xl bg-graphite-900/75 border border-titanium-750 hover:border-copper-500/50 transition-all group shadow-sm hover:shadow-[0_8px_25px_rgba(192, 132, 252,0.15)] h-full preserve-3d flex flex-col justify-between">
+                    <div className="p-5 rounded-xl bg-graphite-900/75 border border-titanium-750 hover:border-copper-500/50 transition-all group shadow-sm hover:shadow-[0_8px_25px_rgba(234, 126, 59,0.15)] h-full preserve-3d flex flex-col justify-between">
                       <div>
                         <div 
                           style={{ transform: 'translateZ(20px)' }}
@@ -210,7 +210,7 @@ export const About = () => {
             </div>
 
             {/* 3D Formal Education Card */}
-            <TiltCard maxTilt={7} scale={1.01} glareColor="rgba(192, 132, 252, 0.14)">
+            <TiltCard maxTilt={7} scale={1.01} glareColor="rgba(234, 126, 59, 0.14)">
               <div className="p-6 md:p-8 rounded-2xl bg-graphite-900/90 border border-titanium-700/80 backdrop-blur-xl relative shadow-md preserve-3d">
                 <div 
                   style={{ transform: 'translateZ(18px)' }}
@@ -249,7 +249,7 @@ export const About = () => {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {educationData.focusAreas.map((area, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-xs text-metallic-pewter">
-                          <span className="w-1.5 h-1.5 rounded-full bg-copper-500 shrink-0 shadow-[0_0_4px_#c084fc]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-copper-500 shrink-0 shadow-[0_0_4px_#ea7e3b]" />
                           <span>{area}</span>
                         </li>
                       ))}

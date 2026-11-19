@@ -7,16 +7,18 @@
 export const personalInfo = {
   name: "Sakthi Kailash",
   role: "Mechatronics Engineering Student",
+  institution: "Rathinam Technical Campus",
   focus: "Aspiring Electronics & VLSI Engineer | Embedded Systems Enthusiast",
-  tagline: "Building Intelligent Solutions Through Electronics, Innovation & Technology.",
-  heroHeading: "HELLO, I'M SAKTHI KAILASH",
-  heroSubtitle: "Engineering Ideas Into Intelligent Solutions.",
+  tagline: "Engineering Intelligence for a Smarter Tomorrow",
+  quote: "Dream Big... Build Bigger...",
+  heroHeading: "RATHINAM TECHNICAL CAMPUS // INNOVATE • DESIGN • BUILD",
+  heroSubtitle: "Engineering Intelligence for a Smarter Tomorrow",
   heroSubrole: "Mechatronics Engineering Student & Aspiring VLSI & Electronics Engineer",
   location: "India",
   status: "Available for Internships & Core Engineering Projects",
   profileImage: "/profile.jpg",
   bio: [
-    "I am a Mechatronics Engineering student passionate about electronics, digital systems, embedded technologies, and VLSI design.",
+    "I am a Mechatronics Engineering student at Rathinam Technical Campus passionate about electronics, digital systems, embedded technologies, and VLSI design.",
     "I enjoy transforming innovative ideas into practical engineering solutions through hardware experimentation, programming, and technology-driven problem solving.",
     "My current learning interests include RTL Design, Verilog, Digital Electronics, Embedded Systems, and AI-powered engineering applications."
   ],
@@ -53,8 +55,8 @@ export const aboutHighlights = [
 
 export const educationData = {
   degree: "Bachelor of Engineering (B.E.) in Mechatronics Engineering",
-  institution: "Engineering Institution", // Editable placeholder
-  period: "2023 – 2027 (Undergraduate)",
+  institution: "Rathinam Technical Campus",
+  period: "2025 – 2029 (Undergraduate)",
   focusAreas: [
     "Basics of CAD Designer (Fusion 360 / SolidWorks)",
     "Digital Electronics & Microcontrollers",
@@ -322,7 +324,7 @@ export const certificationsAndAchievements = {
       score: "55% (Assignment: 22.44/25 | Exam: 33/75)",
       credits: "4 Credits Recommended",
       period: "Jan – Apr 2026",
-      imageUrl: "/certificates/images/nptel-joy-of-computing.svg",
+      imageUrl: "/certificates/images/nptel-joy-of-computing.png",
       link: "/certificates/nptel/the-joy-of-computing-using-python.pdf",
       notes: "Foundational programming paradigms, algorithmic problem solving, recursion, computational data structures, and script engineering."
     },
@@ -336,7 +338,7 @@ export const certificationsAndAchievements = {
       instructor: "Prof. Sudip Misra, IIT Kharagpur",
       period: "Jan – Apr 2026 (12 Weeks)",
       credits: "3 Credits Recommended",
-      imageUrl: "/certificates/images/nptel-iot.svg",
+      imageUrl: "/certificates/images/nptel-iot.png",
       link: "/certificates/nptel/introduction-to-internet-of-things.pdf",
       notes: "Sensor integration, wireless telemetry protocols (MQTT, CoAP), edge microcontroller interfacing, and cloud IoT communication topologies."
     }
@@ -350,7 +352,7 @@ export const certificationsAndAchievements = {
       status: "Verified",
       date: "May 2026",
       skills: ["Amazon Web Services (AWS)", "Cloud Computing", "Identity & Access Management (IAM)"],
-      imageUrl: "/certificates/images/li-aws-cloud-practitioner.svg",
+      imageUrl: "/certificates/images/li-aws-cloud-practitioner.png",
       link: "/certificates/linkedin/aws-certified-cloud-practitioner.pdf",
       notes: "Core cloud infrastructure concepts, high availability models, AWS security framework, and cloud cost management."
     },
@@ -362,7 +364,7 @@ export const certificationsAndAchievements = {
       status: "Verified",
       date: "Sep 2026",
       skills: ["Cloud Architecture", "AWS Solutions", "Resilient Infrastructure"],
-      imageUrl: "/certificates/images/li-aws-solutions-architect.svg",
+      imageUrl: "/certificates/images/li-aws-solutions-architect.png",
       link: "/certificates/linkedin/aws-solutions-architect-associate.pdf",
       notes: "Architecting secure, cost-optimized, decoupled microservice systems with automatic scaling and distributed fault tolerance."
     },
@@ -374,7 +376,7 @@ export const certificationsAndAchievements = {
       status: "Verified",
       date: "May 2026",
       skills: ["Internet of Things (IoT)", "Device Management", "Firmware OTA Updates"],
-      imageUrl: "/certificates/images/li-iot-device-management.svg",
+      imageUrl: "/certificates/images/li-iot-device-management.png",
       link: "/certificates/linkedin/iot-foundations-device-management.pdf",
       notes: "Lifecycle provisioning, telemetry collection, firmware health monitoring, and remote diagnostics for large-scale embedded fleets."
     },
@@ -386,7 +388,7 @@ export const certificationsAndAchievements = {
       status: "Verified",
       date: "May 2026",
       skills: ["IoT Security", "Embedded Systems", "Cryptographic Protocols"],
-      imageUrl: "/certificates/images/li-iot-product-security.svg",
+      imageUrl: "/certificates/images/li-iot-product-security.png",
       link: "/certificates/linkedin/iot-product-security.pdf",
       notes: "Defending edge electronics from hardware intrusion, implementing secure boot, encrypted bus communication, and zero-trust authentication."
     },
@@ -398,7 +400,7 @@ export const certificationsAndAchievements = {
       status: "Verified",
       date: "Sep 2026",
       skills: ["Serverless Computing", "AWS Lambda", "API Gateway", "DynamoDB"],
-      imageUrl: "/certificates/images/li-serverless-aws.svg",
+      imageUrl: "/certificates/images/li-serverless-aws.png",
       link: "/certificates/linkedin/building-serverless-applications-aws.pdf",
       notes: "Designing highly scalable serverless backends utilizing AWS Lambda functions, event triggers, and managed NoSQL persistence."
     },
@@ -410,7 +412,7 @@ export const certificationsAndAchievements = {
       status: "Verified",
       date: "May 2026",
       skills: ["AWS Developer Tools", "Cloud APIs", "Containerized Apps"],
-      imageUrl: "/certificates/images/li-aws-dev-training.svg",
+      imageUrl: "/certificates/images/li-aws-dev-training.png",
       link: "/certificates/linkedin/aws-essential-training-developers.pdf",
       notes: "Integrating cloud APIs, configuring programmatic access, handling secure credential storage, and deploying application endpoints."
     },
@@ -422,7 +424,7 @@ export const certificationsAndAchievements = {
       status: "Verified",
       date: "Sep 2026",
       skills: ["DevOps", "CI/CD Pipelines", "Automated Testing"],
-      imageUrl: "/certificates/images/li-devops-foundations.svg",
+      imageUrl: "/certificates/images/li-devops-foundations.png",
       link: "/certificates/linkedin/devops-foundations.pdf",
       notes: "Automated pipeline configuration, version control workflows, containerized staging, and observability telemetry."
     }

@@ -49,7 +49,7 @@ export const Footer = () => {
             </p>
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-graphite-900 border border-titanium-750 font-mono text-xs text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-copper-400 animate-pulse shadow-[0_0_6px_#c084fc]" />
+              <span className="w-2 h-2 rounded-full bg-copper-400 animate-pulse shadow-[0_0_6px_#ea7e3b]" />
               <span>CORE_CLOCK: {timeStr || 'TELEMETRY ACTIVE'}</span>
             </div>
           </div>
@@ -84,7 +84,7 @@ export const Footer = () => {
                 href={personalInfo.socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-graphite-900 border border-titanium-700 flex items-center justify-center text-metallic-steel hover:text-white hover:border-copper-500 hover:shadow-[0_0_15px_rgba(192,132,252,0.35)] transition-all"
+                className="w-10 h-10 rounded-xl bg-graphite-900 border border-titanium-700 flex items-center justify-center text-metallic-steel hover:text-white hover:border-copper-500 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -93,7 +93,7 @@ export const Footer = () => {
                 href={personalInfo.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-graphite-900 border border-titanium-700 flex items-center justify-center text-metallic-steel hover:text-white hover:border-copper-500 hover:shadow-[0_0_15px_rgba(192,132,252,0.35)] transition-all"
+                className="w-10 h-10 rounded-xl bg-graphite-900 border border-titanium-700 flex items-center justify-center text-metallic-steel hover:text-white hover:border-copper-500 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />

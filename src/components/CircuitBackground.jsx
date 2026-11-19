@@ -44,7 +44,7 @@ export const CircuitBackground = () => {
     // 1. GEAR SYSTEM (Synchronously Meshed Mechanical Drive Train)
     // -------------------------------------------------------------
     class Gear {
-      constructor({ x, y, radius, teeth, speed, color = '#c084fc', copperRim = true, spokes = 5, hasCoreChip = false }) {
+      constructor({ x, y, radius, teeth, speed, color = '#ea7e3b', copperRim = true, spokes = 5, hasCoreChip = false }) {
         this.baseX = x; // fraction of screen width
         this.baseY = y; // fraction of screen height
         this.radius = radius;
@@ -104,20 +104,20 @@ export const CircuitBackground = () => {
         }
         ctx.closePath();
 
-        // Metallic Gear Body Fill (Deep Charcoal wash)
-        ctx.fillStyle = 'rgba(26, 20, 36, 0.45)';
+        // Metallic Gear Body Fill (Deep Industrial Black wash)
+        ctx.fillStyle = 'rgba(26, 26, 34, 0.45)';
         ctx.fill();
 
-        // Gear Outline in Cyber Lavender & Polished Silver
-        ctx.strokeStyle = this.copperRim ? 'rgba(192, 132, 252, 0.6)' : 'rgba(226, 232, 240, 0.5)';
+        // Gear Outline in Rich Copper & Warm Amber
+        ctx.strokeStyle = this.copperRim ? 'rgba(234, 126, 59, 0.65)' : 'rgba(217, 119, 54, 0.45)';
         ctx.lineWidth = 1.4;
         ctx.stroke();
 
-        // --- B. Pitch Circle (Dashed Technical Line in Polished Silver) ---
+        // --- B. Pitch Circle (Dashed Technical Line in Warm Cream) ---
         ctx.beginPath();
         ctx.arc(0, 0, pitchRadius, 0, Math.PI * 2);
         ctx.setLineDash([4, 4]);
-        ctx.strokeStyle = 'rgba(226, 232, 240, 0.28)';
+        ctx.strokeStyle = 'rgba(254, 215, 170, 0.28)';
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -128,7 +128,7 @@ export const CircuitBackground = () => {
 
         ctx.beginPath();
         ctx.arc(0, 0, innerRimRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(168, 85, 247, 0.35)';
+        ctx.strokeStyle = 'rgba(234, 126, 59, 0.35)';
         ctx.lineWidth = 1.2;
         ctx.stroke();
 
@@ -139,15 +139,15 @@ export const CircuitBackground = () => {
             ctx.beginPath();
             ctx.moveTo(Math.cos(sa) * hubRadius, Math.sin(sa) * hubRadius);
             ctx.lineTo(Math.cos(sa) * innerRimRadius, Math.sin(sa) * innerRimRadius);
-            ctx.strokeStyle = this.copperRim ? 'rgba(192, 132, 252, 0.45)' : 'rgba(226, 232, 240, 0.35)';
+            ctx.strokeStyle = this.copperRim ? 'rgba(234, 126, 59, 0.45)' : 'rgba(180, 83, 9, 0.35)';
             ctx.lineWidth = 1.6;
             ctx.stroke();
 
-            // Spoke Rivet / Fastener in Chrome Silver
+            // Spoke Rivet / Fastener in Warm Cream
             const midR = (hubRadius + innerRimRadius) * 0.55;
             ctx.beginPath();
             ctx.arc(Math.cos(sa) * midR, Math.sin(sa) * midR, 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = '#f8fafc';
+            ctx.fillStyle = '#ffedd5';
             ctx.fill();
           }
         }
@@ -155,35 +155,35 @@ export const CircuitBackground = () => {
         // --- D. Central Hub / Bearing Shaft ---
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(18, 14, 24, 0.95)';
+        ctx.fillStyle = 'rgba(13, 13, 17, 0.95)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(192, 132, 252, 0.75)';
+        ctx.strokeStyle = 'rgba(234, 126, 59, 0.8)';
         ctx.lineWidth = 1.8;
         ctx.stroke();
 
         // Keyway / Central Bore
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius * 0.45, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(11, 9, 14, 0.98)';
+        ctx.fillStyle = 'rgba(8, 8, 10, 0.98)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(147, 51, 234, 0.6)';
+        ctx.strokeStyle = 'rgba(217, 119, 54, 0.6)';
         ctx.lineWidth = 1;
         ctx.stroke();
 
         // Keyway notch
         const kw = hubRadius * 0.2;
-        ctx.fillStyle = 'rgba(192, 132, 252, 0.8)';
+        ctx.fillStyle = 'rgba(234, 126, 59, 0.8)';
         ctx.fillRect(-kw / 2, -hubRadius * 0.48, kw, hubRadius * 0.25);
 
         // --- E. Core IC Footprint on Hub if specified ---
         if (this.hasCoreChip) {
           const chipSize = hubRadius * 0.7;
-          ctx.strokeStyle = 'rgba(241, 245, 249, 0.85)';
+          ctx.strokeStyle = 'rgba(254, 215, 170, 0.85)';
           ctx.strokeRect(-chipSize / 2, -chipSize / 2, chipSize, chipSize);
 
-          // IC Pins in Cyber Lavender
+          // IC Pins in Molten Copper
           const pinLen = chipSize * 0.25;
-          ctx.strokeStyle = 'rgba(192, 132, 252, 0.9)';
+          ctx.strokeStyle = 'rgba(234, 126, 59, 0.9)';
           ctx.lineWidth = 1;
           for (let p = -1; p <= 1; p += 1) {
             const offset = (p * chipSize) / 3.5;
@@ -315,43 +315,43 @@ export const CircuitBackground = () => {
         }
 
         ctx.strokeStyle = this.isCopper
-          ? `rgba(192, 132, 252, ${this.alpha * 0.95})`
-          : `rgba(226, 232, 240, ${this.alpha * 0.85})`;
+          ? `rgba(234, 126, 59, ${this.alpha * 0.95})`
+          : `rgba(254, 215, 170, ${this.alpha * 0.85})`;
         ctx.lineWidth = this.width;
         ctx.stroke();
 
-        // Solder Pad Junctions in Cyber Lavender & Silver
+        // Solder Pad Junctions in Molten Copper & Warm Cream
         if (this.hasJunction) {
           const startPt = this.segments[0];
           const endPt = this.segments[this.segments.length - 1];
 
           ctx.beginPath();
           ctx.arc(startPt.x, startPt.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.isCopper ? 'rgba(192, 132, 252, 0.75)' : 'rgba(226, 232, 240, 0.7)';
+          ctx.fillStyle = this.isCopper ? 'rgba(234, 126, 59, 0.8)' : 'rgba(254, 215, 170, 0.75)';
           ctx.fill();
 
           ctx.beginPath();
           ctx.arc(startPt.x, startPt.y, 1, 0, Math.PI * 2);
-          ctx.fillStyle = '#0b090e';
+          ctx.fillStyle = '#08080a';
           ctx.fill();
 
           ctx.beginPath();
           ctx.arc(endPt.x, endPt.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.isCopper ? 'rgba(192, 132, 252, 0.75)' : 'rgba(226, 232, 240, 0.7)';
+          ctx.fillStyle = this.isCopper ? 'rgba(234, 126, 59, 0.8)' : 'rgba(254, 215, 170, 0.75)';
           ctx.fill();
         }
 
         // Small SMT IC Resistor/Capacitor footprint
         if (this.hasIC && this.segments.length > 2) {
           const midPt = this.segments[1];
-          ctx.fillStyle = 'rgba(26, 20, 36, 0.9)';
+          ctx.fillStyle = 'rgba(26, 26, 34, 0.9)';
           ctx.fillRect(midPt.x - 5, midPt.y - 3, 10, 6);
-          ctx.strokeStyle = 'rgba(192, 132, 252, 0.65)';
+          ctx.strokeStyle = 'rgba(234, 126, 59, 0.65)';
           ctx.lineWidth = 1;
           ctx.strokeRect(midPt.x - 5, midPt.y - 3, 10, 6);
 
-          // Solder ends in polished chrome silver
-          ctx.fillStyle = '#f8fafc';
+          // Solder ends in warm cream
+          ctx.fillStyle = '#ffedd5';
           ctx.fillRect(midPt.x - 5, midPt.y - 3, 2, 6);
           ctx.fillRect(midPt.x + 3, midPt.y - 3, 2, 6);
         }
@@ -367,7 +367,7 @@ export const CircuitBackground = () => {
         this.progress = Math.random();
         this.speed = 0.004 + Math.random() * 0.006;
         this.size = this.trace.isCopper ? 2.5 : 2.2;
-        this.glowColor = this.trace.isCopper ? '#c084fc' : '#a855f7';
+        this.glowColor = this.trace.isCopper ? '#ea7e3b' : '#f59e0b';
       }
 
       update() {
@@ -400,7 +400,7 @@ export const CircuitBackground = () => {
         ctx.arc(px, py, this.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Inner bright white spark
+        // Inner bright cream spark
         ctx.fillStyle = '#ffffff';
         ctx.beginPath();
         ctx.arc(px, py, this.size * 0.45, 0, Math.PI * 2);
@@ -476,20 +476,20 @@ export const CircuitBackground = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Base Charcoal Background */}
-      <div className="absolute inset-0 bg-[#0b090e]" />
+      {/* Base Pitch Black Background */}
+      <div className="absolute inset-0 bg-[#08080a]" />
 
-      {/* Cyber Lavender & Charcoal Gradient Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_85%_at_50%_-20%,rgba(53,39,76,0.85),rgba(11,9,14,0.98))]" />
+      {/* Industrial Copper & Black Gradient Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_85%_at_50%_-20%,rgba(67,29,5,0.85),rgba(8,8,10,0.98))]" />
 
-      {/* Cyber Lavender Hardware Glow (Top-Right Mechanical Core) */}
-      <div className="absolute -top-[10%] -right-[5%] w-[650px] h-[650px] bg-gradient-to-br from-lavender-500/20 via-charcoal-700/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      {/* Molten Copper Hardware Glow (Top-Right Mechanical Core) */}
+      <div className="absolute -top-[10%] -right-[5%] w-[650px] h-[650px] bg-gradient-to-br from-copper-500/22 via-amber-600/12 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Deep Charcoal & Metallic Slate Glow (Bottom-Left Electronics Core) */}
-      <div className="absolute -bottom-[15%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-charcoal-800/30 via-lavender-700/15 to-transparent rounded-full blur-[150px] pointer-events-none" />
+      {/* Deep Charcoal Industrial Glow (Bottom-Left Electronics Core) */}
+      <div className="absolute -bottom-[15%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-charcoal-800/35 via-copper-800/15 to-transparent rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Center Subtle Electric Lilac Light */}
-      <div className="absolute top-[35%] left-[25%] w-[500px] h-[500px] bg-lavender-400/10 rounded-full blur-[160px] pointer-events-none" />
+      {/* Center Subtle Warm Amber Light */}
+      <div className="absolute top-[35%] left-[25%] w-[500px] h-[500px] bg-copper-400/10 rounded-full blur-[160px] pointer-events-none" />
 
       {/* HTML5 Canvas (Electro-Mechanical Fusion Layer) */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-85" />
