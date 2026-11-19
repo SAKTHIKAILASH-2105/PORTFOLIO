@@ -13,7 +13,7 @@ export const TiltCard = ({
   scale = 1.02,
   perspective = 1000,
   glare = true,
-  glareColor = 'rgba(234, 126, 59, 0.16)',
+  glareColor = 'rgba(216, 176, 125, 0.22)',
   onClick,
   ...props
 }) => {

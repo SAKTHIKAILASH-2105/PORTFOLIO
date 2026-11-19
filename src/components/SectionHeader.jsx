@@ -68,15 +68,15 @@ export const SectionHeader = ({ index, title, subtitle, align = 'center' }) => {
         {/* Left Copper Trace */}
         <div className="w-16 h-[1.5px] bg-gradient-to-r from-transparent via-copper-600 to-copper-400" />
 
-        {/* Central Mechanical Hex / Gear Glyph */}
+        {/* Central Mechanical Hex / Gear Glyph in Champagne */}
         <div className="relative flex items-center justify-center">
-          <div className="w-5 h-5 rounded-md bg-graphite-900 border border-copper-500/80 flex items-center justify-center rotate-45 shadow-[0_0_8px_rgba(234,126,59,0.3)]">
-            <div className="w-1.5 h-1.5 rounded-full bg-cyber-neon" />
+          <div className="w-5 h-5 rounded-md bg-graphite-900 border border-copper-500/80 flex items-center justify-center rotate-45 shadow-[0_0_8px_rgba(216,176,125,0.4)]">
+            <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_#ffffff]" />
           </div>
         </div>
 
-        {/* Right Electric Cyan Circuit Trace */}
-        <div className="w-24 h-[1.5px] bg-gradient-to-r from-copper-400 via-cyber-cyan to-transparent" />
+        {/* Right Champagne Circuit Trace */}
+        <div className="w-24 h-[1.5px] bg-gradient-to-r from-copper-400 via-champagne-200 to-transparent" />
       </motion.div>
     </div>
   );

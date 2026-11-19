@@ -6,75 +6,75 @@
   color-scheme: dark;
 }
 
-/* Industrial Graphite & Copper Scrollbar */
+/* Royal Burgundy & Champagne Gold Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #06080d;
+  background: #120205;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f2738;
+  background: #420e1a;
   border-radius: 4px;
-  border: 1px solid rgba(234, 126, 59, 0.25);
+  border: 1px solid rgba(216, 176, 125, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ea7e3b;
-  box-shadow: 0 0 12px rgba(234, 126, 59, 0.6);
+  background: #d8b07d;
+  box-shadow: 0 0 14px rgba(216, 176, 125, 0.7);
 }
 
-/* Selection */
+/* Selection: Royal Burgundy & Bright White */
 ::selection {
-  background-color: rgba(234, 126, 59, 0.3);
-  color: #00f5ff;
+  background-color: rgba(139, 35, 62, 0.55);
+  color: #ffffff;
 }
 
-/* Electro-Mechanical Glass & Metallic Panels */
+/* Royal Burgundy Glass Panels with Champagne Borders */
 .glass-panel {
-  background: linear-gradient(135deg, rgba(23, 30, 44, 0.75) 0%, rgba(10, 14, 22, 0.88) 100%);
+  background: linear-gradient(135deg, rgba(66, 14, 26, 0.82) 0%, rgba(28, 4, 9, 0.92) 100%);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(216, 176, 125, 0.24);
+  box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(248, 235, 217, 0.12);
 }
 
 .glass-panel:hover {
-  border-color: rgba(234, 126, 59, 0.4);
-  box-shadow: 0 14px 44px 0 rgba(234, 126, 59, 0.12), inset 0 1px 0 0 rgba(234, 126, 59, 0.2);
+  border-color: rgba(216, 176, 125, 0.55);
+  box-shadow: 0 14px 44px 0 rgba(139, 35, 62, 0.32), inset 0 1px 0 0 rgba(216, 176, 125, 0.3);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(26, 34, 48, 0.8) 0%, rgba(11, 15, 23, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(51, 10, 19, 0.86) 0%, rgba(28, 4, 9, 0.94) 100%);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(71, 85, 105, 0.45);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(226, 232, 240, 0.05);
+  border: 1px solid rgba(216, 176, 125, 0.28);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(248, 235, 217, 0.1);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(234, 126, 59, 0.5);
-  box-shadow: 0 12px 36px -8px rgba(234, 126, 59, 0.25), 0 0 15px -3px rgba(0, 245, 255, 0.15);
+  border-color: rgba(216, 176, 125, 0.65);
+  box-shadow: 0 12px 36px -8px rgba(139, 35, 62, 0.45), 0 0 18px -3px rgba(216, 176, 125, 0.35);
   transform: translateY(-3px);
 }
 
-/* Metallic Beveled Enclosure */
+/* Metallic Beveled Enclosure in Royal Burgundy */
 .metallic-enclosure {
-  background: linear-gradient(145deg, #161c27 0%, #0c0f16 100%);
-  border: 1px solid #2d3748;
+  background: linear-gradient(145deg, #330a13 0%, #1c0409 100%);
+  border: 1px solid rgba(216, 176, 125, 0.35);
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.6),
-    0 12px 32px rgba(0, 0, 0, 0.6);
+    inset 1px 1px 0 rgba(248, 235, 217, 0.15),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.8),
+    0 12px 32px rgba(0, 0, 0, 0.7);
 }
 
-/* Copper PCB Circuit Trace Flow */
+/* Champagne Gold Circuit Trace Flow */
 .copper-circuit-trace {
-  background: linear-gradient(90deg, transparent, #ea7e3b, #00f5ff, #ea7e3b, transparent);
+  background: linear-gradient(90deg, transparent, #d8b07d, #ffffff, #d8b07d, transparent);
   background-size: 200% 100%;
   animation: copperFlow 4s linear infinite;
 }
@@ -84,40 +84,40 @@
   100% { background-position: 200% 0; }
 }
 
-/* Electro-Mechanical Dual Glow */
+/* Royal Burgundy & Champagne Dual Glow */
 .text-copper-glow {
-  text-shadow: 0 0 16px rgba(234, 126, 59, 0.65), 0 0 25px rgba(234, 126, 59, 0.3);
+  text-shadow: 0 0 16px rgba(216, 176, 125, 0.75), 0 0 28px rgba(216, 176, 125, 0.4);
 }
 
 .text-cyan-glow {
-  text-shadow: 0 0 15px rgba(0, 245, 255, 0.65);
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.9), 0 0 25px rgba(216, 176, 125, 0.5);
 }
 
 .border-fusion-glow {
-  box-shadow: 0 0 20px rgba(234, 126, 59, 0.25), inset 0 0 12px rgba(0, 245, 255, 0.1);
+  box-shadow: 0 0 22px rgba(216, 176, 125, 0.3), inset 0 0 14px rgba(139, 35, 62, 0.3);
 }
 
-/* Technical Blueprint Grid Pattern */
+/* Technical Blueprint Grid Pattern in Champagne */
 .bg-blueprint-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(216, 176, 125, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(216, 176, 125, 0.05) 1px, transparent 1px);
 }
 
-/* Fine Electro-Mechanical Dot Matrix */
+/* Fine Champagne Dot Matrix */
 .bg-mech-dots {
-  background-image: radial-gradient(rgba(234, 126, 59, 0.12) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(216, 176, 125, 0.14) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Corner Industrial Fasteners / Rivets */
+/* Corner Fasteners / Rivets in Champagne Gold */
 .mech-rivet {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #334155;
-  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.3), 1px 1px 2px rgba(0, 0, 0, 0.8);
+  background: #d8b07d;
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.6), 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* 3D Perspective & Spatial Depth System */
@@ -133,7 +133,7 @@
 .translate-z-30 { transform: translateZ(30px); }
 .translate-z-40 { transform: translateZ(40px); }
 
-/* Interactive 3D Specular Sheen */
+/* Interactive 3D Specular Sheen in Champagne Lustre */
 .card-3d-sheen {
   pointer-events: none;
   position: absolute;

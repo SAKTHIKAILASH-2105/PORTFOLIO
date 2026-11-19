@@ -38,7 +38,7 @@ export const CadShowcase = () => {
             onClick={() => setActiveFilter('all')}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeFilter === 'all'
-                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
+                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
             }`}
           >
@@ -52,7 +52,7 @@ export const CadShowcase = () => {
             onClick={() => setActiveFilter('fusion')}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeFilter === 'fusion'
-                ? 'bg-gradient-to-r from-amber-500 to-copper-500 text-white font-bold shadow-[0_0_15px_rgba(245,158,11,0.4)]'
+                ? 'bg-gradient-to-r from-amber-500 to-copper-500 text-white font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-amber-400 border border-titanium-750'
             }`}
           >
@@ -67,7 +67,7 @@ export const CadShowcase = () => {
             onClick={() => setActiveFilter('solidworks')}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeFilter === 'solidworks'
-                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-white border border-copper-500/50 font-bold shadow-[0_0_15px_rgba(234,126,59,0.3)]'
+                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-white border border-copper-500/50 font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.3)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-rose-400 border border-titanium-750'
             }`}
           >
@@ -95,10 +95,10 @@ export const CadShowcase = () => {
                   transition={{ duration: 0.4, delay: idx * 0.05 }}
                   className="h-full"
                 >
-                  <TiltCard maxTilt={12} scale={1.03} glareColor="rgba(0, 245, 255, 0.16)">
+                  <TiltCard maxTilt={12} scale={1.03} glareColor="rgba(216, 176, 125, 0.16)">
                     <div
                       onClick={() => setSelectedModel(model)}
-                      className="h-full rounded-2xl bg-graphite-900/90 border border-titanium-750 hover:border-copper-500/60 transition-all duration-300 shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between overflow-hidden cursor-pointer group hover:shadow-[0_14px_45px_rgba(234,126,59,0.22)] relative preserve-3d"
+                      className="h-full rounded-2xl bg-graphite-900/90 border border-titanium-750 hover:border-copper-500/60 transition-all duration-300 shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between overflow-hidden cursor-pointer group hover:shadow-[0_14px_45px_rgba(216, 176, 125,0.22)] relative preserve-3d"
                     >
                       {/* Subtle Blueprint Coordinate Mark */}
                       <div className="absolute top-1 right-2 text-[8px] font-mono text-titanium-500 pointer-events-none z-20">

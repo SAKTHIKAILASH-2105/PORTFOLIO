@@ -55,7 +55,7 @@ export const Journey = () => {
                       <div
                         className={`p-6 rounded-2xl bg-graphite-900/90 border backdrop-blur-xl transition-all shadow-[0_10px_35px_rgba(0,0,0,0.5)] preserve-3d ${
                           isOngoing
-                            ? 'border-copper-500/60 shadow-[0_0_25px_rgba(234,126,59,0.2)]'
+                            ? 'border-copper-500/60 shadow-[0_0_25px_rgba(216, 176, 125,0.2)]'
                             : isCompleted
                             ? 'border-titanium-750 hover:border-emerald-500/40'
                             : 'border-titanium-800 opacity-85'
@@ -116,7 +116,7 @@ export const Journey = () => {
                         isCompleted
                           ? 'border-emerald-500 bg-graphite-950 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.5)]'
                           : isOngoing
-                          ? 'border-copper-500 bg-graphite-950 text-copper-400 shadow-[0_0_15px_rgba(234,126,59,0.6)] animate-pulse'
+                          ? 'border-copper-500 bg-graphite-950 text-copper-400 shadow-[0_0_15px_rgba(216, 176, 125,0.6)] animate-pulse'
                           : 'border-titanium-700 bg-graphite-950 text-titanium-500'
                       }`}
                     >

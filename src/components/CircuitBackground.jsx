@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * ELECTRO-MECHANICAL FUSION BACKGROUND
+ * ROYAL BURGUNDY ELECTRO-MECHANICAL FUSION BACKGROUND
  * Seamlessly integrates:
- * 1. Precision Meshed Metallic Gears (slow mechanical rotation, pitch circles, gear teeth, spoke cutouts)
- * 2. High-Tech PCB Circuit Pathways (copper traces & electric cyan signal traces)
+ * 1. Precision Meshed Mechanical Gears in Champagne Gold & Deep Royal Burgundy
+ * 2. High-Tech PCB Circuit Pathways in Champagne Gold & Ruby Red Signal Traces
  * 3. Microchip / IC Stator Footprints & Solder Terminals
  * 4. Flowing Electronic Signal Pulses traveling through circuits and gear hubs
  * 5. Subtle Technical Blueprint Coordinates & Alignment Marks
@@ -44,7 +44,7 @@ export const CircuitBackground = () => {
     // 1. GEAR SYSTEM (Synchronously Meshed Mechanical Drive Train)
     // -------------------------------------------------------------
     class Gear {
-      constructor({ x, y, radius, teeth, speed, color = '#64748b', copperRim = false, spokes = 5, hasCoreChip = false }) {
+      constructor({ x, y, radius, teeth, speed, color = '#d8b07d', copperRim = true, spokes = 5, hasCoreChip = false }) {
         this.baseX = x; // fraction of screen width
         this.baseY = y; // fraction of screen height
         this.radius = radius;
@@ -86,7 +86,6 @@ export const CircuitBackground = () => {
 
         for (let i = 0; i < numTeeth; i++) {
           const a = i * step;
-          // Root start
           const a0 = a - step * 0.25;
           const a1 = a - toothHalfAngle;
           const a2 = a - toothHalfAngle * 0.6;
@@ -105,20 +104,20 @@ export const CircuitBackground = () => {
         }
         ctx.closePath();
 
-        // Metallic Gear Body Fill (Subtle translucent gradient)
-        ctx.fillStyle = 'rgba(15, 20, 32, 0.45)';
+        // Metallic Gear Body Fill (Deep Royal Burgundy wash)
+        ctx.fillStyle = 'rgba(51, 10, 19, 0.4)';
         ctx.fill();
 
-        // Gear Outline
-        ctx.strokeStyle = this.copperRim ? 'rgba(234, 126, 59, 0.45)' : 'rgba(148, 163, 184, 0.35)';
+        // Gear Outline in Champagne Gold
+        ctx.strokeStyle = this.copperRim ? 'rgba(216, 176, 125, 0.55)' : 'rgba(163, 34, 57, 0.45)';
         ctx.lineWidth = 1.4;
         ctx.stroke();
 
-        // --- B. Pitch Circle (Dashed Technical Line) ---
+        // --- B. Pitch Circle (Dashed Technical Line in Soft Champagne White) ---
         ctx.beginPath();
         ctx.arc(0, 0, pitchRadius, 0, Math.PI * 2);
         ctx.setLineDash([4, 4]);
-        ctx.strokeStyle = 'rgba(0, 245, 255, 0.25)';
+        ctx.strokeStyle = 'rgba(248, 235, 217, 0.28)';
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -129,7 +128,7 @@ export const CircuitBackground = () => {
 
         ctx.beginPath();
         ctx.arc(0, 0, innerRimRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(100, 116, 139, 0.3)';
+        ctx.strokeStyle = 'rgba(139, 35, 62, 0.35)';
         ctx.lineWidth = 1.2;
         ctx.stroke();
 
@@ -140,15 +139,15 @@ export const CircuitBackground = () => {
             ctx.beginPath();
             ctx.moveTo(Math.cos(sa) * hubRadius, Math.sin(sa) * hubRadius);
             ctx.lineTo(Math.cos(sa) * innerRimRadius, Math.sin(sa) * innerRimRadius);
-            ctx.strokeStyle = this.copperRim ? 'rgba(234, 126, 59, 0.35)' : 'rgba(148, 163, 184, 0.28)';
+            ctx.strokeStyle = this.copperRim ? 'rgba(216, 176, 125, 0.4)' : 'rgba(139, 35, 62, 0.35)';
             ctx.lineWidth = 1.6;
             ctx.stroke();
 
-            // Spoke Rivet / Fastener
+            // Spoke Rivet / Fastener in Champagne Gold
             const midR = (hubRadius + innerRimRadius) * 0.55;
             ctx.beginPath();
             ctx.arc(Math.cos(sa) * midR, Math.sin(sa) * midR, 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = '#00f5ff';
+            ctx.fillStyle = '#f8ebd9';
             ctx.fill();
           }
         }
@@ -156,45 +155,43 @@ export const CircuitBackground = () => {
         // --- D. Central Hub / Bearing Shaft ---
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(8, 12, 20, 0.85)';
+        ctx.fillStyle = 'rgba(28, 4, 9, 0.9)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(234, 126, 59, 0.6)';
+        ctx.strokeStyle = 'rgba(216, 176, 125, 0.7)';
         ctx.lineWidth = 1.8;
         ctx.stroke();
 
         // Keyway / Central Bore
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius * 0.45, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(2, 6, 12, 0.95)';
+        ctx.fillStyle = 'rgba(18, 2, 5, 0.98)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(0, 245, 255, 0.5)';
+        ctx.strokeStyle = 'rgba(163, 34, 57, 0.6)';
         ctx.lineWidth = 1;
         ctx.stroke();
 
         // Keyway notch
         const kw = hubRadius * 0.2;
-        ctx.fillStyle = 'rgba(0, 245, 255, 0.6)';
+        ctx.fillStyle = 'rgba(216, 176, 125, 0.75)';
         ctx.fillRect(-kw / 2, -hubRadius * 0.48, kw, hubRadius * 0.25);
 
         // --- E. Core IC Footprint on Hub if specified ---
         if (this.hasCoreChip) {
           const chipSize = hubRadius * 0.7;
-          ctx.strokeStyle = 'rgba(0, 245, 255, 0.8)';
+          ctx.strokeStyle = 'rgba(248, 235, 217, 0.85)';
           ctx.strokeRect(-chipSize / 2, -chipSize / 2, chipSize, chipSize);
 
-          // IC Pins
+          // IC Pins in Champagne
           const pinLen = chipSize * 0.25;
-          ctx.strokeStyle = 'rgba(234, 126, 59, 0.85)';
+          ctx.strokeStyle = 'rgba(216, 176, 125, 0.9)';
           ctx.lineWidth = 1;
           for (let p = -1; p <= 1; p += 1) {
             const offset = (p * chipSize) / 3.5;
-            // North / South
             ctx.beginPath();
             ctx.moveTo(offset, -chipSize / 2);
             ctx.lineTo(offset, -chipSize / 2 - pinLen);
             ctx.moveTo(offset, chipSize / 2);
             ctx.lineTo(offset, chipSize / 2 + pinLen);
-            // East / West
             ctx.moveTo(-chipSize / 2, offset);
             ctx.lineTo(-chipSize / 2 - pinLen, offset);
             ctx.moveTo(chipSize / 2, offset);
@@ -212,7 +209,6 @@ export const CircuitBackground = () => {
       const isMobile = width < 768;
       const baseR = isMobile ? 55 : 85;
 
-      // Mesh 1: Top-Right Planetary Pair (Mechatronic Actuator System)
       const gear1R = baseR * 1.25;
       const gear2R = gear1R * 0.62;
       const gear1Teeth = 24;
@@ -221,7 +217,7 @@ export const CircuitBackground = () => {
       const speed2 = -speed1 * (gear1Teeth / gear2Teeth);
 
       return [
-        // Top-Right Gear 1 (Main Drive - Copper Accented)
+        // Top-Right Gear 1 (Main Drive - Champagne Accented)
         new Gear({
           x: isMobile ? 0.88 : 0.82,
           y: isMobile ? 0.15 : 0.18,
@@ -279,9 +275,9 @@ export const CircuitBackground = () => {
       }
 
       reset() {
-        this.isCopper = Math.random() > 0.45;
+        this.isCopper = Math.random() > 0.4;
         this.segments = [];
-        this.alpha = 0.12 + Math.random() * 0.22;
+        this.alpha = 0.14 + Math.random() * 0.24;
         this.width = Math.random() > 0.7 ? 1.8 : 1.1;
 
         let currX = Math.random() * width;
@@ -298,20 +294,14 @@ export const CircuitBackground = () => {
           else if (mode === 1) currY += len;
           else if (mode === 2) currX -= len;
           else if (mode === 3) currY -= len;
-          else if (mode === 4) {
-            // 45 degree chamfer
-            currX += len * 0.7;
-            currY += len * 0.7;
-          } else {
-            currX -= len * 0.7;
-            currY += len * 0.7;
-          }
+          else if (mode === 4) { currX += len * 0.7; currY += len * 0.7; }
+          else { currX -= len * 0.7; currY -= len * 0.7; }
 
           this.segments.push({ x: currX, y: currY });
         }
 
         this.hasJunction = Math.random() > 0.4;
-        this.hasIC = Math.random() > 0.8;
+        this.hasIC = Math.random() > 0.6;
       }
 
       draw() {
@@ -325,45 +315,43 @@ export const CircuitBackground = () => {
         }
 
         ctx.strokeStyle = this.isCopper
-          ? `rgba(234, 126, 59, ${this.alpha * 0.9})`
-          : `rgba(0, 245, 255, ${this.alpha * 0.85})`;
+          ? `rgba(216, 176, 125, ${this.alpha * 0.95})`
+          : `rgba(163, 34, 57, ${this.alpha * 0.85})`;
         ctx.lineWidth = this.width;
         ctx.stroke();
 
-        // Solder Pad Junctions
+        // Solder Pad Junctions in Champagne Gold
         if (this.hasJunction) {
           const startPt = this.segments[0];
           const endPt = this.segments[this.segments.length - 1];
 
-          // Gold/Copper pad with drill hole
           ctx.beginPath();
           ctx.arc(startPt.x, startPt.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.isCopper ? 'rgba(234, 126, 59, 0.7)' : 'rgba(0, 245, 255, 0.6)';
+          ctx.fillStyle = this.isCopper ? 'rgba(216, 176, 125, 0.75)' : 'rgba(163, 34, 57, 0.7)';
           ctx.fill();
 
           ctx.beginPath();
           ctx.arc(startPt.x, startPt.y, 1, 0, Math.PI * 2);
-          ctx.fillStyle = '#06080d';
+          ctx.fillStyle = '#120205';
           ctx.fill();
 
-          // End via pad
           ctx.beginPath();
           ctx.arc(endPt.x, endPt.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.isCopper ? 'rgba(234, 126, 59, 0.7)' : 'rgba(0, 245, 255, 0.6)';
+          ctx.fillStyle = this.isCopper ? 'rgba(216, 176, 125, 0.75)' : 'rgba(163, 34, 57, 0.7)';
           ctx.fill();
         }
 
         // Small SMT IC Resistor/Capacitor footprint
         if (this.hasIC && this.segments.length > 2) {
           const midPt = this.segments[1];
-          ctx.fillStyle = 'rgba(20, 27, 40, 0.85)';
+          ctx.fillStyle = 'rgba(40, 8, 16, 0.9)';
           ctx.fillRect(midPt.x - 5, midPt.y - 3, 10, 6);
-          ctx.strokeStyle = 'rgba(234, 126, 59, 0.6)';
+          ctx.strokeStyle = 'rgba(216, 176, 125, 0.65)';
           ctx.lineWidth = 1;
           ctx.strokeRect(midPt.x - 5, midPt.y - 3, 10, 6);
 
-          // Solder ends
-          ctx.fillStyle = '#cbd5e1';
+          // Solder ends in champagne pearl
+          ctx.fillStyle = '#f8ebd9';
           ctx.fillRect(midPt.x - 5, midPt.y - 3, 2, 6);
           ctx.fillRect(midPt.x + 3, midPt.y - 3, 2, 6);
         }
@@ -379,7 +367,7 @@ export const CircuitBackground = () => {
         this.progress = Math.random();
         this.speed = 0.004 + Math.random() * 0.006;
         this.size = this.trace.isCopper ? 2.5 : 2.2;
-        this.glowColor = this.trace.isCopper ? '#ea7e3b' : '#00f5ff';
+        this.glowColor = this.trace.isCopper ? '#d8b07d' : '#e63956';
       }
 
       update() {
@@ -406,7 +394,7 @@ export const CircuitBackground = () => {
 
         ctx.save();
         ctx.shadowColor = this.glowColor;
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 9;
         ctx.fillStyle = this.glowColor;
         ctx.beginPath();
         ctx.arc(px, py, this.size, 0, Math.PI * 2);
@@ -435,88 +423,41 @@ export const CircuitBackground = () => {
     }
 
     // -------------------------------------------------------------
-    // 4. TECHNICAL BLUEPRINT GRID & CAD DIMENSION LABELS
+    // 4. MAIN ANIMATION LOOP
     // -------------------------------------------------------------
-    const drawTechnicalGrid = () => {
-      const gridSize = 70;
-      ctx.strokeStyle = 'rgba(148, 163, 184, 0.035)';
-      ctx.lineWidth = 1;
-
-      // Coordinate Grid Lines
-      for (let x = 0; x < width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-
-        // Small crosshair ticks at intersections every 2nd line
-        if (x % (gridSize * 2) === 0) {
-          for (let y = 0; y < height; y += gridSize * 2) {
-            ctx.strokeStyle = 'rgba(0, 245, 255, 0.08)';
-            ctx.beginPath();
-            ctx.moveTo(x - 3, y);
-            ctx.lineTo(x + 3, y);
-            ctx.moveTo(x, y - 3);
-            ctx.lineTo(x, y + 3);
-            ctx.stroke();
-            ctx.strokeStyle = 'rgba(148, 163, 184, 0.035)';
-          }
-        }
-      }
-
-      for (let y = 0; y < height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // Corner Blueprint Watermarks (Mechatronics Engineering Telemetry)
-      ctx.fillStyle = 'rgba(148, 163, 184, 0.18)';
-      ctx.font = '9px "JetBrains Mono", monospace';
-      ctx.fillText('[MECHATRONICS CORE // MECH + ELEC FUSION]', 24, height - 28);
-      ctx.fillText('BUS_FREQ: 240MHz // ACTUATOR_PWM: 20kHz // VERILOG_RTL', 24, height - 14);
-    };
-
-    // -------------------------------------------------------------
-    // MAIN RENDER LOOP
-    // -------------------------------------------------------------
-    const render = () => {
+    const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw Blueprint Grid & Coordinate Ticks
-      drawTechnicalGrid();
-
-      // 2. Draw Integrated Circuit Traces
-      traces.forEach(trace => trace.draw());
-
-      // 3. Update & Draw Signal Pulses
-      if (!prefersReducedMotion) {
-        pulses.forEach(pulse => {
-          pulse.update();
-          pulse.draw();
-        });
+      // A. Draw Circuit Traces
+      for (const trace of traces) {
+        trace.draw();
       }
 
-      // 4. Update & Draw Synchronized Gears (Rotating Mechanical Drive)
-      gears.forEach(gear => {
+      // B. Draw Flowing Signal Pulses
+      for (const pulse of pulses) {
+        pulse.update();
+        pulse.draw();
+      }
+
+      // C. Draw Intermeshed Gears
+      for (const gear of gears) {
         gear.update();
         gear.draw();
-      });
+      }
 
-      animationFrameId = requestAnimationFrame(render);
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    render();
+    animate();
 
-    // Resize Handler
+    // Responsive Canvas Resize
     const handleResize = () => {
       setupCanvas();
       gears = initGears();
       traces.length = 0;
       pulses.length = 0;
-      const newCount = Math.floor(width / 75);
-      for (let i = 0; i < newCount; i++) {
+      const count = Math.floor(width / 75);
+      for (let i = 0; i < count; i++) {
         const trace = new CircuitTrace();
         traces.push(trace);
         if (Math.random() > 0.35 && !prefersReducedMotion) {
@@ -535,23 +476,23 @@ export const CircuitBackground = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Base Graphite & Deep Obsidian Background */}
-      <div className="absolute inset-0 bg-[#06080d]" />
+      {/* Base Royal Burgundy Background */}
+      <div className="absolute inset-0 bg-[#120205]" />
 
-      {/* Industrial Mechatronics Gradient Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,21,34,0.9),rgba(6,8,13,0.98))]" />
+      {/* Royal Burgundy & Champagne Gradient Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_85%_at_50%_-20%,rgba(83,19,34,0.85),rgba(18,2,5,0.98))]" />
 
-      {/* Warm Copper Hardware Glow (Top-Right Mechanical Core) */}
-      <div className="absolute -top-[10%] -right-[5%] w-[650px] h-[650px] bg-gradient-to-br from-copper-500/12 to-copper-600/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Warm Champagne Gold Hardware Glow (Top-Right Mechanical Core) */}
+      <div className="absolute -top-[10%] -right-[5%] w-[650px] h-[650px] bg-gradient-to-br from-champagne-500/18 via-burgundy-500/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Electric Cyan Silicon Glow (Bottom-Left Electronics Core) */}
-      <div className="absolute -bottom-[15%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-cyber-cyan/10 via-blue-600/5 to-transparent rounded-full blur-[150px] pointer-events-none" />
+      {/* Royal Burgundy Crimson Glow (Bottom-Left Electronics Core) */}
+      <div className="absolute -bottom-[15%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-burgundy-600/22 via-burgundy-700/10 to-transparent rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Center Subtle Titanium Light */}
-      <div className="absolute top-[35%] left-[25%] w-[500px] h-[500px] bg-titanium-500/5 rounded-full blur-[160px] pointer-events-none" />
+      {/* Center Subtle Champagne Warm Light */}
+      <div className="absolute top-[35%] left-[25%] w-[500px] h-[500px] bg-champagne-500/8 rounded-full blur-[160px] pointer-events-none" />
 
       {/* HTML5 Canvas (Electro-Mechanical Fusion Layer) */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-80" />
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-85" />
 
       {/* Subtle Linear Industrial Scanline Texture */}
       <div className="absolute inset-0 bg-scanlines opacity-[0.035] pointer-events-none" />

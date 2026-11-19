@@ -102,7 +102,7 @@ export const Contact = () => {
             className="lg:col-span-5 space-y-6"
           >
             {/* 3D Closing Statement Card */}
-            <TiltCard maxTilt={8} scale={1.01} glareColor="rgba(234, 126, 59, 0.16)">
+            <TiltCard maxTilt={8} scale={1.01} glareColor="rgba(216, 176, 125, 0.16)">
               <div className="p-6 md:p-8 rounded-2xl bg-gradient-to-br from-graphite-900 to-graphite-850 border border-titanium-700/80 shadow-[0_12px_40px_rgba(0,0,0,0.6)] relative overflow-hidden preserve-3d">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-copper-500/10 rounded-full blur-2xl pointer-events-none" />
                 
@@ -231,7 +231,7 @@ export const Contact = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7"
           >
-            <TiltCard maxTilt={6} scale={1.01} glareColor="rgba(234, 126, 59, 0.12)">
+            <TiltCard maxTilt={6} scale={1.01} glareColor="rgba(216, 176, 125, 0.12)">
               <div className="p-6 md:p-8 rounded-2xl bg-graphite-900/90 border border-titanium-750 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.6)] preserve-3d">
                 <div 
                   style={{ transform: 'translateZ(14px)' }}
@@ -368,7 +368,7 @@ export const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 hover:from-copper-400 hover:to-amber-500 text-white font-bold font-mono text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(234,126,59,0.35)] hover:shadow-[0_0_30px_rgba(234,126,59,0.5)] transition-all disabled:opacity-50"
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 hover:from-copper-400 hover:to-amber-500 text-white font-bold font-mono text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(216, 176, 125,0.35)] hover:shadow-[0_0_30px_rgba(216, 176, 125,0.5)] transition-all disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <>

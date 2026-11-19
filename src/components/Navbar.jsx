@@ -90,7 +90,7 @@ export const Navbar = ({ onOpenResume }) => {
                     {isActive && (
                       <motion.div
                         layoutId="activeNavIndicator"
-                        className="absolute inset-0 bg-gradient-to-r from-copper-500/20 via-titanium-700/50 to-cyber-cyan/20 rounded-full border border-copper-500/50 shadow-[0_0_12px_rgba(234,126,59,0.3)]"
+                        className="absolute inset-0 bg-gradient-to-r from-copper-500/25 via-burgundy-700/50 to-champagne-300/20 rounded-full border border-copper-400/60 shadow-[0_0_14px_rgba(216,176,125,0.4)]"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -102,9 +102,9 @@ export const Navbar = ({ onOpenResume }) => {
 
             {/* Right Side Actions */}
             <div className="hidden lg:flex items-center gap-3">
-              {/* Status Pill */}
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-graphite-900/90 border border-emerald-500/40 text-[11px] font-mono text-emerald-400 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
+              {/* Status Pill in Royal Champagne */}
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-graphite-900/90 border border-copper-500/40 text-[11px] font-mono text-copper-300 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-copper-400 animate-pulse shadow-[0_0_8px_#d8b07d]" />
                 <span className="tracking-wide">Open for Opportunities</span>
               </div>
 
@@ -172,7 +172,7 @@ export const Navbar = ({ onOpenResume }) => {
                     setMobileMenuOpen(false);
                     onOpenResume();
                   }}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold font-mono text-xs flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(234,126,59,0.35)]"
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold font-mono text-xs flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(216, 176, 125,0.35)]"
                 >
                   <FileText className="w-4 h-4" />
                   <span>VIEW / DOWNLOAD RESUME</span>

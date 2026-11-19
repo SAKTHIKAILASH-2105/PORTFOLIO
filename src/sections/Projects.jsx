@@ -198,7 +198,7 @@ export const Projects = () => {
             onClick={() => setActiveCategory('all')}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeCategory === 'all'
-                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
+                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
             }`}
           >
@@ -213,8 +213,8 @@ export const Projects = () => {
             onClick={() => setActiveCategory('hardware')}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeCategory === 'hardware'
-                ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-bold shadow-[0_0_15px_rgba(16,185,129,0.4)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-emerald-400 border border-titanium-750'
+                ? 'bg-gradient-to-r from-burgundy-600 to-burgundy-500 text-white font-bold shadow-[0_0_15px_rgba(139,35,62,0.5)] border border-burgundy-400/50'
+                : 'bg-graphite-900 text-metallic-steel hover:text-copper-400 border border-titanium-750'
             }`}
           >
             <Cpu className="w-3.5 h-3.5" />
@@ -229,7 +229,7 @@ export const Projects = () => {
             onClick={() => setActiveCategory('software')}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeCategory === 'software'
-                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-cyber-neon border border-cyber-cyan/50 font-bold shadow-[0_0_15px_rgba(0,245,255,0.3)]'
+                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-cyber-neon border border-cyber-cyan/50 font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.3)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-cyber-cyan border border-titanium-750'
             }`}
           >
@@ -254,9 +254,9 @@ export const Projects = () => {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
                 className="h-full"
               >
-                <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(234, 126, 59, 0.18)">
+                <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(216, 176, 125, 0.18)">
                   <div
-                    className={`h-full rounded-2xl bg-graphite-900/90 border transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between overflow-hidden group hover:shadow-[0_16px_50px_rgba(234,126,59,0.22)] preserve-3d ${
+                    className={`h-full rounded-2xl bg-graphite-900/90 border transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between overflow-hidden group hover:shadow-[0_16px_50px_rgba(216, 176, 125,0.22)] preserve-3d ${
                       project.category === 'hardware'
                         ? 'border-titanium-750 hover:border-copper-500/60'
                         : 'border-titanium-750 hover:border-cyber-cyan/50'

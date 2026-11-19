@@ -22,7 +22,7 @@ export function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#06080d] text-slate-100 font-sans selection:bg-copper-500/30 selection:text-copper-400 overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#120205] text-[#fdf8f2] font-sans selection:bg-burgundy-500/60 selection:text-white overflow-x-hidden">
       {/* Initial Electro-Mechanical Bootloader Screen */}
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
