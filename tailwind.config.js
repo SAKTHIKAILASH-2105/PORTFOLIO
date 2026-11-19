@@ -151,9 +151,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-        display: ['Space Grotesk', 'sans-serif'],
+        sans: ['"Times New Roman"', 'Times', '"Liberation Serif"', 'serif'],
+        mono: ['"Times New Roman"', 'Times', '"Liberation Serif"', 'serif'],
+        display: ['"Times New Roman"', 'Times', '"Liberation Serif"', 'serif'],
+        serif: ['"Times New Roman"', 'Times', '"Liberation Serif"', 'serif'],
       },
       backgroundImage: {
         'blueprint-grid': "radial-gradient(circle at 1px 1px, rgba(234, 126, 59, 0.1) 1px, transparent 0)",

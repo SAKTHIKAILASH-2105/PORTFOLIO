@@ -4,6 +4,11 @@
 
 :root {
   color-scheme: dark;
+  font-family: 'Times New Roman', Times, 'Liberation Serif', serif;
+}
+
+body, button, input, select, textarea, p, h1, h2, h3, h4, h5, h6, span, a, label {
+  font-family: 'Times New Roman', Times, 'Liberation Serif', serif;
 }
 
 /* Industrial Copper & Pitch Black Scrollbar */
