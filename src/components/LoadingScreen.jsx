@@ -56,51 +56,51 @@ export const LoadingScreen = ({ onComplete }) => {
       <motion.div
         exit={{ opacity: 0, scale: 1.02 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#120205] text-white"
+        className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#0b090e] text-white"
       >
         {/* Subtle blueprint grid pattern */}
         <div className="absolute inset-0 bg-blueprint-grid opacity-30 pointer-events-none" />
 
-        {/* Ambient Royal Burgundy and Champagne Glows */}
-        <div className="absolute w-96 h-96 rounded-full bg-burgundy-500/20 blur-[120px] pointer-events-none" />
-        <div className="absolute w-96 h-96 rounded-full bg-champagne-500/15 blur-[130px] pointer-events-none" />
+        {/* Ambient Charcoal, Lavender and Silver Glows */}
+        <div className="absolute w-96 h-96 rounded-full bg-lavender-600/20 blur-[120px] pointer-events-none" />
+        <div className="absolute w-96 h-96 rounded-full bg-charcoal-700/25 blur-[130px] pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-md px-6 text-center">
           {/* Central Electro-Mechanical Core (Meshed Gear + IC Core) */}
           <div className="relative mx-auto w-28 h-28 mb-8 flex items-center justify-center">
-            {/* Outer Rotating Mechanical Gear Ring in Champagne */}
-            <div className="absolute inset-0 rounded-full border-2 border-dashed border-copper-500/50 animate-gear-slow" />
-            <div className="absolute inset-2 rounded-full border border-burgundy-700/60" />
+            {/* Outer Rotating Mechanical Gear Ring in Cyber Lavender */}
+            <div className="absolute inset-0 rounded-full border-2 border-dashed border-lavender-500/50 animate-gear-slow" />
+            <div className="absolute inset-2 rounded-full border border-charcoal-700/60" />
 
-            {/* Inner Rotating Circuit Ring in Soft Champagne */}
-            <div className="absolute inset-4 rounded-full border-2 border-dotted border-champagne-300/50 animate-gear-reverse" />
+            {/* Inner Rotating Circuit Ring in Chrome Silver */}
+            <div className="absolute inset-4 rounded-full border-2 border-dotted border-silver-300/50 animate-gear-reverse" />
 
-            {/* Central Silicon Microchip in Royal Burgundy */}
-            <div className="relative w-14 h-14 rounded-xl bg-graphite-900 border border-copper-500/60 flex items-center justify-center shadow-[0_0_25px_rgba(216,176,125,0.4)]">
-              <Cpu className="w-8 h-8 text-copper-400 animate-pulse" />
+            {/* Central Silicon Microchip in Deep Charcoal */}
+            <div className="relative w-14 h-14 rounded-xl bg-graphite-900 border border-lavender-500/60 flex items-center justify-center shadow-[0_0_25px_rgba(192,132,252,0.45)]">
+              <Cpu className="w-8 h-8 text-lavender-400 animate-pulse" />
             </div>
 
-            {/* Corner Fastener Rivets */}
-            <span className="absolute top-1 left-1 w-1.5 h-1.5 rounded-full bg-champagne-200 shadow-xs" />
-            <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-champagne-200 shadow-xs" />
-            <span className="absolute bottom-1 left-1 w-1.5 h-1.5 rounded-full bg-champagne-200 shadow-xs" />
-            <span className="absolute bottom-1 right-1 w-1.5 h-1.5 rounded-full bg-champagne-200 shadow-xs" />
+            {/* Corner Fastener Rivets in Polished Silver */}
+            <span className="absolute top-1 left-1 w-1.5 h-1.5 rounded-full bg-silver-200 shadow-xs" />
+            <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-silver-200 shadow-xs" />
+            <span className="absolute bottom-1 left-1 w-1.5 h-1.5 rounded-full bg-silver-200 shadow-xs" />
+            <span className="absolute bottom-1 right-1 w-1.5 h-1.5 rounded-full bg-silver-200 shadow-xs" />
           </div>
 
           {/* Engineer Identity */}
           <h2 className="text-xl md:text-2xl font-bold font-display tracking-wider text-white">
             SAKTHI KAILASH
           </h2>
-          <p className="text-xs font-mono text-copper-400 tracking-widest mt-1 flex items-center justify-center gap-1.5">
+          <p className="text-xs font-mono text-lavender-300 tracking-widest mt-1 flex items-center justify-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_8px_#ffffff]" />
-            MECHATRONICS // ROYAL BURGUNDY EDITION
+            MECHATRONICS // CYBER LAVENDER EDITION
           </p>
 
-          {/* Dual Champagne & Burgundy Progress Bar */}
+          {/* Dual Cyber Lavender & Silver Progress Bar */}
           <div className="mt-8">
             <div className="h-2 w-full bg-graphite-900 rounded-full overflow-hidden border border-titanium-700/80 p-0.5 shadow-inner">
               <motion.div
-                className="h-full bg-gradient-to-r from-burgundy-500 via-copper-500 to-champagne-200 rounded-full shadow-[0_0_12px_#d8b07d]"
+                className="h-full bg-gradient-to-r from-charcoal-700 via-lavender-500 to-silver-100 rounded-full shadow-[0_0_14px_#c084fc]"
                 style={{ width: `${progress}%` }}
                 transition={{ ease: 'easeOut', duration: 0.1 }}
               />

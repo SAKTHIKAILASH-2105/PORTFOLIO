@@ -66,7 +66,7 @@ export const Certifications = () => {
             onClick={() => setActiveTab('all')}
             className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'all'
-                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.4)]'
+                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(192, 132, 252,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
             }`}
           >
@@ -80,7 +80,7 @@ export const Certifications = () => {
             onClick={() => setActiveTab('nptel')}
             className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'nptel'
-                ? 'bg-gradient-to-r from-amber-500 to-copper-500 text-white font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.4)]'
+                ? 'bg-gradient-to-r from-amber-500 to-copper-500 text-white font-bold shadow-[0_0_15px_rgba(192, 132, 252,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-amber-400 border border-titanium-750'
             }`}
           >
@@ -95,7 +95,7 @@ export const Certifications = () => {
             onClick={() => setActiveTab('linkedin')}
             className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'linkedin'
-                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-cyber-neon border border-cyber-cyan/50 font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.3)]'
+                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-cyber-neon border border-cyber-cyan/50 font-bold shadow-[0_0_15px_rgba(192, 132, 252,0.3)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-cyber-cyan border border-titanium-750'
             }`}
           >
@@ -110,7 +110,7 @@ export const Certifications = () => {
             onClick={() => setActiveTab('engagements')}
             className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               activeTab === 'engagements'
-                ? 'bg-gradient-to-r from-burgundy-600 to-burgundy-500 text-white font-bold shadow-[0_0_15px_rgba(139,35,62,0.5)] border border-burgundy-400/50'
+                ? 'bg-gradient-to-r from-charcoal-700 to-lavender-700 text-white font-bold shadow-[0_0_15px_rgba(168, 85, 247,0.5)] border border-lavender-500/50'
                 : 'bg-graphite-900 text-metallic-steel hover:text-copper-400 border border-titanium-750'
             }`}
           >
@@ -155,8 +155,8 @@ export const Certifications = () => {
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
                     className="h-full"
                   >
-                    <TiltCard maxTilt={8} scale={1.015} glareColor="rgba(216, 176, 125, 0.2)">
-                      <div className="h-full p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-graphite-900 via-graphite-900 to-graphite-950 border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between group hover:shadow-[0_12px_40px_rgba(216, 176, 125,0.22)] preserve-3d">
+                    <TiltCard maxTilt={8} scale={1.015} glareColor="rgba(192, 132, 252, 0.2)">
+                      <div className="h-full p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-graphite-900 via-graphite-900 to-graphite-950 border border-amber-500/30 hover:border-amber-400/60 transition-all shadow-[0_10px_35px_rgba(0,0,0,0.55)] flex flex-col justify-between group hover:shadow-[0_12px_40px_rgba(192, 132, 252,0.22)] preserve-3d">
                         <div>
                           {/* Badge bar */}
                           <div 
@@ -327,8 +327,8 @@ export const Certifications = () => {
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
                     className="h-full"
                   >
-                    <TiltCard maxTilt={8} scale={1.015} glareColor="rgba(216, 176, 125, 0.16)">
-                      <div className="h-full p-5 sm:p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-cyber-cyan/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group hover:shadow-[0_12px_35px_rgba(216, 176, 125,0.18)] preserve-3d">
+                    <TiltCard maxTilt={8} scale={1.015} glareColor="rgba(192, 132, 252, 0.16)">
+                      <div className="h-full p-5 sm:p-6 rounded-2xl bg-graphite-900/85 border border-titanium-750 hover:border-cyber-cyan/50 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex flex-col justify-between group hover:shadow-[0_12px_35px_rgba(192, 132, 252,0.18)] preserve-3d">
                         <div>
                           <div 
                             style={{ transform: 'translateZ(14px)' }}

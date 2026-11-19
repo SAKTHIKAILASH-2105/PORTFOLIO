@@ -40,7 +40,7 @@ export const Skills = () => {
             onClick={() => setFilter('all')}
             className={`px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               filter === 'all'
-                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.4)]'
+                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(192, 132, 252,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
             }`}
           >
@@ -50,7 +50,7 @@ export const Skills = () => {
             onClick={() => setFilter('experienced')}
             className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               filter === 'experienced'
-                ? 'bg-gradient-to-r from-burgundy-600 to-burgundy-500 text-white font-bold shadow-[0_0_15px_rgba(139,35,62,0.5)] border border-burgundy-400/50'
+                ? 'bg-gradient-to-r from-charcoal-700 to-lavender-700 text-white font-bold shadow-[0_0_15px_rgba(168, 85, 247,0.5)] border border-lavender-500/50'
                 : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
             }`}
           >
@@ -61,7 +61,7 @@ export const Skills = () => {
             onClick={() => setFilter('learning')}
             className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
               filter === 'learning'
-                ? 'bg-copper-500 text-white font-bold shadow-[0_0_15px_rgba(216, 176, 125,0.4)]'
+                ? 'bg-copper-500 text-white font-bold shadow-[0_0_15px_rgba(192, 132, 252,0.4)]'
                 : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
             }`}
           >
@@ -89,7 +89,7 @@ export const Skills = () => {
                 transition={{ duration: 0.5, delay: catIdx * 0.1 }}
                 className="h-full"
               >
-                <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(216, 176, 125, 0.16)">
+                <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(192, 132, 252, 0.16)">
                   <div className="h-full rounded-2xl p-6 bg-graphite-900/90 border border-titanium-750 hover:border-copper-500/60 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.55)] flex flex-col justify-between group relative overflow-hidden preserve-3d">
                     {/* Top Corner Rivets */}
                     <span className="absolute top-2.5 left-2.5 w-1.5 h-1.5 rounded-full bg-titanium-600 shadow-xs" />
@@ -137,7 +137,7 @@ export const Skills = () => {
                               <div className="flex items-center gap-2.5">
                                 <span
                                   className={`w-2 h-2 rounded-full ${
-                                    isLearning ? 'bg-copper-400 animate-pulse shadow-[0_0_6px_#d8b07d]' : 'bg-copper-300 shadow-[0_0_6px_#f1dcbe]'
+                                    isLearning ? 'bg-copper-400 animate-pulse shadow-[0_0_6px_#c084fc]' : 'bg-copper-300 shadow-[0_0_6px_#e9d5ff]'
                                   }`}
                                 />
                                 <span className="text-sm font-medium text-slate-200">

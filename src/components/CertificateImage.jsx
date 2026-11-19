@@ -28,8 +28,8 @@ export const CertificateImage = ({
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(216, 176, 125, 0.08) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(216, 176, 125, 0.08) 1px, transparent 1px)
+            linear-gradient(to right, rgba(192, 132, 252, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(192, 132, 252, 0.08) 1px, transparent 1px)
           `,
           backgroundSize: '16px 16px',
         }}

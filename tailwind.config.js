@@ -8,101 +8,145 @@ export default {
   theme: {
     extend: {
       colors: {
-        // ROYAL BURGUNDY PALETTE (Deep, Rich, Luxurious Wine & Maroon)
-        burgundy: {
-          950: '#120205',
-          900: '#1c0409',
-          850: '#26070d',
-          800: '#330a13',
-          750: '#420e1a',
-          700: '#531322',
-          600: '#6e1b30',
-          500: '#8b233e',
-          400: '#aa2e4d',
-          300: '#c74263',
-          glow: 'rgba(139, 35, 62, 0.4)',
+        // CYBER LAVENDER PALETTE (Glowing Lilac, Electric Violet & Neon Lavender)
+        lavender: {
+          50:  '#faf5ff',
+          100: '#f3e8ff',
+          200: '#e9d5ff',
+          300: '#d8b4fe',
+          400: '#c084fc',
+          500: '#a855f7',
+          600: '#9333ea',
+          700: '#7e22ce',
+          800: '#6b21a8',
+          900: '#581c87',
+          950: '#3b0764',
+          glow: 'rgba(192, 132, 252, 0.45)',
         },
 
-        // CHAMPAGNE GOLD PALETTE (Elegant Warm Gold, Cream & Metallic Lustre)
-        champagne: {
-          50:  '#fffdfa',
-          100: '#fdf8f2',
-          200: '#f8ebd9',
-          300: '#f1dcbe',
-          400: '#e8c79d',
-          500: '#d8b07d',
-          600: '#c1945f',
-          700: '#a27746',
-          800: '#7e5b33',
-          900: '#543b1e',
-          glow: 'rgba(216, 176, 125, 0.38)',
+        // CHARCOAL PALETTE (Deep Obsidian, Matte Graphite & Midnight Slate)
+        charcoal: {
+          950: '#0b090e',
+          900: '#120e18',
+          850: '#1a1424',
+          800: '#221a30',
+          750: '#2b203d',
+          700: '#35274c',
+          600: '#453363',
+          500: '#58417e',
+          glow: 'rgba(53, 39, 76, 0.5)',
         },
 
-        // Map graphite to deep royal burgundy obsidian base
+        // METALLIC SILVER & CHROME PALETTE (Robotic Hardware & Polished Plates)
+        silver: {
+          50:  '#ffffff',
+          100: '#f8fafc',
+          200: '#f1f5f9',
+          300: '#e2e8f0',
+          400: '#cbd5e1',
+          500: '#94a3b8',
+          600: '#64748b',
+          700: '#475569',
+          800: '#334155',
+          900: '#1e293b',
+          glow: 'rgba(226, 232, 240, 0.4)',
+        },
+
+        // Compatibility Aliases: Map graphite directly to Charcoal
         graphite: {
-          950: '#120205',
-          900: '#1c0409',
-          850: '#26070d',
-          800: '#330a13',
-          750: '#420e1a',
-          700: '#531322',
+          950: '#0b090e',
+          900: '#120e18',
+          850: '#1a1424',
+          800: '#221a30',
+          750: '#2b203d',
+          700: '#35274c',
         },
 
-        // Map titanium to rich wine & metallic champagne slate tones
+        // Compatibility Aliases: Map titanium to Charcoal-Slate & Polished Silver
         titanium: {
-          900: '#23060d',
-          850: '#2e0a13',
-          800: '#3b0f1a',
-          750: '#4c1523',
-          700: '#5e1b2c',
-          600: '#76273a',
-          500: '#94384e',
-          400: '#b45269',
-          300: '#d48096',
+          900: '#120e18',
+          850: '#1a1424',
+          800: '#221a30',
+          750: '#2b203d',
+          700: '#35274c',
+          600: '#453363',
+          500: '#58417e',
+          400: '#94a3b8',
+          300: '#cbd5e1',
         },
 
-        // Map copper directly to Champagne Gold (Hardware, PCB traces & Accents)
+        // Compatibility Aliases: Map copper directly to Cyber Lavender
         copper: {
-          200: '#f8ebd9',
-          300: '#f1dcbe',
-          400: '#e8c79d',
-          500: '#d8b07d',
-          600: '#c1945f',
-          700: '#a27746',
-          glow: 'rgba(216, 176, 125, 0.4)',
+          200: '#e9d5ff',
+          300: '#d8b4fe',
+          400: '#c084fc',
+          500: '#a855f7',
+          600: '#9333ea',
+          700: '#7e22ce',
+          glow: 'rgba(192, 132, 252, 0.45)',
         },
 
-        // Metallic White, Pearl & Warm Silver Typography
+        // Compatibility Aliases: Map burgundy to Deep Charcoal & Electric Violet
+        burgundy: {
+          950: '#0b090e',
+          900: '#120e18',
+          850: '#1a1424',
+          800: '#221a30',
+          750: '#2b203d',
+          700: '#35274c',
+          600: '#453363',
+          500: '#58417e',
+          400: '#7e22ce',
+          300: '#a855f7',
+          glow: 'rgba(168, 85, 247, 0.4)',
+        },
+
+        // Compatibility Aliases: Map champagne to Silver & Lavender Tints
+        champagne: {
+          50:  '#ffffff',
+          100: '#f8fafc',
+          200: '#f1f5f9',
+          300: '#e2e8f0',
+          400: '#d8b4fe',
+          500: '#c084fc',
+          600: '#a855f7',
+          700: '#9333ea',
+          800: '#6b21a8',
+          900: '#3b0764',
+          glow: 'rgba(192, 132, 252, 0.4)',
+        },
+
+        // Metallic Typography & Accents
         metallic: {
           chrome: '#ffffff',
-          silver: '#fdf8f2',
-          pewter: '#ebdccb',
-          steel: '#d1b9a5',
-          carbon: '#8e715e',
+          silver: '#f8fafc',
+          pewter: '#e2e8f0',
+          steel:  '#cbd5e1',
+          carbon: '#94a3b8',
         },
 
         // Dark compatibility mapping
         dark: {
-          950: '#120205',
-          900: '#1c0409',
-          850: '#26070d',
-          800: '#330a13',
-          750: '#420e1a',
-          700: '#531322',
-          600: '#6e1b30',
+          950: '#0b090e',
+          900: '#120e18',
+          850: '#1a1424',
+          800: '#221a30',
+          750: '#2b203d',
+          700: '#35274c',
+          600: '#453363',
         },
 
-        // Cyber & Electric Highlights in Champagne Gold & Radiant White
+        // Cyber & Electric Highlights in Neon Lavender & Chrome Silver
         cyber: {
-          blue: '#f8ebd9',
+          blue: '#e9d5ff',
           neon: '#ffffff',
-          cyan: '#f1dcbe',
-          copper: '#d8b07d',
-          accent: '#e8c79d',
-          purple: '#c74263',
-          muted: '#a88975',
-          glow: 'rgba(216, 176, 125, 0.35)',
-          copperGlow: 'rgba(216, 176, 125, 0.45)',
+          cyan: '#d8b4fe',
+          copper: '#c084fc',
+          accent: '#f8fafc',
+          purple: '#a855f7',
+          muted: '#94a3b8',
+          glow: 'rgba(192, 132, 252, 0.45)',
+          copperGlow: 'rgba(168, 85, 247, 0.45)',
         }
       },
       fontFamily: {
@@ -111,11 +155,11 @@ export default {
         display: ['Space Grotesk', 'sans-serif'],
       },
       backgroundImage: {
-        'blueprint-grid': "radial-gradient(circle at 1px 1px, rgba(216, 176, 125, 0.08) 1px, transparent 0)",
-        'electro-circuit': "radial-gradient(circle at 1px 1px, rgba(248, 235, 217, 0.09) 1px, transparent 0)",
-        'copper-trace': 'linear-gradient(90deg, transparent, #d8b07d, transparent)',
-        'metallic-linear': 'linear-gradient(135deg, rgba(66, 14, 26, 0.9) 0%, rgba(28, 4, 9, 0.95) 100%)',
-        'fusion-gradient': 'linear-gradient(135deg, rgba(216, 176, 125, 0.15) 0%, rgba(38, 7, 13, 0.85) 50%, rgba(139, 35, 62, 0.12) 100%)',
+        'blueprint-grid': "radial-gradient(circle at 1px 1px, rgba(192, 132, 252, 0.1) 1px, transparent 0)",
+        'electro-circuit': "radial-gradient(circle at 1px 1px, rgba(226, 232, 240, 0.1) 1px, transparent 0)",
+        'copper-trace': 'linear-gradient(90deg, transparent, #c084fc, #ffffff, #c084fc, transparent)',
+        'metallic-linear': 'linear-gradient(135deg, rgba(34, 26, 48, 0.9) 0%, rgba(11, 9, 14, 0.95) 100%)',
+        'fusion-gradient': 'linear-gradient(135deg, rgba(192, 132, 252, 0.18) 0%, rgba(26, 20, 36, 0.85) 50%, rgba(148, 163, 184, 0.12) 100%)',
       },
       animation: {
         'gear-slow': 'gearRotate 55s linear infinite',
@@ -148,23 +192,20 @@ export default {
           '50%': { transform: 'translateY(-8px)' },
         },
         scanline: {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(1000%)' },
-        }
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
       },
       boxShadow: {
-        'copper': '0 0 25px -5px rgba(216, 176, 125, 0.3)',
-        'copper-lg': '0 0 35px -5px rgba(216, 176, 125, 0.45)',
-        'metallic': '0 8px 32px 0 rgba(0, 0, 0, 0.65)',
-        'fusion': '0 0 25px -5px rgba(216, 176, 125, 0.25), 0 0 15px -3px rgba(139, 35, 62, 0.3)',
-        'cyber': '0 0 25px -5px rgba(248, 235, 217, 0.25)',
-        'cyber-lg': '0 0 35px -5px rgba(248, 235, 217, 0.4)',
-        'cyber-card': '0 10px 32px 0 rgba(18, 2, 5, 0.75)',
-        'neon-cyan': '0 0 15px rgba(216, 176, 125, 0.45)',
-        'royal-burgundy': '0 0 30px rgba(139, 35, 62, 0.35)',
-        'champagne-glow': '0 0 20px rgba(216, 176, 125, 0.4)',
-      }
+        'metallic-sm': '0 2px 8px -1px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(226, 232, 240, 0.15)',
+        'metallic-md': '0 6px 20px -2px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(226, 232, 240, 0.2)',
+        'metallic-lg': '0 12px 35px -4px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(226, 232, 240, 0.25)',
+        'copper-glow-sm': '0 0 12px rgba(192, 132, 252, 0.35)',
+        'copper-glow-lg': '0 0 28px rgba(192, 132, 252, 0.55)',
+        'cyan-glow-sm': '0 0 12px rgba(226, 232, 240, 0.4)',
+        'cyan-glow-lg': '0 0 28px rgba(226, 232, 240, 0.6)',
+      },
     },
   },
   plugins: [],
-};
+}

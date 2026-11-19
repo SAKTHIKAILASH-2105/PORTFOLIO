@@ -44,7 +44,7 @@ export const CircuitBackground = () => {
     // 1. GEAR SYSTEM (Synchronously Meshed Mechanical Drive Train)
     // -------------------------------------------------------------
     class Gear {
-      constructor({ x, y, radius, teeth, speed, color = '#d8b07d', copperRim = true, spokes = 5, hasCoreChip = false }) {
+      constructor({ x, y, radius, teeth, speed, color = '#c084fc', copperRim = true, spokes = 5, hasCoreChip = false }) {
         this.baseX = x; // fraction of screen width
         this.baseY = y; // fraction of screen height
         this.radius = radius;
@@ -104,20 +104,20 @@ export const CircuitBackground = () => {
         }
         ctx.closePath();
 
-        // Metallic Gear Body Fill (Deep Royal Burgundy wash)
-        ctx.fillStyle = 'rgba(51, 10, 19, 0.4)';
+        // Metallic Gear Body Fill (Deep Charcoal wash)
+        ctx.fillStyle = 'rgba(26, 20, 36, 0.45)';
         ctx.fill();
 
-        // Gear Outline in Champagne Gold
-        ctx.strokeStyle = this.copperRim ? 'rgba(216, 176, 125, 0.55)' : 'rgba(163, 34, 57, 0.45)';
+        // Gear Outline in Cyber Lavender & Polished Silver
+        ctx.strokeStyle = this.copperRim ? 'rgba(192, 132, 252, 0.6)' : 'rgba(226, 232, 240, 0.5)';
         ctx.lineWidth = 1.4;
         ctx.stroke();
 
-        // --- B. Pitch Circle (Dashed Technical Line in Soft Champagne White) ---
+        // --- B. Pitch Circle (Dashed Technical Line in Polished Silver) ---
         ctx.beginPath();
         ctx.arc(0, 0, pitchRadius, 0, Math.PI * 2);
         ctx.setLineDash([4, 4]);
-        ctx.strokeStyle = 'rgba(248, 235, 217, 0.28)';
+        ctx.strokeStyle = 'rgba(226, 232, 240, 0.28)';
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -128,7 +128,7 @@ export const CircuitBackground = () => {
 
         ctx.beginPath();
         ctx.arc(0, 0, innerRimRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(139, 35, 62, 0.35)';
+        ctx.strokeStyle = 'rgba(168, 85, 247, 0.35)';
         ctx.lineWidth = 1.2;
         ctx.stroke();
 
@@ -139,15 +139,15 @@ export const CircuitBackground = () => {
             ctx.beginPath();
             ctx.moveTo(Math.cos(sa) * hubRadius, Math.sin(sa) * hubRadius);
             ctx.lineTo(Math.cos(sa) * innerRimRadius, Math.sin(sa) * innerRimRadius);
-            ctx.strokeStyle = this.copperRim ? 'rgba(216, 176, 125, 0.4)' : 'rgba(139, 35, 62, 0.35)';
+            ctx.strokeStyle = this.copperRim ? 'rgba(192, 132, 252, 0.45)' : 'rgba(226, 232, 240, 0.35)';
             ctx.lineWidth = 1.6;
             ctx.stroke();
 
-            // Spoke Rivet / Fastener in Champagne Gold
+            // Spoke Rivet / Fastener in Chrome Silver
             const midR = (hubRadius + innerRimRadius) * 0.55;
             ctx.beginPath();
             ctx.arc(Math.cos(sa) * midR, Math.sin(sa) * midR, 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = '#f8ebd9';
+            ctx.fillStyle = '#f8fafc';
             ctx.fill();
           }
         }
@@ -155,35 +155,35 @@ export const CircuitBackground = () => {
         // --- D. Central Hub / Bearing Shaft ---
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(28, 4, 9, 0.9)';
+        ctx.fillStyle = 'rgba(18, 14, 24, 0.95)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(216, 176, 125, 0.7)';
+        ctx.strokeStyle = 'rgba(192, 132, 252, 0.75)';
         ctx.lineWidth = 1.8;
         ctx.stroke();
 
         // Keyway / Central Bore
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius * 0.45, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(18, 2, 5, 0.98)';
+        ctx.fillStyle = 'rgba(11, 9, 14, 0.98)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(163, 34, 57, 0.6)';
+        ctx.strokeStyle = 'rgba(147, 51, 234, 0.6)';
         ctx.lineWidth = 1;
         ctx.stroke();
 
         // Keyway notch
         const kw = hubRadius * 0.2;
-        ctx.fillStyle = 'rgba(216, 176, 125, 0.75)';
+        ctx.fillStyle = 'rgba(192, 132, 252, 0.8)';
         ctx.fillRect(-kw / 2, -hubRadius * 0.48, kw, hubRadius * 0.25);
 
         // --- E. Core IC Footprint on Hub if specified ---
         if (this.hasCoreChip) {
           const chipSize = hubRadius * 0.7;
-          ctx.strokeStyle = 'rgba(248, 235, 217, 0.85)';
+          ctx.strokeStyle = 'rgba(241, 245, 249, 0.85)';
           ctx.strokeRect(-chipSize / 2, -chipSize / 2, chipSize, chipSize);
 
-          // IC Pins in Champagne
+          // IC Pins in Cyber Lavender
           const pinLen = chipSize * 0.25;
-          ctx.strokeStyle = 'rgba(216, 176, 125, 0.9)';
+          ctx.strokeStyle = 'rgba(192, 132, 252, 0.9)';
           ctx.lineWidth = 1;
           for (let p = -1; p <= 1; p += 1) {
             const offset = (p * chipSize) / 3.5;
@@ -315,43 +315,43 @@ export const CircuitBackground = () => {
         }
 
         ctx.strokeStyle = this.isCopper
-          ? `rgba(216, 176, 125, ${this.alpha * 0.95})`
-          : `rgba(163, 34, 57, ${this.alpha * 0.85})`;
+          ? `rgba(192, 132, 252, ${this.alpha * 0.95})`
+          : `rgba(226, 232, 240, ${this.alpha * 0.85})`;
         ctx.lineWidth = this.width;
         ctx.stroke();
 
-        // Solder Pad Junctions in Champagne Gold
+        // Solder Pad Junctions in Cyber Lavender & Silver
         if (this.hasJunction) {
           const startPt = this.segments[0];
           const endPt = this.segments[this.segments.length - 1];
 
           ctx.beginPath();
           ctx.arc(startPt.x, startPt.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.isCopper ? 'rgba(216, 176, 125, 0.75)' : 'rgba(163, 34, 57, 0.7)';
+          ctx.fillStyle = this.isCopper ? 'rgba(192, 132, 252, 0.75)' : 'rgba(226, 232, 240, 0.7)';
           ctx.fill();
 
           ctx.beginPath();
           ctx.arc(startPt.x, startPt.y, 1, 0, Math.PI * 2);
-          ctx.fillStyle = '#120205';
+          ctx.fillStyle = '#0b090e';
           ctx.fill();
 
           ctx.beginPath();
           ctx.arc(endPt.x, endPt.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = this.isCopper ? 'rgba(216, 176, 125, 0.75)' : 'rgba(163, 34, 57, 0.7)';
+          ctx.fillStyle = this.isCopper ? 'rgba(192, 132, 252, 0.75)' : 'rgba(226, 232, 240, 0.7)';
           ctx.fill();
         }
 
         // Small SMT IC Resistor/Capacitor footprint
         if (this.hasIC && this.segments.length > 2) {
           const midPt = this.segments[1];
-          ctx.fillStyle = 'rgba(40, 8, 16, 0.9)';
+          ctx.fillStyle = 'rgba(26, 20, 36, 0.9)';
           ctx.fillRect(midPt.x - 5, midPt.y - 3, 10, 6);
-          ctx.strokeStyle = 'rgba(216, 176, 125, 0.65)';
+          ctx.strokeStyle = 'rgba(192, 132, 252, 0.65)';
           ctx.lineWidth = 1;
           ctx.strokeRect(midPt.x - 5, midPt.y - 3, 10, 6);
 
-          // Solder ends in champagne pearl
-          ctx.fillStyle = '#f8ebd9';
+          // Solder ends in polished chrome silver
+          ctx.fillStyle = '#f8fafc';
           ctx.fillRect(midPt.x - 5, midPt.y - 3, 2, 6);
           ctx.fillRect(midPt.x + 3, midPt.y - 3, 2, 6);
         }
@@ -367,7 +367,7 @@ export const CircuitBackground = () => {
         this.progress = Math.random();
         this.speed = 0.004 + Math.random() * 0.006;
         this.size = this.trace.isCopper ? 2.5 : 2.2;
-        this.glowColor = this.trace.isCopper ? '#d8b07d' : '#e63956';
+        this.glowColor = this.trace.isCopper ? '#c084fc' : '#a855f7';
       }
 
       update() {
@@ -476,20 +476,20 @@ export const CircuitBackground = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Base Royal Burgundy Background */}
-      <div className="absolute inset-0 bg-[#120205]" />
+      {/* Base Charcoal Background */}
+      <div className="absolute inset-0 bg-[#0b090e]" />
 
-      {/* Royal Burgundy & Champagne Gradient Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_85%_at_50%_-20%,rgba(83,19,34,0.85),rgba(18,2,5,0.98))]" />
+      {/* Cyber Lavender & Charcoal Gradient Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_85%_at_50%_-20%,rgba(53,39,76,0.85),rgba(11,9,14,0.98))]" />
 
-      {/* Warm Champagne Gold Hardware Glow (Top-Right Mechanical Core) */}
-      <div className="absolute -top-[10%] -right-[5%] w-[650px] h-[650px] bg-gradient-to-br from-champagne-500/18 via-burgundy-500/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      {/* Cyber Lavender Hardware Glow (Top-Right Mechanical Core) */}
+      <div className="absolute -top-[10%] -right-[5%] w-[650px] h-[650px] bg-gradient-to-br from-lavender-500/20 via-charcoal-700/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Royal Burgundy Crimson Glow (Bottom-Left Electronics Core) */}
-      <div className="absolute -bottom-[15%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-burgundy-600/22 via-burgundy-700/10 to-transparent rounded-full blur-[150px] pointer-events-none" />
+      {/* Deep Charcoal & Metallic Slate Glow (Bottom-Left Electronics Core) */}
+      <div className="absolute -bottom-[15%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-charcoal-800/30 via-lavender-700/15 to-transparent rounded-full blur-[150px] pointer-events-none" />
 
-      {/* Center Subtle Champagne Warm Light */}
-      <div className="absolute top-[35%] left-[25%] w-[500px] h-[500px] bg-champagne-500/8 rounded-full blur-[160px] pointer-events-none" />
+      {/* Center Subtle Electric Lilac Light */}
+      <div className="absolute top-[35%] left-[25%] w-[500px] h-[500px] bg-lavender-400/10 rounded-full blur-[160px] pointer-events-none" />
 
       {/* HTML5 Canvas (Electro-Mechanical Fusion Layer) */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-85" />

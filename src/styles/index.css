@@ -6,75 +6,75 @@
   color-scheme: dark;
 }
 
-/* Royal Burgundy & Champagne Gold Scrollbar */
+/* Cyber Lavender & Charcoal Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #120205;
+  background: #0b090e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #420e1a;
+  background: #2b203d;
   border-radius: 4px;
-  border: 1px solid rgba(216, 176, 125, 0.3);
+  border: 1px solid rgba(192, 132, 252, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d8b07d;
-  box-shadow: 0 0 14px rgba(216, 176, 125, 0.7);
+  background: #a855f7;
+  box-shadow: 0 0 14px rgba(192, 132, 252, 0.7);
 }
 
-/* Selection: Royal Burgundy & Bright White */
+/* Selection: Neon Lavender & Pure White */
 ::selection {
-  background-color: rgba(139, 35, 62, 0.55);
+  background-color: rgba(147, 51, 234, 0.55);
   color: #ffffff;
 }
 
-/* Royal Burgundy Glass Panels with Champagne Borders */
+/* Cyber Lavender Glass Panels with Polished Silver & Lavender Borders */
 .glass-panel {
-  background: linear-gradient(135deg, rgba(66, 14, 26, 0.82) 0%, rgba(28, 4, 9, 0.92) 100%);
+  background: linear-gradient(135deg, rgba(43, 32, 61, 0.85) 0%, rgba(18, 14, 24, 0.95) 100%);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(216, 176, 125, 0.24);
-  box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(248, 235, 217, 0.12);
+  border: 1px solid rgba(192, 132, 252, 0.28);
+  box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(241, 245, 249, 0.15);
 }
 
 .glass-panel:hover {
-  border-color: rgba(216, 176, 125, 0.55);
-  box-shadow: 0 14px 44px 0 rgba(139, 35, 62, 0.32), inset 0 1px 0 0 rgba(216, 176, 125, 0.3);
+  border-color: rgba(192, 132, 252, 0.55);
+  box-shadow: 0 14px 44px 0 rgba(168, 85, 247, 0.32), inset 0 1px 0 0 rgba(192, 132, 252, 0.3);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(51, 10, 19, 0.86) 0%, rgba(28, 4, 9, 0.94) 100%);
+  background: linear-gradient(135deg, rgba(34, 26, 48, 0.88) 0%, rgba(18, 14, 24, 0.96) 100%);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(216, 176, 125, 0.28);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(248, 235, 217, 0.1);
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(241, 245, 249, 0.12);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(216, 176, 125, 0.65);
-  box-shadow: 0 12px 36px -8px rgba(139, 35, 62, 0.45), 0 0 18px -3px rgba(216, 176, 125, 0.35);
+  border-color: rgba(192, 132, 252, 0.65);
+  box-shadow: 0 12px 36px -8px rgba(168, 85, 247, 0.45), 0 0 18px -3px rgba(192, 132, 252, 0.35);
   transform: translateY(-3px);
 }
 
-/* Metallic Beveled Enclosure in Royal Burgundy */
+/* Metallic Beveled Enclosure in Deep Charcoal & Silver */
 .metallic-enclosure {
-  background: linear-gradient(145deg, #330a13 0%, #1c0409 100%);
-  border: 1px solid rgba(216, 176, 125, 0.35);
+  background: linear-gradient(145deg, #221a30 0%, #0b090e 100%);
+  border: 1px solid rgba(192, 132, 252, 0.35);
   box-shadow: 
-    inset 1px 1px 0 rgba(248, 235, 217, 0.15),
+    inset 1px 1px 0 rgba(241, 245, 249, 0.15),
     inset -1px -1px 0 rgba(0, 0, 0, 0.8),
     0 12px 32px rgba(0, 0, 0, 0.7);
 }
 
-/* Champagne Gold Circuit Trace Flow */
+/* Cyber Lavender Circuit Trace Flow */
 .copper-circuit-trace {
-  background: linear-gradient(90deg, transparent, #d8b07d, #ffffff, #d8b07d, transparent);
+  background: linear-gradient(90deg, transparent, #c084fc, #ffffff, #c084fc, transparent);
   background-size: 200% 100%;
   animation: copperFlow 4s linear infinite;
 }
@@ -84,40 +84,40 @@
   100% { background-position: 200% 0; }
 }
 
-/* Royal Burgundy & Champagne Dual Glow */
+/* Cyber Lavender & Chrome Dual Glow */
 .text-copper-glow {
-  text-shadow: 0 0 16px rgba(216, 176, 125, 0.75), 0 0 28px rgba(216, 176, 125, 0.4);
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.75), 0 0 28px rgba(168, 85, 247, 0.4);
 }
 
 .text-cyan-glow {
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.9), 0 0 25px rgba(216, 176, 125, 0.5);
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.9), 0 0 25px rgba(192, 132, 252, 0.5);
 }
 
 .border-fusion-glow {
-  box-shadow: 0 0 22px rgba(216, 176, 125, 0.3), inset 0 0 14px rgba(139, 35, 62, 0.3);
+  box-shadow: 0 0 22px rgba(192, 132, 252, 0.35), inset 0 0 14px rgba(168, 85, 247, 0.3);
 }
 
-/* Technical Blueprint Grid Pattern in Champagne */
+/* Technical Blueprint Grid Pattern in Lavender */
 .bg-blueprint-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(216, 176, 125, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(216, 176, 125, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(192, 132, 252, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(192, 132, 252, 0.06) 1px, transparent 1px);
 }
 
-/* Fine Champagne Dot Matrix */
+/* Fine Cyber Dot Matrix */
 .bg-mech-dots {
-  background-image: radial-gradient(rgba(216, 176, 125, 0.14) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(192, 132, 252, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Corner Fasteners / Rivets in Champagne Gold */
+/* Corner Fasteners / Rivets in Metallic Chrome Silver */
 .mech-rivet {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #d8b07d;
-  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.6), 1px 1px 2px rgba(0, 0, 0, 0.9);
+  background: #cbd5e1;
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* 3D Perspective & Spatial Depth System */
@@ -133,7 +133,7 @@
 .translate-z-30 { transform: translateZ(30px); }
 .translate-z-40 { transform: translateZ(40px); }
 
-/* Interactive 3D Specular Sheen in Champagne Lustre */
+/* Interactive 3D Specular Sheen in Cyber Lavender Lustre */
 .card-3d-sheen {
   pointer-events: none;
   position: absolute;

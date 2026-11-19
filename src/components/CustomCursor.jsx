@@ -97,7 +97,7 @@ export const CustomCursor = () => {
         <div
           className={`w-2 h-2 rounded-full transition-colors duration-200 ${
             isPointer
-              ? 'bg-copper-400 shadow-[0_0_12px_#d8b07d]'
+              ? 'bg-lavender-400 shadow-[0_0_12px_#c084fc]'
               : 'bg-white shadow-[0_0_10px_#ffffff]'
           }`}
         />
@@ -115,21 +115,21 @@ export const CustomCursor = () => {
         <div
           className={`relative w-8 h-8 rounded-full border transition-all duration-300 ${
             isPointer
-              ? 'border-copper-500/80 bg-burgundy-900/30 shadow-[0_0_16px_rgba(216,176,125,0.4)]'
-              : 'border-copper-400/40 bg-burgundy-950/20'
+              ? 'border-lavender-400/80 bg-charcoal-900/40 shadow-[0_0_16px_rgba(192,132,252,0.5)]'
+              : 'border-lavender-400/40 bg-charcoal-950/20'
           }`}
         >
-          {/* Mechanical Gear Notches / Rivets (at 0, 90, 180, 270 deg) in Champagne & White */}
-          <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-copper-400/90 shadow-[0_0_4px_#d8b07d]" />
-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-copper-400/90 shadow-[0_0_4px_#d8b07d]" />
+          {/* Mechanical Gear Notches / Rivets (at 0, 90, 180, 270 deg) in Lavender & White */}
+          <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-lavender-400/90 shadow-[0_0_4px_#c084fc]" />
+          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-lavender-400/90 shadow-[0_0_4px_#c084fc]" />
           <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-1 h-1 rounded-xs bg-white/90 shadow-[0_0_4px_#ffffff]" />
           <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-1 h-1 rounded-xs bg-white/90 shadow-[0_0_4px_#ffffff]" />
 
           {/* High-Tech Corner Crosshairs when active */}
           {isPointer && (
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-4 h-[1px] bg-copper-400/70" />
-              <div className="h-4 w-[1px] bg-copper-400/70 absolute" />
+              <div className="w-4 h-[1px] bg-lavender-400/70" />
+              <div className="h-4 w-[1px] bg-lavender-400/70 absolute" />
             </div>
           )}
         </div>
