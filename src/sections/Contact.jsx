@@ -155,15 +155,17 @@ export const Contact = () => {
                     </div>
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                     onClick={copyEmailToClipboard}
                     style={{ transform: 'translateZ(18px)' }}
-                    className="p-2 rounded-lg bg-titanium-800 hover:bg-titanium-700 text-slate-300 hover:text-white border border-titanium-700 transition-colors shrink-0 ml-2 preserve-3d"
+                    className="p-2 rounded-lg bg-titanium-800 hover:bg-copper-600/30 text-slate-300 hover:text-white border border-titanium-700 hover:border-copper-500/50 transition-colors shrink-0 ml-2 preserve-3d cursor-pointer"
                     title="Copy email to clipboard"
                     aria-label="Copy email address"
                   >
                     {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                  </button>
+                  </motion.button>
                 </div>
               </TiltCard>
 
@@ -365,10 +367,12 @@ export const Contact = () => {
                   </div>
 
                   <div style={{ transform: 'translateZ(18px)' }} className="preserve-3d">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 hover:from-copper-400 hover:to-amber-500 text-white font-bold font-mono text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(234,126,59,0.35)] hover:shadow-[0_0_30px_rgba(234,126,59,0.5)] transition-all disabled:opacity-50"
+                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 hover:from-copper-400 hover:to-amber-500 text-white font-bold font-mono text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(234,126,59,0.35)] hover:shadow-[0_0_30px_rgba(234,126,59,0.5)] transition-all disabled:opacity-50 cursor-pointer"
                     >
                       {isSubmitting ? (
                         <>
@@ -381,7 +385,7 @@ export const Contact = () => {
                           <span>SEND MESSAGE TRANSMISSION</span>
                         </>
                       )}
-                    </button>
+                    </motion.button>
                   </div>
                 </form>
               </div>

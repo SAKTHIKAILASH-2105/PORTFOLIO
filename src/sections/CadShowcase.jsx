@@ -32,56 +32,83 @@ export const CadShowcase = () => {
           subtitle="Parametric 3D mechanical parts, structural brackets, mounting flanges, and custom electronics enclosures designed in Autodesk Fusion 360 and SolidWorks."
         />
 
-        {/* Software Filter Tabs (Metallic Brushed) */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-          <button
+        {/* Software Filter Tabs with Fluid Motion */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12 p-1.5 rounded-2xl bg-graphite-900/80 border border-titanium-700/80 max-w-fit mx-auto backdrop-blur-md">
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveFilter('all')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeFilter === 'all'
-                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeFilter === 'all' ? 'text-white font-bold' : 'text-metallic-steel hover:text-white'
             }`}
           >
-            <span>All CAD Models</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-graphite-950/60 font-bold">
+            {activeFilter === 'all' && (
+              <motion.div
+                layoutId="activeCadFilter"
+                className="absolute inset-0 bg-gradient-to-r from-copper-500 to-copper-600 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.45)] border border-copper-400/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <span className="relative z-10">All CAD Models</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+              activeFilter === 'all' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {cadModels.length}
             </span>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveFilter('fusion')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeFilter === 'fusion'
-                ? 'bg-gradient-to-r from-amber-500 to-copper-500 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-amber-400 border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeFilter === 'fusion' ? 'text-white font-bold' : 'text-metallic-steel hover:text-amber-400'
             }`}
           >
-            <Box className="w-3.5 h-3.5" />
-            <span>Autodesk Fusion 360</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-graphite-950/60 font-bold">
+            {activeFilter === 'fusion' && (
+              <motion.div
+                layoutId="activeCadFilter"
+                className="absolute inset-0 bg-gradient-to-r from-amber-500 to-copper-500 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.45)] border border-copper-400/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <Box className="w-3.5 h-3.5 relative z-10" />
+            <span className="relative z-10">Autodesk Fusion 360</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+              activeFilter === 'fusion' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {fusionCount}
             </span>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveFilter('solidworks')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeFilter === 'solidworks'
-                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-white border border-copper-500/50 font-bold shadow-[0_0_15px_rgba(234,126,59,0.3)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-rose-400 border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeFilter === 'solidworks' ? 'text-white font-bold' : 'text-metallic-steel hover:text-rose-400'
             }`}
           >
-            <Wrench className="w-3.5 h-3.5" />
-            <span>SolidWorks Design</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-graphite-950/60 font-bold">
+            {activeFilter === 'solidworks' && (
+              <motion.div
+                layoutId="activeCadFilter"
+                className="absolute inset-0 bg-gradient-to-r from-titanium-700 to-graphite-800 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.3)] border border-copper-500/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <Wrench className="w-3.5 h-3.5 relative z-10" />
+            <span className="relative z-10">SolidWorks Design</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+              activeFilter === 'solidworks' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {solidworksCount}
             </span>
-          </button>
+          </motion.button>
         </div>
 
         {/* CAD Gallery Grid with 3D Perspective Tilt */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence>
+          <AnimatePresence mode="popLayout">
             {filteredModels.map((model, idx) => {
               const isSolidworks = model.software.toLowerCase().includes('solidworks');
 
@@ -89,10 +116,10 @@ export const CadShowcase = () => {
                 <motion.div
                   key={model.id}
                   layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  initial={{ opacity: 0, scale: 0.88, y: 30, rotateX: 8 }}
+                  animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
+                  exit={{ opacity: 0, scale: 0.88, y: -20, rotateX: -8 }}
+                  transition={{ type: 'spring', stiffness: 320, damping: 26, delay: idx * 0.04 }}
                   className="h-full"
                 >
                   <TiltCard maxTilt={12} scale={1.03} glareColor="rgba(234, 126, 59, 0.16)">

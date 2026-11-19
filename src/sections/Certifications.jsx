@@ -60,66 +60,102 @@ export const Certifications = () => {
           subtitle="Accredited academic certifications from NPTEL (IITs), specialized cloud & IoT training from LinkedIn Learning, and competitive hackathon engagements."
         />
 
-        {/* Filter Navigation Tabs (Brushed Metallic) */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-12">
-          <button
+        {/* Filter Navigation Tabs with Fluid Motion */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-12 p-1.5 rounded-2xl bg-graphite-900/80 border border-titanium-700/80 max-w-fit mx-auto backdrop-blur-md">
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab('all')}
-            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeTab === 'all'
-                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeTab === 'all' ? 'text-white font-bold' : 'text-metallic-steel hover:text-white'
             }`}
           >
-            <span>All Credentials</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-graphite-950/60 font-bold">
+            {activeTab === 'all' && (
+              <motion.div
+                layoutId="activeCertTab"
+                className="absolute inset-0 bg-gradient-to-r from-copper-500 to-copper-600 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.45)] border border-copper-400/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <span className="relative z-10">All Credentials</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+              activeTab === 'all' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {totalCertCount + (workshops?.length || 0) + (competitions?.length || 0)}
             </span>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab('nptel')}
-            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeTab === 'nptel'
-                ? 'bg-gradient-to-r from-amber-500 to-copper-500 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-amber-400 border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeTab === 'nptel' ? 'text-white font-bold' : 'text-metallic-steel hover:text-amber-400'
             }`}
           >
-            <Award className="w-3.5 h-3.5" />
-            <span>NPTEL / IIT Certifications</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-graphite-950/60 font-bold">
+            {activeTab === 'nptel' && (
+              <motion.div
+                layoutId="activeCertTab"
+                className="absolute inset-0 bg-gradient-to-r from-amber-500 to-copper-500 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.45)] border border-copper-400/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <Award className="w-3.5 h-3.5 relative z-10" />
+            <span className="relative z-10">NPTEL / IIT Certifications</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+              activeTab === 'nptel' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {nptelCertifications?.length || 0}
             </span>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab('linkedin')}
-            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeTab === 'linkedin'
-                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-cyber-neon border border-cyber-cyan/50 font-bold shadow-[0_0_15px_rgba(234,126,59,0.3)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-cyber-cyan border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeTab === 'linkedin' ? 'text-white font-bold' : 'text-metallic-steel hover:text-cyber-cyan'
             }`}
           >
-            <Cloud className="w-3.5 h-3.5" />
-            <span>LinkedIn Learning</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-graphite-950/60 font-bold">
+            {activeTab === 'linkedin' && (
+              <motion.div
+                layoutId="activeCertTab"
+                className="absolute inset-0 bg-gradient-to-r from-titanium-700 to-graphite-800 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.3)] border border-copper-500/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <Cloud className="w-3.5 h-3.5 relative z-10" />
+            <span className="relative z-10">LinkedIn Learning</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+              activeTab === 'linkedin' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {linkedinCertifications?.length || 0}
             </span>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab('engagements')}
-            className={`inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeTab === 'engagements'
-                ? 'bg-gradient-to-r from-charcoal-700 to-copper-700 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.5)] border border-copper-500/50'
-                : 'bg-graphite-900 text-metallic-steel hover:text-copper-400 border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeTab === 'engagements' ? 'text-white font-bold' : 'text-metallic-steel hover:text-copper-400'
             }`}
           >
-            <Trophy className="w-3.5 h-3.5" />
-            <span>Workshops & Hackathons</span>
-            <span className="px-1.5 py-0.5 rounded text-[10px] bg-graphite-950/60 font-bold">
+            {activeTab === 'engagements' && (
+              <motion.div
+                layoutId="activeCertTab"
+                className="absolute inset-0 bg-gradient-to-r from-charcoal-700 to-copper-700 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.4)] border border-copper-500/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <Trophy className="w-3.5 h-3.5 relative z-10" />
+            <span className="relative z-10">Workshops & Hackathons</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded text-[10px] font-bold ${
+              activeTab === 'engagements' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {(workshops?.length || 0) + (competitions?.length || 0)}
             </span>
-          </button>
+          </motion.button>
         </div>
 
         {/* Content Container */}

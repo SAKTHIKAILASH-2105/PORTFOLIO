@@ -191,67 +191,94 @@ export const Projects = () => {
           subtitle="Hardware prototypes, digital signal processing concepts, IoT systems, and intelligent software platforms."
         />
 
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+        {/* Category Filter Tabs with Fluid Motion */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12 p-1.5 rounded-2xl bg-graphite-900/80 border border-titanium-700/80 max-w-fit mx-auto backdrop-blur-md">
           {/* All */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveCategory('all')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeCategory === 'all'
-                ? 'bg-gradient-to-r from-copper-500 to-copper-600 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.4)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-white border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeCategory === 'all' ? 'text-white font-bold' : 'text-metallic-steel hover:text-white'
             }`}
           >
-            <span>All Projects</span>
-            <span className="px-1.5 py-0.5 rounded-md text-[10px] bg-graphite-950/60 font-bold">
+            {activeCategory === 'all' && (
+              <motion.div
+                layoutId="activeProjectCategory"
+                className="absolute inset-0 bg-gradient-to-r from-copper-500 to-copper-600 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.45)] border border-copper-400/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <span className="relative z-10">All Projects</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded-md text-[10px] font-bold ${
+              activeCategory === 'all' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {projects.length}
             </span>
-          </button>
+          </motion.button>
 
           {/* Hardware */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveCategory('hardware')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeCategory === 'hardware'
-                ? 'bg-gradient-to-r from-charcoal-700 to-copper-700 text-white font-bold shadow-[0_0_15px_rgba(234,126,59,0.5)] border border-copper-500/50'
-                : 'bg-graphite-900 text-metallic-steel hover:text-copper-400 border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeCategory === 'hardware' ? 'text-white font-bold' : 'text-metallic-steel hover:text-white'
             }`}
           >
-            <Cpu className="w-3.5 h-3.5" />
-            <span>Hardware & Embedded Systems</span>
-            <span className="px-1.5 py-0.5 rounded-md text-[10px] bg-graphite-950/60 font-bold">
+            {activeCategory === 'hardware' && (
+              <motion.div
+                layoutId="activeProjectCategory"
+                className="absolute inset-0 bg-gradient-to-r from-charcoal-700 to-copper-700 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.4)] border border-copper-500/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <Cpu className="w-3.5 h-3.5 relative z-10" />
+            <span className="relative z-10">Hardware & Embedded Systems</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded-md text-[10px] font-bold ${
+              activeCategory === 'hardware' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {hardwareCount}
             </span>
-          </button>
+          </motion.button>
 
           {/* Software */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveCategory('software')}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
-              activeCategory === 'software'
-                ? 'bg-gradient-to-r from-titanium-700 to-graphite-800 text-cyber-neon border border-cyber-cyan/50 font-bold shadow-[0_0_15px_rgba(234,126,59,0.3)]'
-                : 'bg-graphite-900 text-metallic-steel hover:text-cyber-cyan border border-titanium-750'
+            className={`relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 ${
+              activeCategory === 'software' ? 'text-white font-bold' : 'text-metallic-steel hover:text-white'
             }`}
           >
-            <Code2 className="w-3.5 h-3.5" />
-            <span>Software & Intelligent Systems</span>
-            <span className="px-1.5 py-0.5 rounded-md text-[10px] bg-graphite-950/60 font-bold">
+            {activeCategory === 'software' && (
+              <motion.div
+                layoutId="activeProjectCategory"
+                className="absolute inset-0 bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 rounded-xl shadow-[0_0_18px_rgba(234,126,59,0.4)] border border-copper-400/50"
+                transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+              />
+            )}
+            <Code2 className="w-3.5 h-3.5 relative z-10" />
+            <span className="relative z-10">Software & Intelligent Systems</span>
+            <span className={`relative z-10 px-1.5 py-0.5 rounded-md text-[10px] font-bold ${
+              activeCategory === 'software' ? 'bg-black/30 text-cream-200' : 'bg-graphite-950 text-metallic-steel'
+            }`}>
               {softwareCount}
             </span>
-          </button>
+          </motion.button>
         </div>
 
         {/* Project Cards Grid with 3D Perspective Tilt */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <AnimatePresence>
+          <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                initial={{ opacity: 0, scale: 0.9, y: 30, rotateX: 6 }}
+                animate={{ opacity: 1, scale: 1, y: 0, rotateX: 0 }}
+                exit={{ opacity: 0, scale: 0.9, y: -20, rotateX: -6 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 25, delay: idx * 0.05 }}
                 className="h-full"
               >
                 <TiltCard maxTilt={10} scale={1.02} glareColor="rgba(234, 126, 59, 0.18)">

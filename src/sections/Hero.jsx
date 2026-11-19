@@ -293,28 +293,34 @@ export const Hero = ({ onOpenResume }) => {
             className="pt-2 flex flex-wrap items-center gap-4"
           >
             {/* View Projects Button (Electro-Mechanical High-Impact Glow) */}
-            <a
+            <motion.a
               href="#projects"
-              className="relative group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 text-white font-bold font-mono text-sm shadow-[0_0_25px_rgba(234,126,59,0.45)] hover:shadow-[0_0_35px_rgba(234,126,59,0.65)] transition-all duration-300 transform hover:-translate-y-0.5 overflow-hidden"
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.96 }}
+              className="relative group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 text-white font-bold font-mono text-sm shadow-[0_0_25px_rgba(234,126,59,0.45)] hover:shadow-[0_0_35px_rgba(234,126,59,0.65)] transition-all duration-300 overflow-hidden cursor-pointer"
             >
               {/* Shiny reflection beam */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out" />
               <span className="relative z-10">View My Projects</span>
               <ChevronRight className="w-4 h-4 relative z-10 group-hover:translate-x-0.5 transition-transform" />
-            </a>
+            </motion.a>
 
             {/* Download Resume Button (Metallic Bevel) */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.96 }}
               onClick={onOpenResume}
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-graphite-900/90 hover:bg-titanium-850 text-metallic-silver hover:text-white font-mono text-sm font-semibold border border-titanium-700 hover:border-copper-500/60 shadow-md transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-graphite-900/90 hover:bg-titanium-850 text-metallic-silver hover:text-white font-mono text-sm font-semibold border border-titanium-700 hover:border-copper-500/60 shadow-md transition-all duration-200 cursor-pointer"
             >
               <FileText className="w-4 h-4 text-copper-400" />
               <span>Download Resume</span>
-            </button>
+            </motion.button>
 
             {/* Social Icons */}
             <div className="flex items-center gap-2.5 sm:ml-2">
-              <a
+              <motion.a
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href={personalInfo.socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -322,8 +328,10 @@ export const Hero = ({ onOpenResume }) => {
                 aria-label="GitHub Profile"
               >
                 <Github className="w-5 h-5" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href={personalInfo.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -331,7 +339,7 @@ export const Hero = ({ onOpenResume }) => {
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
+              </motion.a>
             </div>
           </motion.div>
 
@@ -586,41 +594,47 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
 
                 <div className="grid grid-cols-3 gap-1.5">
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveSubsystem('mech')}
-                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 ${
+                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
                       activeSubsystem === 'mech'
-                        ? 'bg-copper-500/20 border-copper-500 text-copper-300 shadow-[0_0_12px_rgba(234,126,59,0.45)]'
+                        ? 'bg-copper-500/20 border-copper-500 text-copper-300 shadow-[0_0_12px_rgba(234,126,59,0.45)] font-bold'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
                     <Box className="w-3 h-3" />
                     <span>MECH</span>
-                  </button>
+                  </motion.button>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveSubsystem('vlsi')}
-                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 ${
+                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
                       activeSubsystem === 'vlsi'
-                        ? 'bg-cyber-cyan/20 border-cyber-cyan text-cyber-neon shadow-[0_0_12px_rgba(234,126,59,0.45)]'
+                        ? 'bg-copper-400/25 border-copper-400 text-cream-200 shadow-[0_0_12px_rgba(234,126,59,0.45)] font-bold'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
                     <Cpu className="w-3 h-3" />
                     <span>VLSI</span>
-                  </button>
+                  </motion.button>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveSubsystem('embedded')}
-                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 ${
+                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
                       activeSubsystem === 'embedded'
-                        ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.35)]'
+                        ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.35)] font-bold'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
                     <Zap className="w-3 h-3" />
                     <span>EMBED</span>
-                  </button>
+                  </motion.button>
                 </div>
               </div>
 
@@ -654,9 +668,11 @@ export const Hero = ({ onOpenResume }) => {
                 style={{ transform: 'translateZ(24px)' }}
                 className="pt-3 preserve-3d"
               >
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.96 }}
                   onClick={triggerSystemPulse}
-                  className={`w-full py-2 px-3 rounded-xl border text-[11px] font-mono font-bold flex items-center justify-center gap-2 transition-all duration-300 ${
+                  className={`w-full py-2 px-3 rounded-xl border text-[11px] font-mono font-bold flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer ${
                     isPulsing
                       ? 'bg-copper-500 text-white border-copper-400 shadow-[0_0_20px_#ea7e3b]'
                       : 'bg-titanium-850 hover:bg-copper-600 text-copper-400 hover:text-white border-copper-500/40 hover:border-copper-400'
@@ -668,7 +684,7 @@ export const Hero = ({ onOpenResume }) => {
                       ? `SIGNAL_DISPATCHED // PULSE #${pulseCount}`
                       : "TRANSMIT CORE SIGNAL"}
                   </span>
-                </button>
+                </motion.button>
               </div>
             </div>
           </div>

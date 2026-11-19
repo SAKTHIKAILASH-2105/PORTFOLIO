@@ -78,9 +78,11 @@ export const Navbar = ({ onOpenResume }) => {
                 const isActive = activeSection === sectionId;
 
                 return (
-                  <a
+                  <motion.a
                     key={link.name}
                     href={link.href}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     className={`relative px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-200 ${
                       isActive
                         ? 'text-white font-medium'
@@ -95,7 +97,7 @@ export const Navbar = ({ onOpenResume }) => {
                       />
                     )}
                     <span className="relative z-10">{link.name}</span>
-                  </a>
+                  </motion.a>
                 );
               })}
             </nav>
@@ -108,14 +110,16 @@ export const Navbar = ({ onOpenResume }) => {
                 <span className="tracking-wide">Open for Opportunities</span>
               </div>
 
-              {/* Resume Button */}
-              <button
+              {/* Resume Button with Micro-Interaction */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={onOpenResume}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-titanium-800 to-graphite-900 hover:from-copper-600 hover:to-copper-500 text-copper-400 hover:text-white border border-copper-500/40 hover:border-copper-400 font-mono text-xs font-semibold transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-titanium-800 to-graphite-900 hover:from-copper-600 hover:to-copper-500 text-copper-400 hover:text-white border border-copper-500/40 hover:border-copper-400 font-mono text-xs font-semibold transition-all duration-200 shadow-sm cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Resume</span>
-              </button>
+              </motion.button>
             </div>
 
             {/* Mobile Hamburger Button */}
