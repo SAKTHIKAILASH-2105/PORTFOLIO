@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { CircuitBackground } from './components/CircuitBackground';
 import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
@@ -22,49 +23,51 @@ export function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#06070a] text-[#f8fafc] font-sans selection:bg-cyan-500/40 selection:text-white overflow-x-hidden">
-      {/* Initial Electro-Mechanical Bootloader Screen */}
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+    <ThemeProvider>
+      <div className="relative min-h-screen bg-[#06070b] text-[#f8fafc] font-sans selection:bg-purple-500/40 selection:text-white overflow-x-hidden">
+        {/* Initial Electro-Mechanical Bootloader Screen */}
+        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
-      {/* Desktop Precision Custom Cursor */}
-      <CustomCursor />
+        {/* Desktop Precision Custom Cursor */}
+        <CustomCursor />
 
-      {/* Interactive Electro-Mechanical Fusion Canvas Background */}
-      <CircuitBackground />
+        {/* Interactive Electro-Mechanical Fusion Canvas Background (Meshed Gears + Traces) */}
+        <CircuitBackground />
 
-      {/* Global Mechatronics Robotic Backdrop Texture Layer */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat opacity-[0.14] mix-blend-screen filter contrast-125 brightness-90"
-        style={{ backgroundImage: "url('/images/mechatronics-bg.jpg')" }}
-      />
+        {/* Global Mechatronics Robotic Backdrop Texture Layer (6-Axis Robotic Arm) */}
+        <div 
+          className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat opacity-[0.16] mix-blend-screen filter contrast-125 brightness-95"
+          style={{ backgroundImage: "url('/images/mechatronics-bg.jpg')" }}
+        />
 
-      {/* Top Floating Brushed Metallic Navigation */}
-      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+        {/* Top Floating Brushed Metallic Navigation */}
+        <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
-      {/* Main Content Sections */}
-      <main className="relative z-10">
-        <Hero onOpenResume={() => setIsResumeOpen(true)} />
-        <About />
-        <Skills />
-        <Projects />
-        <CadShowcase />
-        <Journey />
-        <Certifications />
-        <Contact />
-      </main>
+        {/* Main Content Sections */}
+        <main className="relative z-10">
+          <Hero onOpenResume={() => setIsResumeOpen(true)} />
+          <About />
+          <Skills />
+          <Projects />
+          <CadShowcase />
+          <Journey />
+          <Certifications />
+          <Contact />
+        </main>
 
-      {/* Global Engineering Footer */}
-      <Footer />
+        {/* Global Engineering Footer */}
+        <Footer />
 
-      {/* Floating Back to Top Button */}
-      <ScrollToTop />
+        {/* Floating Back to Top Button */}
+        <ScrollToTop />
 
-      {/* Global Interactive Resume Modal */}
-      <ResumeModal
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
-      />
-    </div>
+        {/* Global Interactive Resume Modal */}
+        <ResumeModal
+          isOpen={isResumeOpen}
+          onClose={() => setIsResumeOpen(false)}
+        />
+      </div>
+    </ThemeProvider>
   );
 }
 

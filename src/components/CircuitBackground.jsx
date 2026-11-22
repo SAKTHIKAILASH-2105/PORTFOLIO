@@ -1,16 +1,17 @@
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 /**
- * ELECTRIC TITANIUM MECHATRONICS FUSION BACKGROUND
- * Seamlessly integrates:
- * 1. Precision Meshed Mechanical Gears in Titanium Steel & Electric Cobalt Cyan
- * 2. High-Tech PCB Circuit Pathways in High-Voltage Cyan & Gold Micro-Terminals
- * 3. Microchip / IC Stator Footprints & Solder Terminals
- * 4. Flowing Electronic Signal Pulses traveling through circuits and gear hubs
- * 5. Subtle Technical Blueprint Coordinates & Alignment Marks
+ * PRISMATIC MECHATRONICS HYPER-FUSION BACKGROUND
+ * Cohesively combines all 3 themes:
+ * 1. Industrial Copper & Gold (Theme 1): Molten copper meshed gears & brass circuit paths
+ * 2. Royal Burgundy & Crimson (Theme 4): Deep royal burgundy drive wheel, red power nodes, champagne rim
+ * 3. Cyber Lavender & Violet (Theme 5): High-voltage violet planetary gears & cyber signal pulses
+ * 4. Electric Cyan & Matrix Emerald: Real-time telemetry signals & live diagnostics
  */
 export const CircuitBackground = () => {
   const canvasRef = useRef(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,17 +45,31 @@ export const CircuitBackground = () => {
     // 1. GEAR SYSTEM (Synchronously Meshed Mechanical Drive Train)
     // -------------------------------------------------------------
     class Gear {
-      constructor({ x, y, radius, teeth, speed, color = '#00f0ff', cyanRim = true, spokes = 5, hasCoreChip = false }) {
-        this.baseX = x; // fraction of screen width
-        this.baseY = y; // fraction of screen height
+      constructor({
+        x,
+        y,
+        radius,
+        teeth,
+        speed,
+        primaryColor = '#ea7e3b',
+        rimColor = '#fef08a',
+        accentGlow = 'rgba(234, 126, 59, 0.5)',
+        spokes = 6,
+        hasCoreChip = false,
+        themeType = 'copper'
+      }) {
+        this.baseX = x;
+        this.baseY = y;
         this.radius = radius;
         this.teeth = teeth;
         this.speed = speed;
         this.angle = Math.random() * Math.PI * 2;
-        this.color = color;
-        this.cyanRim = cyanRim;
+        this.primaryColor = primaryColor;
+        this.rimColor = rimColor;
+        this.accentGlow = accentGlow;
         this.spokes = spokes;
         this.hasCoreChip = hasCoreChip;
+        this.themeType = themeType;
         this.pulse = 0;
       }
 
@@ -104,20 +119,20 @@ export const CircuitBackground = () => {
         }
         ctx.closePath();
 
-        // Metallic Gear Body Fill (Deep Machine Carbon wash)
-        ctx.fillStyle = 'rgba(16, 20, 30, 0.55)';
+        // Metallic Gear Body Fill (Deep Carbon wash with subtle tint)
+        ctx.fillStyle = 'rgba(12, 11, 20, 0.65)';
         ctx.fill();
 
-        // Gear Outline in Electric Cyan & Titanium Cobalt
-        ctx.strokeStyle = this.cyanRim ? 'rgba(0, 240, 255, 0.7)' : 'rgba(2, 132, 199, 0.5)';
-        ctx.lineWidth = 1.4;
+        // Gear Outline in Signature Theme Color
+        ctx.strokeStyle = this.primaryColor;
+        ctx.lineWidth = 1.6;
         ctx.stroke();
 
-        // --- B. Pitch Circle (Dashed Technical Line in Machine Steel) ---
+        // --- B. Pitch Circle (Dashed Technical Line in Champagne / Gold) ---
         ctx.beginPath();
         ctx.arc(0, 0, pitchRadius, 0, Math.PI * 2);
         ctx.setLineDash([4, 4]);
-        ctx.strokeStyle = 'rgba(226, 232, 240, 0.25)';
+        ctx.strokeStyle = 'rgba(254, 240, 138, 0.3)';
         ctx.lineWidth = 1;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -128,7 +143,7 @@ export const CircuitBackground = () => {
 
         ctx.beginPath();
         ctx.arc(0, 0, innerRimRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(0, 240, 255, 0.35)';
+        ctx.strokeStyle = this.rimColor;
         ctx.lineWidth = 1.2;
         ctx.stroke();
 
@@ -139,15 +154,15 @@ export const CircuitBackground = () => {
             ctx.beginPath();
             ctx.moveTo(Math.cos(sa) * hubRadius, Math.sin(sa) * hubRadius);
             ctx.lineTo(Math.cos(sa) * innerRimRadius, Math.sin(sa) * innerRimRadius);
-            ctx.strokeStyle = this.cyanRim ? 'rgba(0, 240, 255, 0.45)' : 'rgba(2, 132, 199, 0.35)';
+            ctx.strokeStyle = this.primaryColor;
             ctx.lineWidth = 1.6;
             ctx.stroke();
 
-            // Spoke Rivet / Fastener in Pure Platinum
+            // Spoke Rivet / Fastener in Warm Champagne / Platinum
             const midR = (hubRadius + innerRimRadius) * 0.55;
             ctx.beginPath();
             ctx.arc(Math.cos(sa) * midR, Math.sin(sa) * midR, 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = '#f8fafc';
+            ctx.fillStyle = '#fef08a';
             ctx.fill();
           }
         }
@@ -155,18 +170,18 @@ export const CircuitBackground = () => {
         // --- D. Central Hub / Bearing Shaft ---
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(9, 11, 16, 0.95)';
+        ctx.fillStyle = 'rgba(10, 8, 16, 0.95)';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(0, 240, 255, 0.8)';
+        ctx.strokeStyle = this.primaryColor;
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
         // Center Bore Aperture
         ctx.beginPath();
         ctx.arc(0, 0, hubRadius * 0.45, 0, Math.PI * 2);
-        ctx.fillStyle = '#06070a';
+        ctx.fillStyle = '#06070b';
         ctx.fill();
-        ctx.strokeStyle = 'rgba(2, 132, 199, 0.6)';
+        ctx.strokeStyle = this.rimColor;
         ctx.lineWidth = 1;
         ctx.stroke();
 
@@ -174,16 +189,16 @@ export const CircuitBackground = () => {
         if (this.hasCoreChip) {
           const chipSize = hubRadius * 0.6;
           ctx.save();
-          ctx.rotate(-this.angle); // Keep chip upright while gear rotates
-          ctx.fillStyle = '#0a0d14';
+          ctx.rotate(-this.angle);
+          ctx.fillStyle = '#100c1a';
           ctx.fillRect(-chipSize / 2, -chipSize / 2, chipSize, chipSize);
-          ctx.strokeStyle = '#00f0ff';
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = this.primaryColor;
+          ctx.lineWidth = 1.2;
           ctx.strokeRect(-chipSize / 2, -chipSize / 2, chipSize, chipSize);
 
-          // Glowing Core LED Pulse
+          // Glowing Core LED Pulse in Accent Glow
           const pulseAlpha = 0.5 + Math.sin(this.pulse * 3) * 0.4;
-          ctx.fillStyle = `rgba(0, 240, 255, ${pulseAlpha})`;
+          ctx.fillStyle = this.accentGlow.replace('0.5', pulseAlpha.toFixed(2));
           ctx.beginPath();
           ctx.arc(0, 0, chipSize * 0.22, 0, Math.PI * 2);
           ctx.fill();
@@ -194,55 +209,70 @@ export const CircuitBackground = () => {
       }
     }
 
-    // Initialize Gear Trains across screen corners
+    // Initialize 4 Meshed Gears (Combining Copper, Lavender, Burgundy, Champagne)
     const initGears = () => {
       const isMobile = width < 768;
       const baseR = Math.min(width, height) * (isMobile ? 0.18 : 0.13);
 
       return [
-        // Top Right Primary Gear (Meshed with Subsystem 2)
+        // 1. TOP RIGHT PRIMARY GEAR: Industrial Copper & Molten Amber (Theme 1)
         new Gear({
           x: isMobile ? 0.88 : 0.85,
           y: isMobile ? 0.12 : 0.18,
           radius: baseR * 1.15,
           teeth: 24,
           speed: 0.0025,
-          cyanRim: true,
+          primaryColor: '#ea7e3b',
+          rimColor: '#fef08a',
+          accentGlow: 'rgba(234, 126, 59, 0.5)',
           spokes: 6,
-          hasCoreChip: true
+          hasCoreChip: true,
+          themeType: 'copper'
         }),
-        // Top Right Secondary Gear (Meshed Planetary Pinion)
+
+        // 2. TOP RIGHT PLANETARY PINION: Cyber Lavender & Neon Violet (Theme 5)
         new Gear({
           x: isMobile ? 0.98 : 0.94,
           y: isMobile ? 0.25 : 0.32,
           radius: baseR * 0.65,
           teeth: 14,
           speed: -0.0043,
-          cyanRim: false,
+          primaryColor: '#c084fc',
+          rimColor: '#cbd5e1',
+          accentGlow: 'rgba(168, 85, 247, 0.5)',
           spokes: 4,
-          hasCoreChip: false
+          hasCoreChip: false,
+          themeType: 'lavender'
         }),
-        // Bottom Left Compound Gear
+
+        // 3. BOTTOM LEFT DRIVE WHEEL: Royal Burgundy & Crimson (Theme 4)
         new Gear({
           x: isMobile ? 0.1 : 0.12,
           y: isMobile ? 0.85 : 0.82,
           radius: baseR * 1.35,
           teeth: 28,
           speed: -0.002,
-          cyanRim: true,
+          primaryColor: '#be123c',
+          rimColor: '#fef08a',
+          accentGlow: 'rgba(190, 18, 60, 0.5)',
           spokes: 8,
-          hasCoreChip: true
+          hasCoreChip: true,
+          themeType: 'burgundy'
         }),
-        // Bottom Left Meshed Idler Gear
+
+        // 4. BOTTOM LEFT IDLER PINION: Champagne Gold & Brass (Theme 1 & 4)
         new Gear({
           x: isMobile ? 0.24 : 0.23,
           y: isMobile ? 0.72 : 0.69,
           radius: baseR * 0.55,
           teeth: 12,
           speed: 0.0046,
-          cyanRim: false,
+          primaryColor: '#fbbf24',
+          rimColor: '#ea7e3b',
+          accentGlow: 'rgba(251, 191, 36, 0.5)',
           spokes: 4,
-          hasCoreChip: false
+          hasCoreChip: false,
+          themeType: 'champagne'
         }),
       ];
     };
@@ -250,8 +280,16 @@ export const CircuitBackground = () => {
     let gears = initGears();
 
     // -------------------------------------------------------------
-    // 2. CIRCUIT TRACE & IC CHIP SYSTEM
+    // 2. CIRCUIT TRACE & IC CHIP SYSTEM (Multi-Theme Palette)
     // -------------------------------------------------------------
+    const traceColors = [
+      { stroke: 'rgba(234, 126, 59, 0.45)', pad: '#ea7e3b' }, // Copper
+      { stroke: 'rgba(192, 132, 252, 0.45)', pad: '#c084fc' }, // Lavender
+      { stroke: 'rgba(190, 18, 60, 0.45)', pad: '#be123c' },   // Burgundy
+      { stroke: 'rgba(254, 240, 138, 0.45)', pad: '#fef08a' }, // Champagne Gold
+      { stroke: 'rgba(0, 240, 255, 0.4)', pad: '#00f0ff' },    // Electric Cyan
+    ];
+
     class CircuitTrace {
       constructor() {
         this.reset();
@@ -270,7 +308,6 @@ export const CircuitBackground = () => {
           const len = (Math.random() * 80 + 40);
           if (isHorizontal) {
             x += (Math.random() > 0.5 ? 1 : -1) * len;
-            // 45-degree chamfered PCB bend
             const chamfer = 16;
             this.points.push({ x: x - chamfer, y });
             y += (Math.random() > 0.5 ? 1 : -1) * len;
@@ -284,18 +321,10 @@ export const CircuitBackground = () => {
           }
         }
 
-        // Color in Electric Cyan, Cobalt, or Machine Titanium
-        const rand = Math.random();
-        if (rand < 0.6) {
-          this.color = 'rgba(0, 240, 255, 0.4)';
-          this.padColor = '#00f0ff';
-        } else if (rand < 0.85) {
-          this.color = 'rgba(2, 132, 199, 0.35)';
-          this.padColor = '#38bdf8';
-        } else {
-          this.color = 'rgba(245, 158, 11, 0.35)'; // Brass / Gold contact
-          this.padColor = '#fbbf24';
-        }
+        // Assign a color from our multi-theme palette
+        const palette = traceColors[Math.floor(Math.random() * traceColors.length)];
+        this.color = palette.stroke;
+        this.padColor = palette.pad;
 
         this.width = Math.random() > 0.7 ? 1.5 : 1;
         this.hasTerminal = Math.random() > 0.3;
@@ -324,13 +353,13 @@ export const CircuitBackground = () => {
           // Start Solder Pad
           ctx.beginPath();
           ctx.arc(first.x, first.y, 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = '#06070a';
+          ctx.fillStyle = '#06070b';
           ctx.fill();
           ctx.strokeStyle = this.padColor;
           ctx.lineWidth = 1.2;
           ctx.stroke();
 
-          // End Solder Pad (Filled with terminal gold or cyan)
+          // End Solder Pad
           ctx.beginPath();
           ctx.arc(last.x, last.y, 2.5, 0, Math.PI * 2);
           ctx.fillStyle = this.padColor;
@@ -342,7 +371,7 @@ export const CircuitBackground = () => {
     }
 
     // -------------------------------------------------------------
-    // 3. ELECTRONIC SIGNAL PULSE SYSTEM (Flowing Packets)
+    // 3. ELECTRONIC SIGNAL PULSE SYSTEM (Flowing Multi-Color Packets)
     // -------------------------------------------------------------
     class Pulse {
       constructor(trace) {
@@ -351,7 +380,7 @@ export const CircuitBackground = () => {
         this.t = 0;
         this.speed = (Math.random() * 0.012 + 0.008);
         this.size = Math.random() * 2.5 + 2;
-        this.color = trace.padColor || '#00f0ff';
+        this.color = trace.padColor || '#ea7e3b';
         this.dead = false;
       }
 
@@ -377,10 +406,10 @@ export const CircuitBackground = () => {
 
         ctx.save();
 
-        // Electric Glow halo
+        // Multi-tone Glow halo
         const grad = ctx.createRadialGradient(px, py, 0, px, py, this.size * 3.5);
-        grad.addColorStop(0, 'rgba(0, 240, 255, 0.9)');
-        grad.addColorStop(0.5, 'rgba(2, 132, 199, 0.35)');
+        grad.addColorStop(0, this.color);
+        grad.addColorStop(0.6, 'rgba(0, 0, 0, 0.4)');
         grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
         ctx.fillStyle = grad;
@@ -388,7 +417,7 @@ export const CircuitBackground = () => {
         ctx.arc(px, py, this.size * 3.5, 0, Math.PI * 2);
         ctx.fill();
 
-        // High-voltage core pulse
+        // Core pulse spark
         ctx.fillStyle = '#ffffff';
         ctx.beginPath();
         ctx.arc(px, py, this.size * 0.6, 0, Math.PI * 2);
@@ -474,19 +503,18 @@ export const CircuitBackground = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Base Deep Carbon Mechatronics Background */}
-      <div className="absolute inset-0 bg-[#06070a]" />
+      <div className="absolute inset-0 bg-[#06070b]" />
 
-      {/* Electric Cobalt Cyan & Carbon Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_85%_at_50%_-20%,rgba(0,180,216,0.18),rgba(6,7,10,0.98))]" />
+      {/* Multi-Theme Atmospheric Vignettes */}
+      {/* 1. Royal Burgundy Glow (Top-Left Institutional Heritage) */}
+      <div className="absolute -top-[12%] -left-[8%] w-[680px] h-[680px] bg-gradient-to-br from-rose-900/22 via-red-950/14 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Electric Cobalt Glow (Top-Right Mechanical Core) */}
-      <div className="absolute -top-[10%] -right-[5%] w-[650px] h-[650px] bg-gradient-to-br from-cyan-500/18 via-blue-600/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      {/* 2. Industrial Copper Glow (Top-Right Mechanical Core) */}
+      <div className="absolute -top-[10%] -right-[6%] w-[650px] h-[650px] bg-gradient-to-bl from-amber-600/20 via-orange-600/12 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
-      {/* Deep Titanium Carbon Glow (Bottom-Left Electronics Core) */}
-      <div className="absolute -bottom-[15%] -left-[10%] w-[700px] h-[700px] bg-gradient-to-tr from-blue-900/25 via-cyan-900/15 to-transparent rounded-full blur-[150px] pointer-events-none" />
-
-      {/* Center Subtle Electric Cyan Light */}
-      <div className="absolute top-[35%] left-[25%] w-[500px] h-[500px] bg-cyan-400/8 rounded-full blur-[160px] pointer-events-none" />
+      {/* 3. Cyber Lavender & Violet Glow (Center & Bottom-Left Neural Core) */}
+      <div className="absolute top-[35%] left-[25%] w-[550px] h-[550px] bg-purple-600/12 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute -bottom-[15%] -left-[5%] w-[700px] h-[700px] bg-gradient-to-tr from-violet-900/24 via-purple-950/14 to-transparent rounded-full blur-[150px] pointer-events-none" />
 
       {/* HTML5 Canvas (Electro-Mechanical Fusion Layer) */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-85" />

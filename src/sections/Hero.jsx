@@ -24,11 +24,12 @@ import { TiltCard } from '../components/TiltCard';
 /**
  * ELECTRO-MECHANICAL 3D ANIMATED HERO SECTION
  * High-impact Mechatronics Landing Experience:
+ * - Prismatic Hyper-Fusion Color Combination (Burgundy + Lavender + Copper + Champagne)
  * - Full 3D Interactive Perspective Depth on all cards and metric boxes
  * - Spatial Z-axis multi-layer parallax on the Core HUD
  * - Live Subsystem Telemetry Switcher (Mech-CAD / Silicon-VLSI / Embedded-DSP)
  * - Real-time Simulated DSP / Oscilloscope Waveform
- * - Tactile "Engage System Pulse" Micro-interaction
+ * - Tactile "Transmit Core Signal" Micro-interaction
  * - Continuous Mechatronics Telemetry Ticker Bar
  */
 export const Hero = ({ onOpenResume }) => {
@@ -65,7 +66,7 @@ export const Hero = ({ onOpenResume }) => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotX = ((y - centerY) / centerY) * -12; // Max tilt 12 deg
+    const rotX = ((y - centerY) / centerY) * -12;
     const rotY = ((x - centerX) / centerX) * 12;
 
     setRotateX(rotX);
@@ -111,43 +112,43 @@ export const Hero = ({ onOpenResume }) => {
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, roleIndex]);
 
-  // Subsystem Telemetry Data
+  // Subsystem Telemetry Data with distinctive theme signatures
   const telemetryData = {
     mech: {
       title: "MECHANICAL & CAD ARCHITECTURE",
       badge: "CAD // KINEMATICS",
       color: "copper",
-      icon: <Box className="w-4 h-4 text-copper-400" />,
+      icon: <Box className="w-4 h-4 text-amber-400" />,
       specs: [
         { label: "PARAMETRIC CAD", val: "Autodesk Fusion 360 & SolidWorks" },
         { label: "PRECISION ASSEMBLED", val: "7 Verified 3D CAD Enclosures" },
         { label: "KINEMATICS & TOLERANCE", val: "±0.05mm Fit & Flange Clearances" },
       ],
-      waveformColor: "#00f0ff",
+      waveformColor: "#ea7e3b",
     },
     vlsi: {
       title: "DIGITAL SILICON & RTL DESIGN",
       badge: "VLSI // HARDWARE HDL",
-      color: "cyan",
-      icon: <Cpu className="w-4 h-4 text-cyber-neon" />,
+      color: "lavender",
+      icon: <Cpu className="w-4 h-4 text-purple-400" />,
       specs: [
         { label: "HDL LANGUAGE", val: "Verilog HDL (Synthesizable RTL)" },
         { label: "DIGITAL LOGIC", val: "FSM State Machines & ALU Pipelines" },
         { label: "TARGET FREQUENCY", val: "Synchronous 240MHz Clock Domains" },
       ],
-      waveformColor: "#38bdf8",
+      waveformColor: "#c084fc",
     },
     embedded: {
       title: "EMBEDDED FIRMWARE & DSP SYSTEMS",
       badge: "FIRMWARE // I2S DSP",
-      color: "emerald",
-      icon: <Zap className="w-4 h-4 text-emerald-400" />,
+      color: "burgundy",
+      icon: <Zap className="w-4 h-4 text-rose-400" />,
       specs: [
         { label: "MICROCONTROLLER", val: "ESP32 / ESP32-S3 Dual Tensilica Core" },
         { label: "DIGITAL SIGNAL DSP", val: "I2S Microphones & Noise Filtering" },
         { label: "SENSOR INTEGRATION", val: "MPU6050 6-DOF IMU & Ultrasonic Bus" },
       ],
-      waveformColor: "#10b981",
+      waveformColor: "#be123c",
     },
   };
 
@@ -166,39 +167,46 @@ export const Hero = ({ onOpenResume }) => {
           className="w-full h-full object-cover object-right lg:object-center opacity-30 filter contrast-125 brightness-95"
         />
         {/* Multilayer gradient vignettes so text and cards pop with crystal clarity */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06070a] via-[#06070a]/90 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06070a] via-transparent to-[#06070a]/95" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(0,240,255,0.12),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06070b] via-[#06070b]/92 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06070b] via-transparent to-[#06070b]/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(234,126,59,0.15),rgba(192,132,252,0.08),transparent_70%)]" />
       </div>
 
       {/* Top Grid & Crosshair Alignment Watermarks */}
       <div className="absolute top-20 left-6 text-[9px] font-mono text-titanium-500/60 pointer-events-none hidden md:block select-none z-10">
         <div>[SYS_LATITUDE: 13.0827° N // CHENNAI_NODE]</div>
-        <div>CALIBRATION: MECHATRONICS FUSION // DUAL_BUS</div>
+        <div>CALIBRATION: PRISMATIC FUSION // DUAL_BUS</div>
       </div>
       <div className="absolute top-20 right-6 text-[9px] font-mono text-titanium-500/60 pointer-events-none hidden md:block text-right select-none z-10">
         <div>ENG_IDENTITY: SAKTHI_KAILASH</div>
-        <div>STATUS: ALL 6-AXIS ACTUATORS ONLINE</div>
+        <div>DEGREE_CYCLE: 2025 – 2029</div>
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10 my-auto">
+      {/* Main Grid Content (Hero Split Layout) */}
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center flex-1 my-auto relative z-10">
         {/* ======================================================== */}
-        {/* LEFT COLUMN: Strategic Identity, Bio & CTAs (7 cols)    */}
+        {/* LEFT COLUMN: Narrative & Engineering Credentials (7 cols)*/}
         {/* ======================================================== */}
-        <div className="lg:col-span-7 text-left space-y-6">
-          {/* Mechatronics Engineering Theme Capsule Badge */}
+        <div className="lg:col-span-7 space-y-6 pt-4">
+          {/* Top Prismatic Theme Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-copper-950/90 via-graphite-900 to-copper-950/90 border border-copper-500/50 text-xs font-mono shadow-[0_0_20px_rgba(0,240,255,0.3)]"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-950/80 via-purple-950/60 to-rose-950/80 border border-amber-500/40 text-xs font-mono shadow-[0_0_20px_rgba(234,126,59,0.3)]"
           >
-            <span className="w-2 h-2 rounded-full bg-copper-400 animate-pulse shadow-[0_0_8px_#00f0ff]" />
+            {/* Multi-swatch color dots */}
+            <div className="flex items-center -space-x-1">
+              <span className="w-2 h-2 rounded-full bg-amber-400 ring-1 ring-black" />
+              <span className="w-2 h-2 rounded-full bg-rose-500 ring-1 ring-black" />
+              <span className="w-2 h-2 rounded-full bg-purple-400 ring-1 ring-black" />
+              <span className="w-2 h-2 rounded-full bg-yellow-200 ring-1 ring-black" />
+            </div>
             <span className="text-white font-bold tracking-wide">
-              Mechatronics Engineering Edition
+              Prismatic Mechatronics Fusion
             </span>
-            <span className="text-cream-300 font-mono text-[11px] hidden sm:inline">
-              (Titanium Carbon + Electric Cyan)
+            <span className="text-amber-200 font-mono text-[11px] hidden sm:inline">
+              (Burgundy • Lavender • Copper)
             </span>
           </motion.div>
 
@@ -210,19 +218,19 @@ export const Hero = ({ onOpenResume }) => {
             className="flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-titanium-800/80"
           >
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-copper-500/10 border border-copper-500/30 text-copper-400 shadow-xs">
+              <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 shadow-xs">
                 <Cog className="w-5 h-5 animate-spin [animation-duration:12s]" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm sm:text-base font-bold font-display text-white tracking-wider uppercase">
                   RATHINAM TECHNICAL CAMPUS
                 </span>
-                <span className="text-[10px] font-mono text-copper-300 tracking-wider">
+                <span className="text-[10px] font-mono text-amber-300 tracking-wider">
                   DEPARTMENT OF MECHATRONICS ENGINEERING
                 </span>
               </div>
             </div>
-            <div className="text-[11px] font-mono text-cream-200 tracking-widest uppercase px-3 py-1 rounded-lg bg-graphite-900/90 border border-titanium-700/60 shadow-xs">
+            <div className="text-[11px] font-mono text-amber-200 tracking-widest uppercase px-3 py-1 rounded-lg bg-graphite-900/90 border border-titanium-700/60 shadow-xs">
               Innovate • Design • Build
             </div>
           </motion.div>
@@ -235,24 +243,24 @@ export const Hero = ({ onOpenResume }) => {
             className="space-y-3"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display tracking-tight leading-[1.08]">
-              <span className="block text-cream-100 font-display">
+              <span className="block text-white font-display">
                 MECHATRONICS
               </span>
               <span className="relative inline-block mt-1">
-                <span className="bg-gradient-to-r from-copper-400 via-cream-200 to-copper-500 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(234,126,59,0.5)]">
+                <span className="bg-gradient-to-r from-amber-400 via-rose-500 via-purple-400 to-amber-200 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(234,126,59,0.55)]">
                   PORTFOLIO
                 </span>
                 {/* Underline circuit trace accent */}
-                <span className="absolute left-0 -bottom-1 w-full h-[2.5px] bg-gradient-to-r from-copper-500 via-cream-300 to-transparent shadow-[0_0_10px_#ea7e3b]" />
+                <span className="absolute left-0 -bottom-1 w-full h-[2.5px] bg-gradient-to-r from-amber-500 via-rose-600 via-purple-500 to-transparent shadow-[0_0_12px_#ea7e3b]" />
               </span>
             </h1>
 
-            <p className="text-base sm:text-xl font-display text-cream-200 font-medium tracking-wide">
+            <p className="text-base sm:text-xl font-display text-amber-100 font-medium tracking-wide">
               Engineering Intelligence for a Smarter Tomorrow
             </p>
 
-            <div className="pt-1 flex items-center gap-2 text-copper-300 font-serif italic text-base sm:text-lg">
-              <Sparkles className="w-4 h-4 text-copper-400 shrink-0" />
+            <div className="pt-1 flex items-center gap-2 text-amber-300 font-serif italic text-base sm:text-lg">
+              <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
               <span>"Dream Big... Build Bigger..."</span>
             </div>
           </motion.div>
@@ -262,14 +270,14 @@ export const Hero = ({ onOpenResume }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-2.5 text-base sm:text-xl font-mono text-cyber-cyan min-h-[34px]"
+            className="flex items-center gap-2.5 text-base sm:text-xl font-mono text-amber-300 min-h-[34px]"
           >
             <div className="w-6 h-6 rounded-md bg-graphite-900 border border-titanium-700 flex items-center justify-center shrink-0">
-              <Terminal className="w-3.5 h-3.5 text-copper-400" />
+              <Terminal className="w-3.5 h-3.5 text-amber-400" />
             </div>
             <span className="font-medium text-slate-200">
               {displayText}
-              <span className="inline-block w-2 h-5 bg-copper-400 ml-1 animate-pulse align-middle" />
+              <span className="inline-block w-2 h-5 bg-amber-400 ml-1 animate-pulse align-middle" />
             </span>
           </motion.div>
 
@@ -282,12 +290,12 @@ export const Hero = ({ onOpenResume }) => {
           >
             <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-mono text-slate-300">
               <span className="px-3 py-1 rounded-md bg-graphite-900 border border-titanium-700 text-metallic-silver shadow-xs flex items-center gap-1.5">
-                <Box className="w-3 h-3 text-copper-400" />
+                <Box className="w-3 h-3 text-amber-400" />
                 Mechatronics Engineering Student
               </span>
-              <span className="text-copper-400">•</span>
+              <span className="text-amber-400">•</span>
               <span className="px-3 py-1 rounded-md bg-graphite-900 border border-titanium-700 text-metallic-silver shadow-xs flex items-center gap-1.5">
-                <Cpu className="w-3 h-3 text-cyber-neon" />
+                <Cpu className="w-3 h-3 text-purple-400" />
                 Aspiring VLSI & Electronics Engineer
               </span>
             </div>
@@ -305,12 +313,12 @@ export const Hero = ({ onOpenResume }) => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="pt-2 flex flex-wrap items-center gap-4"
           >
-            {/* View Projects Button (Electro-Mechanical High-Impact Glow) */}
+            {/* View Projects Button */}
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.96 }}
-              className="relative group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-copper-500 via-amber-500 to-copper-600 text-white font-bold font-mono text-sm shadow-[0_0_25px_rgba(234,126,59,0.45)] hover:shadow-[0_0_35px_rgba(234,126,59,0.65)] transition-all duration-300 overflow-hidden cursor-pointer"
+              className="relative group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-rose-600 to-purple-600 text-white font-bold font-mono text-sm shadow-[0_0_25px_rgba(234,126,59,0.45)] hover:shadow-[0_0_35px_rgba(192,132,252,0.65)] transition-all duration-300 overflow-hidden cursor-pointer"
             >
               {/* Shiny reflection beam */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out" />
@@ -318,14 +326,14 @@ export const Hero = ({ onOpenResume }) => {
               <ChevronRight className="w-4 h-4 relative z-10 group-hover:translate-x-0.5 transition-transform" />
             </motion.a>
 
-            {/* Download Resume Button (Metallic Bevel) */}
+            {/* Download Resume Button */}
             <motion.button
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.96 }}
               onClick={onOpenResume}
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-graphite-900/90 hover:bg-titanium-850 text-metallic-silver hover:text-white font-mono text-sm font-semibold border border-titanium-700 hover:border-copper-500/60 shadow-md transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-graphite-900/90 hover:bg-titanium-850 text-metallic-silver hover:text-white font-mono text-sm font-semibold border border-titanium-700 hover:border-amber-500/60 shadow-md transition-all duration-200 cursor-pointer"
             >
-              <FileText className="w-4 h-4 text-copper-400" />
+              <FileText className="w-4 h-4 text-amber-400" />
               <span>Download Resume</span>
             </motion.button>
 
@@ -337,7 +345,7 @@ export const Hero = ({ onOpenResume }) => {
                 href={personalInfo.socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-copper-400 hover:border-copper-500/60 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
+                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-amber-400 hover:border-amber-500/60 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
                 aria-label="GitHub Profile"
               >
                 <Github className="w-5 h-5" />
@@ -348,7 +356,7 @@ export const Hero = ({ onOpenResume }) => {
                 href={personalInfo.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-copper-400 hover:border-copper-500/60 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
+                className="p-3 rounded-xl bg-graphite-900 border border-titanium-700 text-slate-400 hover:text-amber-400 hover:border-amber-500/60 hover:shadow-[0_0_15px_rgba(234,126,59,0.35)] transition-all"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-5 h-5" />
@@ -364,8 +372,8 @@ export const Hero = ({ onOpenResume }) => {
             className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl"
           >
             <TiltCard maxTilt={14} scale={1.05}>
-              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-copper-500/50 transition-colors">
-                <span className="text-xl font-bold font-display text-white block">04+</span>
+              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-amber-500/50 transition-colors">
+                <span className="text-xl font-bold font-display text-amber-400 block">04+</span>
                 <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
                   Prototypes
                 </span>
@@ -373,8 +381,8 @@ export const Hero = ({ onOpenResume }) => {
             </TiltCard>
 
             <TiltCard maxTilt={14} scale={1.05}>
-              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-copper-500/50 transition-colors">
-                <span className="text-xl font-bold font-display text-copper-400 block">07</span>
+              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-purple-500/50 transition-colors">
+                <span className="text-xl font-bold font-display text-purple-400 block">07</span>
                 <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
                   3D CAD Models
                 </span>
@@ -382,8 +390,8 @@ export const Hero = ({ onOpenResume }) => {
             </TiltCard>
 
             <TiltCard maxTilt={14} scale={1.05}>
-              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-cyber-cyan/50 transition-colors">
-                <span className="text-xl font-bold font-display text-cyber-neon block">02</span>
+              <div className="p-3 rounded-xl bg-graphite-900/90 border border-titanium-800 shadow-inner group-hover:border-rose-500/50 transition-colors">
+                <span className="text-xl font-bold font-display text-rose-400 block">02</span>
                 <span className="text-[10px] font-mono text-metallic-steel uppercase tracking-wider">
                   NPTEL IIT Certs
                 </span>
@@ -412,7 +420,7 @@ export const Hero = ({ onOpenResume }) => {
         >
           {/* Outer Multi-Layered Rotating Involute Gear Aperture */}
           <div className="relative w-full max-w-[340px] sm:max-w-[420px] h-[480px] sm:h-[530px] flex items-center justify-center">
-            {/* Spinning Mechanical Gear Ring (Laser-Cut Involute Teeth) */}
+            {/* Spinning Mechanical Gear Ring */}
             <svg
               className="absolute inset-0 w-full h-full animate-gear-slow pointer-events-none opacity-25"
               viewBox="0 0 400 400"
@@ -421,7 +429,7 @@ export const Hero = ({ onOpenResume }) => {
                 cx="200"
                 cy="200"
                 r="180"
-                stroke="#00f0ff"
+                stroke="#ea7e3b"
                 strokeWidth="1.5"
                 strokeDasharray="6 8"
                 fill="none"
@@ -430,7 +438,7 @@ export const Hero = ({ onOpenResume }) => {
                 cx="200"
                 cy="200"
                 r="165"
-                stroke="#38bdf8"
+                stroke="#c084fc"
                 strokeWidth="1"
                 strokeDasharray="2 6"
                 fill="none"
@@ -443,61 +451,60 @@ export const Hero = ({ onOpenResume }) => {
                   y1="15"
                   x2="200"
                   y2="28"
-                  stroke="#00f0ff"
+                  stroke={i % 2 === 0 ? "#ea7e3b" : "#c084fc"}
                   strokeWidth="2"
                   transform={`rotate(${i * 30} 200 200)`}
                 />
               ))}
             </svg>
 
-            {/* Counter-Spinning PCB Circuit Telemetry Ring */}
-            <div className="absolute inset-6 rounded-full border border-dotted border-cyber-cyan/35 animate-gear-reverse pointer-events-none" />
+            {/* Inner Counter-Rotating Gear Ring */}
+            <svg
+              className="absolute inset-0 w-full h-full animate-gear-reverse pointer-events-none opacity-20"
+              viewBox="0 0 400 400"
+            >
+              <circle
+                cx="200"
+                cy="200"
+                r="140"
+                stroke="#be123c"
+                strokeWidth="1.2"
+                strokeDasharray="4 6"
+                fill="none"
+              />
+            </svg>
 
-            {/* Radial Energy Field */}
-            <div
-              className={`absolute inset-10 rounded-full blur-3xl transition-colors duration-500 pointer-events-none ${
-                activeSubsystem === 'mech'
-                  ? 'bg-copper-500/15'
-                  : activeSubsystem === 'vlsi'
-                  ? 'bg-cyber-cyan/15'
-                  : 'bg-emerald-500/15'
-              }`}
-            />
-
-            {/* ---------------------------------------------------- */}
-            {/* 3D Interactive Tilting Mechatronics Chassis Card     */}
-            {/* ---------------------------------------------------- */}
+            {/* 3D TILT CORE CHASSIS HUD BOX */}
             <div
               ref={cardRef}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{
                 transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-                transformStyle: 'preserve-3d',
                 transition: 'transform 0.15s ease-out',
               }}
-              className="relative w-full max-w-[360px] sm:max-w-[390px] rounded-2xl p-5 sm:p-6 bg-gradient-to-b from-graphite-900/98 via-graphite-900/95 to-graphite-950/98 border border-titanium-700 shadow-[0_16px_50px_rgba(0,0,0,0.8)] backdrop-blur-2xl flex flex-col justify-between overflow-hidden cursor-crosshair group"
+              className="relative w-full max-w-[320px] sm:max-w-[380px] p-5 sm:p-6 rounded-3xl bg-[#090b14]/90 backdrop-blur-2xl border border-amber-500/40 shadow-[0_20px_60px_rgba(0,0,0,0.85)] preserve-3d"
             >
-              {/* Dynamic Glint Sheen overlay following cursor */}
+              {/* Dynamic Specular Glint */}
               <div
-                className="absolute inset-0 pointer-events-none opacity-40 transition-opacity duration-300"
+                className="absolute inset-0 rounded-3xl pointer-events-none opacity-40 transition-opacity"
                 style={{
-                  background: `radial-gradient(circle at ${glintPos.x}% ${glintPos.y}%, rgba(0, 240, 255, 0.25) 0%, transparent 60%)`,
+                  background: `radial-gradient(circle at ${glintPos.x}% ${glintPos.y}%, rgba(254,240,138,0.25), transparent 60%)`,
                 }}
               />
 
-              {/* Brass Corner Fastener Rivets */}
-              <span className="absolute top-2.5 left-2.5 w-2 h-2 rounded-full bg-gradient-to-br from-copper-300 to-copper-600 shadow-xs border border-copper-700/60" />
-              <span className="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-gradient-to-br from-copper-300 to-copper-600 shadow-xs border border-copper-700/60" />
-              <span className="absolute bottom-2.5 left-2.5 w-2 h-2 rounded-full bg-gradient-to-br from-copper-300 to-copper-600 shadow-xs border border-copper-700/60" />
-              <span className="absolute bottom-2.5 right-2.5 w-2 h-2 rounded-full bg-gradient-to-br from-copper-300 to-copper-600 shadow-xs border border-copper-700/60" />
+              {/* Four Industrial Precision Corner Fasteners */}
+              <div className="absolute top-2.5 left-2.5 mech-rivet" />
+              <div className="absolute top-2.5 right-2.5 mech-rivet" />
+              <div className="absolute bottom-2.5 left-2.5 mech-rivet" />
+              <div className="absolute bottom-2.5 right-2.5 mech-rivet" />
 
-              {/* CARD HEADER: Telemetry Status & System Mode Indicator (3D Popout) */}
+              {/* HUD Header Bar */}
               <div 
                 style={{ transform: 'translateZ(15px)' }}
-                className="flex items-center justify-between pb-3 border-b border-titanium-800 text-[10px] font-mono preserve-3d"
+                className="flex items-center justify-between pb-2.5 border-b border-titanium-800 text-[10px] font-mono preserve-3d"
               >
-                <div className="flex items-center gap-1.5 text-copper-400 font-semibold">
+                <div className="flex items-center gap-1.5 text-amber-400 font-semibold">
                   <Cog className="w-3.5 h-3.5 animate-spin [animation-duration:10s]" />
                   <span>CORE_REACTOR // ID_2105</span>
                 </div>
@@ -512,7 +519,7 @@ export const Hero = ({ onOpenResume }) => {
                 style={{ transform: 'translateZ(25px)' }}
                 className="relative my-3 text-center preserve-3d"
               >
-                <div className="relative mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-graphite-950 border-2 border-copper-500/60 p-1.5 shadow-[0_0_28px_rgba(234,126,59,0.35)] flex items-center justify-center group overflow-hidden">
+                <div className="relative mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-graphite-950 border-2 border-amber-500/60 p-1.5 shadow-[0_0_28px_rgba(234,126,59,0.35)] flex items-center justify-center group overflow-hidden">
                   {/* Real Portrait Image */}
                   <img
                     src={personalInfo.profileImage || "/profile.jpg"}
@@ -521,10 +528,10 @@ export const Hero = ({ onOpenResume }) => {
                   />
 
                   {/* High-tech HUD Reticle Overlay */}
-                  <div className="absolute inset-0 border border-copper-400/20 rounded-xl pointer-events-none" />
+                  <div className="absolute inset-0 border border-amber-400/20 rounded-xl pointer-events-none" />
 
                   {/* Corner Badge Tag */}
-                  <div className="absolute bottom-1 right-1 z-20 px-1.5 py-0.5 rounded bg-graphite-950/90 border border-copper-500/50 text-[8px] font-mono text-copper-400 font-semibold">
+                  <div className="absolute bottom-1 right-1 z-20 px-1.5 py-0.5 rounded bg-graphite-950/90 border border-amber-500/50 text-[8px] font-mono text-amber-400 font-semibold">
                     MECHATRONICS
                   </div>
 
@@ -533,7 +540,7 @@ export const Hero = ({ onOpenResume }) => {
                     {[1, 2, 3, 4, 5].map((i) => (
                       <span
                         key={i}
-                        className="w-1 h-1 bg-copper-400 rounded-xs shadow-[0_0_4px_#ea7e3b]"
+                        className="w-1 h-1 bg-amber-400 rounded-xs shadow-[0_0_4px_#ea7e3b]"
                       />
                     ))}
                   </div>
@@ -541,7 +548,7 @@ export const Hero = ({ onOpenResume }) => {
                     {[1, 2, 3, 4, 5].map((i) => (
                       <span
                         key={i}
-                        className="w-1 h-1 bg-copper-400 rounded-xs shadow-[0_0_4px_#ea7e3b]"
+                        className="w-1 h-1 bg-amber-400 rounded-xs shadow-[0_0_4px_#ea7e3b]"
                       />
                     ))}
                   </div>
@@ -552,9 +559,9 @@ export const Hero = ({ onOpenResume }) => {
                   <h3 className="font-display font-bold text-lg text-white">
                     Sakthi Kailash
                   </h3>
-                  <p className="text-[11px] font-mono text-copper-400 flex items-center justify-center gap-1.5 mt-0.5">
+                  <p className="text-[11px] font-mono text-amber-400 flex items-center justify-center gap-1.5 mt-0.5">
                     <span>MECHATRONICS</span>
-                    <span className="text-cyber-cyan">•</span>
+                    <span className="text-purple-400">•</span>
                     <span>VLSI & EMBEDDED</span>
                   </p>
                 </div>
@@ -567,10 +574,10 @@ export const Hero = ({ onOpenResume }) => {
               >
                 <div className="flex items-center justify-between text-[9px] font-mono text-metallic-steel mb-1">
                   <span className="flex items-center gap-1">
-                    <Activity className="w-3 h-3 text-copper-400" />
+                    <Activity className="w-3 h-3 text-amber-400" />
                     SIGNAL PIPELINE // 48kHz I2S
                   </span>
-                  <span className="text-copper-400 font-semibold">
+                  <span className="text-amber-400 font-semibold">
                     {isPulsing ? "SURGE: 100%" : "PEAK: 0.94dB"}
                   </span>
                 </div>
@@ -603,7 +610,7 @@ export const Hero = ({ onOpenResume }) => {
               >
                 <div className="flex items-center justify-between text-[10px] font-mono text-metallic-steel mb-1.5 uppercase">
                   <span>SELECT ACTIVE SUBSYSTEM:</span>
-                  <span className="text-copper-400">CLICK_TO_PROBE</span>
+                  <span className="text-amber-400">CLICK_TO_PROBE</span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-1.5">
@@ -613,7 +620,7 @@ export const Hero = ({ onOpenResume }) => {
                     onClick={() => setActiveSubsystem('mech')}
                     className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
                       activeSubsystem === 'mech'
-                        ? 'bg-copper-500/20 border-copper-500 text-copper-300 shadow-[0_0_12px_rgba(234,126,59,0.45)] font-bold'
+                        ? 'bg-amber-500/25 border-amber-500 text-amber-300 shadow-[0_0_12px_rgba(234,126,59,0.45)] font-bold'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
@@ -627,7 +634,7 @@ export const Hero = ({ onOpenResume }) => {
                     onClick={() => setActiveSubsystem('vlsi')}
                     className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
                       activeSubsystem === 'vlsi'
-                        ? 'bg-copper-400/25 border-copper-400 text-cream-200 shadow-[0_0_12px_rgba(234,126,59,0.45)] font-bold'
+                        ? 'bg-purple-500/25 border-purple-400 text-purple-200 shadow-[0_0_12px_rgba(168,85,247,0.45)] font-bold'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
@@ -641,7 +648,7 @@ export const Hero = ({ onOpenResume }) => {
                     onClick={() => setActiveSubsystem('embedded')}
                     className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
                       activeSubsystem === 'embedded'
-                        ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.35)] font-bold'
+                        ? 'bg-rose-500/25 border-rose-500 text-rose-300 shadow-[0_0_12px_rgba(190,18,60,0.45)] font-bold'
                         : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
                     }`}
                   >
@@ -676,7 +683,7 @@ export const Hero = ({ onOpenResume }) => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* TACTILE MICRO-INTERACTION BUTTON: TRIGGER HARDWARE PULSE (3D Popout) */}
+              {/* TACTILE MICRO-INTERACTION BUTTON: TRANSMIT CORE SIGNAL (3D Popout) */}
               <div 
                 style={{ transform: 'translateZ(24px)' }}
                 className="pt-3 preserve-3d"
@@ -687,8 +694,8 @@ export const Hero = ({ onOpenResume }) => {
                   onClick={triggerSystemPulse}
                   className={`w-full py-2 px-3 rounded-xl border text-[11px] font-mono font-bold flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer ${
                     isPulsing
-                      ? 'bg-copper-500 text-white border-copper-400 shadow-[0_0_20px_#ea7e3b]'
-                      : 'bg-titanium-850 hover:bg-copper-600 text-copper-400 hover:text-white border-copper-500/40 hover:border-copper-400'
+                      ? 'bg-amber-500 text-white border-amber-400 shadow-[0_0_20px_#ea7e3b]'
+                      : 'bg-titanium-850 hover:bg-amber-600 text-amber-400 hover:text-white border-amber-500/40 hover:border-amber-400'
                   }`}
                 >
                   <Sparkles className={`w-3.5 h-3.5 ${isPulsing ? 'animate-spin' : ''}`} />
@@ -709,8 +716,8 @@ export const Hero = ({ onOpenResume }) => {
       {/* ======================================================== */}
       <div className="relative mt-10 pt-4 border-t border-titanium-800/80 overflow-hidden">
         <div className="flex items-center gap-6 whitespace-nowrap text-[11px] font-mono text-metallic-steel animate-scanline">
-          <span className="flex items-center gap-2 text-copper-400 font-semibold">
-            <span className="w-1.5 h-1.5 rounded-full bg-copper-400 animate-ping" />
+          <span className="flex items-center gap-2 text-amber-400 font-semibold">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
             LIVE TELEMETRY
           </span>
           <span>•</span>
@@ -719,11 +726,11 @@ export const Hero = ({ onOpenResume }) => {
           </span>
           <span>•</span>
           <span>
-            SILICON: <strong className="text-cyber-neon">VERILOG HDL & RTL DESIGN</strong>
+            SILICON: <strong className="text-purple-400">VERILOG HDL & RTL DESIGN</strong>
           </span>
           <span>•</span>
           <span>
-            FIRMWARE: <strong className="text-copper-400">ESP32-S3 / I2S AUDIO DSP</strong>
+            FIRMWARE: <strong className="text-rose-400">ESP32-S3 / I2S AUDIO DSP</strong>
           </span>
           <span>•</span>
           <span>
@@ -735,7 +742,7 @@ export const Hero = ({ onOpenResume }) => {
           </span>
           <span>•</span>
           <span>
-            LOCATION: <strong className="text-slate-300">INDIA</strong>
+            DEGREE: <strong className="text-slate-300">2025 – 2029</strong>
           </span>
         </div>
       </div>
@@ -745,7 +752,7 @@ export const Hero = ({ onOpenResume }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="mx-auto mt-4 flex flex-col items-center gap-1.5 cursor-pointer text-metallic-steel hover:text-copper-400 transition-colors z-20"
+        className="mx-auto mt-4 flex flex-col items-center gap-1.5 cursor-pointer text-metallic-steel hover:text-amber-400 transition-colors z-20"
         onClick={() => {
           document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
         }}
@@ -757,7 +764,7 @@ export const Hero = ({ onOpenResume }) => {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-1 h-1.5 rounded-full bg-copper-400"
+            className="w-1 h-1.5 rounded-full bg-amber-400"
           />
         </div>
       </motion.div>

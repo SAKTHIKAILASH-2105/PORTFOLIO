@@ -5,124 +5,194 @@
 :root {
   color-scheme: dark;
   font-family: 'Times New Roman', Times, 'Liberation Serif', serif;
+  
+  /* Primary Fusion Tokens (Burgundy + Lavender + Copper) */
+  --theme-primary: #ea7e3b;
+  --theme-secondary: #c084fc;
+  --theme-accent: #be123c;
+  --theme-champagne: #fef08a;
+  --theme-bg-base: #06070b;
+}
+
+[data-theme="burgundy"] {
+  --theme-primary: #be123c;
+  --theme-secondary: #9f1239;
+  --theme-accent: #fef08a;
+  --theme-champagne: #fef08a;
+  --theme-bg-base: #0a0407;
+}
+
+[data-theme="lavender"] {
+  --theme-primary: #c084fc;
+  --theme-secondary: #a855f7;
+  --theme-accent: #7e22ce;
+  --theme-champagne: #e9d5ff;
+  --theme-bg-base: #08060f;
+}
+
+[data-theme="copper"] {
+  --theme-primary: #ea7e3b;
+  --theme-secondary: #f59e0b;
+  --theme-accent: #fbbf24;
+  --theme-champagne: #fef3c7;
+  --theme-bg-base: #07070a;
 }
 
 body, button, input, select, textarea, p, h1, h2, h3, h4, h5, h6, span, a, label {
   font-family: 'Times New Roman', Times, 'Liberation Serif', serif;
 }
 
-/* Electric Titanium Mechatronics Scrollbar */
+/* Hyper-Fusion Prismatic Mechatronics Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #06070a;
+  background: #06070b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a2232;
+  background: linear-gradient(180deg, #ea7e3b 0%, #be123c 50%, #a855f7 100%);
   border-radius: 4px;
-  border: 1px solid rgba(0, 240, 255, 0.35);
+  border: 1px solid rgba(254, 240, 138, 0.25);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
-  box-shadow: 0 0 14px rgba(0, 240, 255, 0.8);
+  background: linear-gradient(180deg, #f97316 0%, #e11d48 50%, #c084fc 100%);
+  box-shadow: 0 0 14px rgba(234, 126, 59, 0.7);
 }
 
-/* Selection: High-Voltage Electric Cyan & Crisp Machine Titanium */
+/* Prismatic Selection */
 ::selection {
-  background-color: rgba(0, 240, 255, 0.45);
+  background-color: rgba(168, 85, 247, 0.45);
   color: #ffffff;
 }
 
-/* Industrial Mechatronics Glass Panels with Electric Cyan Borders */
+/* Multi-Stop Hyper-Fusion Text Gradients */
+.text-fusion-gradient {
+  background: linear-gradient(135deg, #ea7e3b 0%, #fbbf24 25%, #be123c 55%, #c084fc 80%, #fef08a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-copper-gradient {
+  background: linear-gradient(135deg, #ea7e3b 0%, #fbbf24 50%, #fef08a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-burgundy-gradient {
+  background: linear-gradient(135deg, #be123c 0%, #e11d48 50%, #fef08a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-lavender-gradient {
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #f8fafc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass Panels with Prismatic Fusion Trims */
 .glass-panel {
-  background: linear-gradient(135deg, rgba(16, 22, 34, 0.9) 0%, rgba(9, 12, 18, 0.98) 100%);
+  background: linear-gradient(135deg, rgba(20, 16, 28, 0.92) 0%, rgba(9, 10, 17, 0.98) 100%);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(0, 240, 255, 0.35);
-  box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(226, 232, 240, 0.2);
+  border: 1px solid rgba(192, 132, 252, 0.28);
+  box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(254, 240, 138, 0.2);
 }
 
 .glass-panel:hover {
-  border-color: rgba(0, 240, 255, 0.7);
-  box-shadow: 0 14px 44px 0 rgba(0, 240, 255, 0.35), inset 0 1px 0 0 rgba(0, 240, 255, 0.35);
+  border-color: rgba(234, 126, 59, 0.6);
+  box-shadow: 0 14px 44px 0 rgba(234, 126, 59, 0.25), inset 0 1px 0 0 rgba(192, 132, 252, 0.35);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(15, 20, 30, 0.92) 0%, rgba(8, 10, 15, 0.98) 100%);
+  background: linear-gradient(135deg, rgba(18, 14, 25, 0.92) 0%, rgba(8, 9, 15, 0.98) 100%);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(226, 232, 240, 0.18);
+  border: 1px solid rgba(192, 132, 252, 0.22);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(254, 240, 138, 0.18);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(0, 240, 255, 0.75);
-  box-shadow: 0 12px 36px -8px rgba(0, 240, 255, 0.5), 0 0 18px -3px rgba(0, 240, 255, 0.4);
+  border-color: rgba(234, 126, 59, 0.65);
+  box-shadow: 0 12px 36px -8px rgba(168, 85, 247, 0.4), 0 0 20px -3px rgba(234, 126, 59, 0.35);
   transform: translateY(-3px);
 }
 
-/* Metallic Beveled Enclosure in Deep Carbon & Electric Cyan */
+/* Metallic Beveled Enclosure */
 .metallic-enclosure {
-  background: linear-gradient(145deg, #151c28 0%, #06070a 100%);
-  border: 1px solid rgba(0, 240, 255, 0.4);
+  background: linear-gradient(145deg, #181524 0%, #06070b 100%);
+  border: 1px solid rgba(192, 132, 252, 0.3);
   box-shadow: 
-    inset 1px 1px 0 rgba(226, 232, 240, 0.18),
+    inset 1px 1px 0 rgba(254, 240, 138, 0.18),
     inset -1px -1px 0 rgba(0, 0, 0, 0.85),
     0 12px 32px rgba(0, 0, 0, 0.8);
 }
 
-/* Flowing Electric Cyan Circuit Trace */
-.copper-circuit-trace {
-  background: linear-gradient(90deg, transparent, #00f0ff, #ffffff, #0284c7, transparent);
+/* Multi-Phase Flowing Circuit Traces */
+.fusion-circuit-trace {
+  background: linear-gradient(90deg, transparent, #ea7e3b, #be123c, #c084fc, #00f0ff, transparent);
   background-size: 200% 100%;
-  animation: copperFlow 4s linear infinite;
+  animation: fusionFlow 4s linear infinite;
 }
 
-@keyframes copperFlow {
+@keyframes fusionFlow {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
-/* High-Voltage Electric Cyan & Cobalt Glow */
+.copper-circuit-trace {
+  background: linear-gradient(90deg, transparent, #ea7e3b, #fef08a, #ea7e3b, transparent);
+  background-size: 200% 100%;
+  animation: fusionFlow 4s linear infinite;
+}
+
+/* Glowing Multi-Tone Shadows */
 .text-copper-glow {
-  text-shadow: 0 0 16px rgba(0, 240, 255, 0.85), 0 0 28px rgba(2, 132, 199, 0.5);
+  text-shadow: 0 0 16px rgba(234, 126, 59, 0.85), 0 0 28px rgba(245, 158, 11, 0.5);
+}
+
+.text-lavender-glow {
+  text-shadow: 0 0 16px rgba(192, 132, 252, 0.85), 0 0 28px rgba(168, 85, 247, 0.5);
+}
+
+.text-burgundy-glow {
+  text-shadow: 0 0 16px rgba(190, 18, 60, 0.85), 0 0 28px rgba(159, 18, 57, 0.5);
 }
 
 .text-cyan-glow {
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.95), 0 0 25px rgba(0, 240, 255, 0.65);
+  text-shadow: 0 0 16px rgba(0, 240, 255, 0.85), 0 0 25px rgba(2, 132, 199, 0.65);
 }
 
 .border-fusion-glow {
-  box-shadow: 0 0 22px rgba(0, 240, 255, 0.45), inset 0 0 14px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 0 22px rgba(234, 126, 59, 0.35), 0 0 35px rgba(168, 85, 247, 0.25), inset 0 0 14px rgba(190, 18, 60, 0.25);
 }
 
-/* Technical Blueprint Grid Pattern in Electric Cyan */
+/* Technical Blueprint Grid Pattern */
 .bg-blueprint-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(192, 132, 252, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(234, 126, 59, 0.08) 1px, transparent 1px);
 }
 
 /* Fine Industrial Dot Matrix */
 .bg-mech-dots {
-  background-image: radial-gradient(rgba(0, 240, 255, 0.18) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(254, 240, 138, 0.16) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Corner Fasteners / Rivets in Electric Cyan & Steel */
+/* Corner Fasteners / Rivets in Copper & Gold */
 .mech-rivet {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #00f0ff;
-  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.9);
+  background: #ea7e3b;
+  box-shadow: inset 1px 1px 1px rgba(254, 240, 138, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* 3D Perspective & Spatial Depth System */
