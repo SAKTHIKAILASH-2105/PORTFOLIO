@@ -24,11 +24,11 @@ import { TiltCard } from '../components/TiltCard';
 /**
  * ELECTRO-MECHANICAL 3D ANIMATED HERO SECTION
  * High-impact Mechatronics Landing Experience:
- * - Prismatic Hyper-Fusion Color Combination (Burgundy + Lavender + Copper + Champagne)
+ * - Sakthi Kailash Portfolio Title with Multi-Stop Prismatic Gradient
  * - Full 3D Interactive Perspective Depth on all cards and metric boxes
  * - Spatial Z-axis multi-layer parallax on the Core HUD
- * - Live Subsystem Telemetry Switcher (Mech-CAD / Silicon-VLSI / Embedded-DSP)
- * - Real-time Simulated DSP / Oscilloscope Waveform
+ * - Live Subsystem Telemetry Switcher with dynamic ID change (MECH_ID_2105, VLSI_ID_2105, EMBED_ID_2105)
+ * - Real-time Simulated DSP / Oscilloscope Waveforms (Kinematics, Digital Clock, Audio DSP)
  * - Tactile "Transmit Core Signal" Micro-interaction
  * - Continuous Mechatronics Telemetry Ticker Bar
  */
@@ -112,47 +112,77 @@ export const Hero = ({ onOpenResume }) => {
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, roleIndex]);
 
-  // Subsystem Telemetry Data with distinctive theme signatures
+  // Subsystem Telemetry Data with dynamic ID tags, waveforms, and visual cues
   const telemetryData = {
     mech: {
+      idTag: "MECH_ID_2105",
       title: "MECHANICAL & CAD ARCHITECTURE",
       badge: "CAD // KINEMATICS",
-      color: "copper",
-      icon: <Box className="w-4 h-4 text-amber-400" />,
+      portraitTag: "MECH // CAD",
+      pipelineName: "KINEMATICS // 6-AXIS MOTION",
+      freqName: "TOLERANCE: ±0.05mm",
+      color: "amber",
+      borderColor: "border-amber-500/50",
+      glowColor: "shadow-[0_20px_60px_rgba(234,126,59,0.35)]",
+      headerColor: "text-amber-400",
+      activeBg: "bg-amber-500/25 border-amber-500 text-amber-300 shadow-[0_0_12px_rgba(234,126,59,0.45)] font-bold",
+      icon: <Box className="w-3.5 h-3.5 text-amber-400" />,
       specs: [
         { label: "PARAMETRIC CAD", val: "Autodesk Fusion 360 & SolidWorks" },
         { label: "PRECISION ASSEMBLED", val: "7 Verified 3D CAD Enclosures" },
         { label: "KINEMATICS & TOLERANCE", val: "±0.05mm Fit & Flange Clearances" },
       ],
       waveformColor: "#ea7e3b",
+      wavePath1: "M0 12 Q 10 3, 20 12 T 40 12 T 60 5 T 80 19 T 100 12",
+      wavePath2: "M0 12 Q 15 18, 30 12 T 50 8 T 75 16 T 100 12",
     },
     vlsi: {
+      idTag: "VLSI_ID_2105",
       title: "DIGITAL SILICON & RTL DESIGN",
       badge: "VLSI // HARDWARE HDL",
-      color: "lavender",
-      icon: <Cpu className="w-4 h-4 text-purple-400" />,
+      portraitTag: "SILICON // VLSI",
+      pipelineName: "CLOCK DOMAIN // 240MHz RTL",
+      freqName: "PIPELINE: 4-STAGE ALU",
+      color: "purple",
+      borderColor: "border-purple-500/50",
+      glowColor: "shadow-[0_20px_60px_rgba(168,85,247,0.35)]",
+      headerColor: "text-purple-400",
+      activeBg: "bg-purple-500/25 border-purple-400 text-purple-200 shadow-[0_0_12px_rgba(168,85,247,0.45)] font-bold",
+      icon: <Cpu className="w-3.5 h-3.5 text-purple-400" />,
       specs: [
         { label: "HDL LANGUAGE", val: "Verilog HDL (Synthesizable RTL)" },
         { label: "DIGITAL LOGIC", val: "FSM State Machines & ALU Pipelines" },
         { label: "TARGET FREQUENCY", val: "Synchronous 240MHz Clock Domains" },
       ],
       waveformColor: "#c084fc",
+      wavePath1: "M0 12 H 12 V 4 H 25 V 20 H 38 V 4 H 50 V 20 H 62 V 4 H 75 V 20 H 88 V 12 H 100",
+      wavePath2: "M0 12 H 8 V 7 H 22 V 17 H 36 V 7 H 50 V 17 H 64 V 7 H 78 V 17 H 92 V 12 H 100",
     },
     embedded: {
+      idTag: "EMBED_ID_2105",
       title: "EMBEDDED FIRMWARE & DSP SYSTEMS",
       badge: "FIRMWARE // I2S DSP",
-      color: "burgundy",
-      icon: <Zap className="w-4 h-4 text-rose-400" />,
+      portraitTag: "DSP // EMBED",
+      pipelineName: "AUDIO DSP // 48kHz I2S",
+      freqName: "SAMPLE RATE: 48kHz",
+      color: "rose",
+      borderColor: "border-rose-500/50",
+      glowColor: "shadow-[0_20px_60px_rgba(190,18,60,0.35)]",
+      headerColor: "text-rose-400",
+      activeBg: "bg-rose-500/25 border-rose-500 text-rose-300 shadow-[0_0_12px_rgba(190,18,60,0.45)] font-bold",
+      icon: <Zap className="w-3.5 h-3.5 text-rose-400" />,
       specs: [
         { label: "MICROCONTROLLER", val: "ESP32 / ESP32-S3 Dual Tensilica Core" },
         { label: "DIGITAL SIGNAL DSP", val: "I2S Microphones & Noise Filtering" },
         { label: "SENSOR INTEGRATION", val: "MPU6050 6-DOF IMU & Ultrasonic Bus" },
       ],
       waveformColor: "#be123c",
+      wavePath1: "M0 12 Q 5 2, 10 12 T 20 12 Q 25 22, 30 12 T 40 12 Q 50 1, 60 12 T 70 12 Q 80 23, 90 12 T 100 12",
+      wavePath2: "M0 12 Q 8 16, 16 12 T 32 12 Q 40 6, 48 12 T 64 12 Q 72 18, 80 12 T 100 12",
     },
   };
 
-  const currentTel = telemetryData[activeSubsystem];
+  const currentTel = telemetryData[activeSubsystem] || telemetryData.mech;
 
   return (
     <section
@@ -187,34 +217,12 @@ export const Hero = ({ onOpenResume }) => {
         {/* ======================================================== */}
         {/* LEFT COLUMN: Narrative & Engineering Credentials (7 cols)*/}
         {/* ======================================================== */}
-        <div className="lg:col-span-7 space-y-6 pt-4">
-          {/* Top Prismatic Theme Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-950/80 via-purple-950/60 to-rose-950/80 border border-amber-500/40 text-xs font-mono shadow-[0_0_20px_rgba(234,126,59,0.3)]"
-          >
-            {/* Multi-swatch color dots */}
-            <div className="flex items-center -space-x-1">
-              <span className="w-2 h-2 rounded-full bg-amber-400 ring-1 ring-black" />
-              <span className="w-2 h-2 rounded-full bg-rose-500 ring-1 ring-black" />
-              <span className="w-2 h-2 rounded-full bg-purple-400 ring-1 ring-black" />
-              <span className="w-2 h-2 rounded-full bg-yellow-200 ring-1 ring-black" />
-            </div>
-            <span className="text-white font-bold tracking-wide">
-              Prismatic Mechatronics Fusion
-            </span>
-            <span className="text-amber-200 font-mono text-[11px] hidden sm:inline">
-              (Burgundy • Lavender • Copper)
-            </span>
-          </motion.div>
-
+        <div className="lg:col-span-7 space-y-6 pt-2">
           {/* Institutional Campus Header: Rathinam Technical Campus */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
+            transition={{ duration: 0.5 }}
             className="flex items-center justify-between flex-wrap gap-3 pb-2 border-b border-titanium-800/80"
           >
             <div className="flex items-center gap-2.5">
@@ -235,7 +243,7 @@ export const Hero = ({ onOpenResume }) => {
             </div>
           </motion.div>
 
-          {/* Main Mechatronics Portfolio Heading */}
+          {/* Main Sakthi Kailash Portfolio Heading */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -243,8 +251,8 @@ export const Hero = ({ onOpenResume }) => {
             className="space-y-3"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display tracking-tight leading-[1.08]">
-              <span className="block text-white font-display">
-                MECHATRONICS
+              <span className="block text-white font-display uppercase tracking-wide">
+                SAKTHI KAILASH
               </span>
               <span className="relative inline-block mt-1">
                 <span className="bg-gradient-to-r from-amber-400 via-rose-500 via-purple-400 to-amber-200 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(234,126,59,0.55)]">
@@ -265,7 +273,7 @@ export const Hero = ({ onOpenResume }) => {
             </div>
           </motion.div>
 
-          {/* Dynamic Typing Subrole with Interactive Toggle */}
+          {/* Dynamic Typing Subrole */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -320,7 +328,6 @@ export const Hero = ({ onOpenResume }) => {
               whileTap={{ scale: 0.96 }}
               className="relative group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-rose-600 to-purple-600 text-white font-bold font-mono text-sm shadow-[0_0_25px_rgba(234,126,59,0.45)] hover:shadow-[0_0_35px_rgba(192,132,252,0.65)] transition-all duration-300 overflow-hidden cursor-pointer"
             >
-              {/* Shiny reflection beam */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out" />
               <span className="relative z-10">View My Projects</span>
               <ChevronRight className="w-4 h-4 relative z-10 group-hover:translate-x-0.5 transition-transform" />
@@ -483,7 +490,7 @@ export const Hero = ({ onOpenResume }) => {
                 transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
                 transition: 'transform 0.15s ease-out',
               }}
-              className="relative w-full max-w-[320px] sm:max-w-[380px] p-5 sm:p-6 rounded-3xl bg-[#090b14]/90 backdrop-blur-2xl border border-amber-500/40 shadow-[0_20px_60px_rgba(0,0,0,0.85)] preserve-3d"
+              className={`relative w-full max-w-[320px] sm:max-w-[380px] p-5 sm:p-6 rounded-3xl bg-[#090b14]/92 backdrop-blur-2xl border transition-all duration-300 ${currentTel.borderColor} ${currentTel.glowColor} preserve-3d`}
             >
               {/* Dynamic Specular Glint */}
               <div
@@ -499,14 +506,11 @@ export const Hero = ({ onOpenResume }) => {
               <div className="absolute bottom-2.5 left-2.5 mech-rivet" />
               <div className="absolute bottom-2.5 right-2.5 mech-rivet" />
 
-              {/* HUD Header Bar */}
-              <div 
-                style={{ transform: 'translateZ(15px)' }}
-                className="flex items-center justify-between pb-2.5 border-b border-titanium-800 text-[10px] font-mono preserve-3d"
-              >
-                <div className="flex items-center gap-1.5 text-amber-400 font-semibold">
+              {/* HUD Header Bar: Dynamically switches with active subsystem ID! */}
+              <div className="flex items-center justify-between pb-2.5 border-b border-titanium-800 text-[10px] font-mono">
+                <div className={`flex items-center gap-1.5 ${currentTel.headerColor} font-bold transition-colors`}>
                   <Cog className="w-3.5 h-3.5 animate-spin [animation-duration:10s]" />
-                  <span>CORE_REACTOR // ID_2105</span>
+                  <span>CORE_REACTOR // {currentTel.idTag}</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-emerald-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -514,11 +518,8 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* REAL PORTRAIT INTEGRATED WITH HIGH-PRECISION IC CASING (3D Popout) */}
-              <div 
-                style={{ transform: 'translateZ(25px)' }}
-                className="relative my-3 text-center preserve-3d"
-              >
+              {/* REAL PORTRAIT INTEGRATED WITH HIGH-PRECISION IC CASING */}
+              <div className="relative my-3 text-center">
                 <div className="relative mx-auto w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-graphite-950 border-2 border-amber-500/60 p-1.5 shadow-[0_0_28px_rgba(234,126,59,0.35)] flex items-center justify-center group overflow-hidden">
                   {/* Real Portrait Image */}
                   <img
@@ -530,9 +531,9 @@ export const Hero = ({ onOpenResume }) => {
                   {/* High-tech HUD Reticle Overlay */}
                   <div className="absolute inset-0 border border-amber-400/20 rounded-xl pointer-events-none" />
 
-                  {/* Corner Badge Tag */}
-                  <div className="absolute bottom-1 right-1 z-20 px-1.5 py-0.5 rounded bg-graphite-950/90 border border-amber-500/50 text-[8px] font-mono text-amber-400 font-semibold">
-                    MECHATRONICS
+                  {/* Corner Badge Tag: Dynamically updates to MECH // CAD, SILICON // VLSI, DSP // EMBED! */}
+                  <div className={`absolute bottom-1 right-1 z-20 px-1.5 py-0.5 rounded bg-graphite-950/95 border border-amber-500/50 text-[8px] font-mono font-bold ${currentTel.headerColor} transition-colors`}>
+                    {currentTel.portraitTag}
                   </div>
 
                   {/* Copper Lead Pins (Top & Bottom) */}
@@ -554,45 +555,50 @@ export const Hero = ({ onOpenResume }) => {
                   </div>
                 </div>
 
-                {/* Name & Dual Focus Tag */}
+                {/* Name & Subsystem Focus Tag */}
                 <div className="mt-2.5">
                   <h3 className="font-display font-bold text-lg text-white">
                     Sakthi Kailash
                   </h3>
-                  <p className="text-[11px] font-mono text-amber-400 flex items-center justify-center gap-1.5 mt-0.5">
-                    <span>MECHATRONICS</span>
-                    <span className="text-purple-400">•</span>
-                    <span>VLSI & EMBEDDED</span>
+                  <p className="text-[11px] font-mono flex items-center justify-center gap-1.5 mt-0.5">
+                    <span className={activeSubsystem === 'mech' ? 'text-amber-400 font-bold' : 'text-slate-400'}>
+                      MECHATRONICS
+                    </span>
+                    <span className="text-titanium-600">•</span>
+                    <span className={activeSubsystem === 'vlsi' ? 'text-purple-400 font-bold' : 'text-slate-400'}>
+                      VLSI
+                    </span>
+                    <span className="text-titanium-600">•</span>
+                    <span className={activeSubsystem === 'embedded' ? 'text-rose-400 font-bold' : 'text-slate-400'}>
+                      EMBEDDED
+                    </span>
                   </p>
                 </div>
               </div>
 
-              {/* LIVE SIMULATED SIGNAL OSCILLOSCOPE (3D Popout) */}
-              <div 
-                style={{ transform: 'translateZ(18px)' }}
-                className="p-2.5 rounded-xl bg-graphite-950/80 border border-titanium-800 my-1 preserve-3d"
-              >
+              {/* LIVE SIMULATED SIGNAL OSCILLOSCOPE: Dynamically updates waveform! */}
+              <div className="p-2.5 rounded-xl bg-graphite-950/80 border border-titanium-800 my-1">
                 <div className="flex items-center justify-between text-[9px] font-mono text-metallic-steel mb-1">
                   <span className="flex items-center gap-1">
-                    <Activity className="w-3 h-3 text-amber-400" />
-                    SIGNAL PIPELINE // 48kHz I2S
+                    <Activity className={`w-3 h-3 ${currentTel.headerColor}`} />
+                    {currentTel.pipelineName}
                   </span>
-                  <span className="text-amber-400 font-semibold">
-                    {isPulsing ? "SURGE: 100%" : "PEAK: 0.94dB"}
+                  <span className={`${currentTel.headerColor} font-semibold`}>
+                    {isPulsing ? "PULSE: 100%" : currentTel.freqName}
                   </span>
                 </div>
                 {/* SVG Oscilloscope Line Waveform */}
                 <div className="h-6 w-full relative overflow-hidden flex items-center justify-center">
                   <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 24">
                     <path
-                      d="M0 12 Q 10 3, 20 12 T 40 12 T 60 5 T 80 19 T 100 12"
+                      d={currentTel.wavePath1}
                       fill="none"
                       stroke={currentTel.waveformColor}
                       strokeWidth="1.8"
                       className="animate-scanline"
                     />
                     <path
-                      d="M0 12 Q 15 18, 30 12 T 50 8 T 75 16 T 100 12"
+                      d={currentTel.wavePath2}
                       fill="none"
                       stroke={currentTel.waveformColor}
                       strokeWidth="1"
@@ -603,58 +609,74 @@ export const Hero = ({ onOpenResume }) => {
                 </div>
               </div>
 
-              {/* INTERACTIVE SUBSYSTEM MODE SWITCHER (3D Popout) */}
+              {/* INTERACTIVE SUBSYSTEM MODE SWITCHER BUTTONS */}
+              {/* Isolated from 3D tilt jitter with mouse propagation stopper */}
               <div 
-                style={{ transform: 'translateZ(20px)' }}
-                className="pt-2 preserve-3d"
+                className="pt-2 relative z-30"
+                onMouseMove={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
               >
                 <div className="flex items-center justify-between text-[10px] font-mono text-metallic-steel mb-1.5 uppercase">
                   <span>SELECT ACTIVE SUBSYSTEM:</span>
-                  <span className="text-amber-400">CLICK_TO_PROBE</span>
+                  <span className={`${currentTel.headerColor} font-bold`}>
+                    {activeSubsystem.toUpperCase()} ACTIVE
+                  </span>
                 </div>
 
                 <div className="grid grid-cols-3 gap-1.5">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveSubsystem('mech')}
-                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
+                  {/* 1. MECH BUTTON */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveSubsystem('mech');
+                    }}
+                    className={`py-2 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer select-none ${
                       activeSubsystem === 'mech'
-                        ? 'bg-amber-500/25 border-amber-500 text-amber-300 shadow-[0_0_12px_rgba(234,126,59,0.45)] font-bold'
-                        : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
+                        ? 'bg-amber-500/25 border-amber-500 text-amber-300 shadow-[0_0_14px_rgba(234,126,59,0.55)] font-bold ring-1 ring-amber-400/50'
+                        : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white hover:border-amber-500/40'
                     }`}
                   >
-                    <Box className="w-3 h-3" />
+                    <Box className="w-3 h-3 text-amber-400 shrink-0" />
                     <span>MECH</span>
-                  </motion.button>
+                  </button>
 
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveSubsystem('vlsi')}
-                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
+                  {/* 2. VLSI BUTTON */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveSubsystem('vlsi');
+                    }}
+                    className={`py-2 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer select-none ${
                       activeSubsystem === 'vlsi'
-                        ? 'bg-purple-500/25 border-purple-400 text-purple-200 shadow-[0_0_12px_rgba(168,85,247,0.45)] font-bold'
-                        : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
+                        ? 'bg-purple-500/25 border-purple-400 text-purple-200 shadow-[0_0_14px_rgba(168,85,247,0.55)] font-bold ring-1 ring-purple-400/50'
+                        : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white hover:border-purple-500/40'
                     }`}
                   >
-                    <Cpu className="w-3 h-3" />
+                    <Cpu className="w-3 h-3 text-purple-400 shrink-0" />
                     <span>VLSI</span>
-                  </motion.button>
+                  </button>
 
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setActiveSubsystem('embedded')}
-                    className={`py-1.5 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer ${
+                  {/* 3. EMBED BUTTON */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setActiveSubsystem('embedded');
+                    }}
+                    className={`py-2 px-2 rounded-lg text-[10px] font-mono font-semibold transition-all border flex items-center justify-center gap-1 cursor-pointer select-none ${
                       activeSubsystem === 'embedded'
-                        ? 'bg-rose-500/25 border-rose-500 text-rose-300 shadow-[0_0_12px_rgba(190,18,60,0.45)] font-bold'
-                        : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white'
+                        ? 'bg-rose-500/25 border-rose-500 text-rose-300 shadow-[0_0_14px_rgba(190,18,60,0.55)] font-bold ring-1 ring-rose-400/50'
+                        : 'bg-graphite-950 border-titanium-800 text-slate-400 hover:text-white hover:border-rose-500/40'
                     }`}
                   >
-                    <Zap className="w-3 h-3" />
+                    <Zap className="w-3 h-3 text-rose-400 shrink-0" />
                     <span>EMBED</span>
-                  </motion.button>
+                  </button>
                 </div>
               </div>
 
@@ -665,10 +687,20 @@ export const Hero = ({ onOpenResume }) => {
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.2 }}
-                  style={{ transform: 'translateZ(16px)' }}
-                  className="space-y-1.5 pt-2.5 text-[10px] font-mono preserve-3d"
+                  transition={{ duration: 0.18 }}
+                  className="space-y-1.5 pt-2.5 text-[10px] font-mono"
                 >
+                  {/* Mode Badge & Title */}
+                  <div className="flex items-center justify-between pb-1 text-[9px] border-b border-titanium-800/60">
+                    <span className={`${currentTel.headerColor} font-bold flex items-center gap-1`}>
+                      {currentTel.icon}
+                      {currentTel.title}
+                    </span>
+                    <span className="px-1.5 py-0.5 rounded bg-titanium-900 text-slate-300 border border-titanium-700">
+                      {currentTel.badge}
+                    </span>
+                  </div>
+
                   {currentTel.specs.map((item, sIdx) => (
                     <div
                       key={sIdx}
@@ -683,10 +715,11 @@ export const Hero = ({ onOpenResume }) => {
                 </motion.div>
               </AnimatePresence>
 
-              {/* TACTILE MICRO-INTERACTION BUTTON: TRANSMIT CORE SIGNAL (3D Popout) */}
+              {/* TACTILE MICRO-INTERACTION BUTTON: TRANSMIT CORE SIGNAL */}
               <div 
-                style={{ transform: 'translateZ(24px)' }}
-                className="pt-3 preserve-3d"
+                className="pt-3 relative z-30"
+                onMouseMove={(e) => e.stopPropagation()}
+                onMouseDown={(e) => e.stopPropagation()}
               >
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -702,7 +735,7 @@ export const Hero = ({ onOpenResume }) => {
                   <span>
                     {isPulsing
                       ? `SIGNAL_DISPATCHED // PULSE #${pulseCount}`
-                      : "TRANSMIT CORE SIGNAL"}
+                      : `TRANSMIT ${activeSubsystem.toUpperCase()} SIGNAL`}
                   </span>
                 </motion.button>
               </div>
@@ -723,6 +756,10 @@ export const Hero = ({ onOpenResume }) => {
           <span>•</span>
           <span className="text-slate-200">
             DISCIPLINE: <strong className="text-white">B.E. MECHATRONICS</strong>
+          </span>
+          <span>•</span>
+          <span>
+            ACTIVE SUBSYSTEM: <strong className={currentTel.headerColor}>{currentTel.idTag}</strong>
           </span>
           <span>•</span>
           <span>
