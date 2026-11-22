@@ -22,7 +22,7 @@ export function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-[#08080a] text-[#fff7ed] font-sans selection:bg-copper-600/60 selection:text-white overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#06070a] text-[#f8fafc] font-sans selection:bg-cyan-500/40 selection:text-white overflow-x-hidden">
       {/* Initial Electro-Mechanical Bootloader Screen */}
       {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
@@ -31,6 +31,12 @@ export function App() {
 
       {/* Interactive Electro-Mechanical Fusion Canvas Background */}
       <CircuitBackground />
+
+      {/* Global Mechatronics Robotic Backdrop Texture Layer */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat opacity-[0.14] mix-blend-screen filter contrast-125 brightness-90"
+        style={{ backgroundImage: "url('/images/mechatronics-bg.jpg')" }}
+      />
 
       {/* Top Floating Brushed Metallic Navigation */}
       <Navbar onOpenResume={() => setIsResumeOpen(true)} />

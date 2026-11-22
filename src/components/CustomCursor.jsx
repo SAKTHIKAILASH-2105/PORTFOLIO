@@ -97,7 +97,7 @@ export const CustomCursor = () => {
         <div
           className={`w-2 h-2 rounded-full transition-colors duration-200 ${
             isPointer
-              ? 'bg-copper-400 shadow-[0_0_12px_#ea7e3b]'
+              ? 'bg-copper-400 shadow-[0_0_12px_#00f0ff]'
               : 'bg-white shadow-[0_0_10px_#ffffff]'
           }`}
         />
@@ -115,15 +115,15 @@ export const CustomCursor = () => {
         <div
           className={`relative w-8 h-8 rounded-full border transition-all duration-300 ${
             isPointer
-              ? 'border-copper-500/80 bg-charcoal-900/40 shadow-[0_0_16px_rgba(234,126,59,0.5)]'
+              ? 'border-copper-500/80 bg-charcoal-900/40 shadow-[0_0_16px_rgba(0,240,255,0.6)]'
               : 'border-copper-400/40 bg-charcoal-950/20'
           }`}
         >
-          {/* Mechanical Gear Notches / Rivets (at 0, 90, 180, 270 deg) in Copper & Cream */}
-          <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-copper-400/90 shadow-[0_0_4px_#ea7e3b]" />
-          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-copper-400/90 shadow-[0_0_4px_#ea7e3b]" />
-          <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-1 h-1 rounded-xs bg-cream-200/90 shadow-[0_0_4px_#ffedd5]" />
-          <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-1 h-1 rounded-xs bg-cream-200/90 shadow-[0_0_4px_#ffedd5]" />
+          {/* Mechanical Gear Notches / Rivets (at 0, 90, 180, 270 deg) in Electric Cyan */}
+          <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-copper-400/90 shadow-[0_0_4px_#00f0ff]" />
+          <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-xs bg-copper-400/90 shadow-[0_0_4px_#00f0ff]" />
+          <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-1 h-1 rounded-xs bg-cream-200/90 shadow-[0_0_4px_#38bdf8]" />
+          <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-1 h-1 rounded-xs bg-cream-200/90 shadow-[0_0_4px_#38bdf8]" />
 
           {/* High-Tech Corner Crosshairs when active */}
           {isPointer && (

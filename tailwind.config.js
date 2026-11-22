@@ -8,61 +8,61 @@ export default {
   theme: {
     extend: {
       colors: {
-        // INDUSTRIAL COPPER PALETTE (Rich Molten Copper, Burnished Bronze & Amber)
+        // ELECTRIC TITANIUM MECHATRONICS PALETTE (Cyan, Cobalt Blue, Machine Steel & Gold)
         copper: {
-          50:  '#fff7ed',
-          100: '#ffedd5',
-          200: '#fed7aa',
-          300: '#fdba74',
-          400: '#fb923c',
-          500: '#ea7e3b',
-          600: '#d97736',
-          700: '#c26526',
-          800: '#9a4b17',
-          900: '#7c3a10',
-          950: '#431d05',
-          glow: 'rgba(234, 126, 59, 0.45)',
+          50:  '#ecfeff',
+          100: '#cffafe',
+          200: '#a5f3fc',
+          300: '#67e8f9',
+          400: '#22d3ee',
+          500: '#00f0ff',
+          600: '#00d2ea',
+          700: '#0284c7',
+          800: '#0369a1',
+          900: '#075985',
+          950: '#082f49',
+          glow: 'rgba(0, 240, 255, 0.5)',
         },
 
-        // CREAM & WARM IVORY PALETTE (Elegant Cream, Champagne Ivory & Soft Gold)
+        // TITANIUM STEEL & PLATINUM PALETTE (Machine Titanium, Platinum White & Silver)
         cream: {
-          50:  '#fffdfa',
-          100: '#fff7ed',
-          200: '#ffedd5',
-          300: '#fed7aa',
-          400: '#fde047',
-          500: '#facc15',
-          glow: 'rgba(254, 215, 170, 0.35)',
+          50:  '#ffffff',
+          100: '#f8fafc',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          glow: 'rgba(226, 232, 240, 0.4)',
         },
 
-        // PITCH BLACK & CHARCOAL PALETTE (Deep Obsidian, Matte Graphite & Dark Steel)
+        // DEEP OBSIDIAN & MACHINE CARBON PALETTE (Precision Lab Obsidian & Carbon Core)
         charcoal: {
-          950: '#08080a',
-          900: '#0d0d11',
-          850: '#141419',
-          800: '#1a1a22',
-          750: '#22222c',
-          700: '#2a2a36',
-          600: '#383848',
-          500: '#4c4c5e',
-          glow: 'rgba(42, 42, 54, 0.5)',
+          950: '#06070a',
+          900: '#0a0d13',
+          850: '#0f141d',
+          800: '#151c28',
+          750: '#1e2636',
+          700: '#283348',
+          600: '#334155',
+          500: '#475569',
+          glow: 'rgba(0, 240, 255, 0.3)',
         },
 
-        // Compatibility Aliases: Map graphite directly to Pitch Black & Charcoal
+        // Compatibility Aliases: Map graphite directly to Machine Carbon
         graphite: {
-          950: '#08080a',
-          900: '#0d0d11',
-          850: '#141419',
-          800: '#1a1a22',
-          750: '#22222c',
-          700: '#2a2a36',
+          950: '#06070a',
+          900: '#0a0d13',
+          850: '#0f141d',
+          800: '#151c28',
+          750: '#1e2636',
+          700: '#283348',
         },
 
-        // Compatibility Aliases: Map titanium to Industrial Dark Steel & Graphite
+        // Compatibility Aliases: Map titanium to Industrial Dark Steel & Carbon
         titanium: {
-          900: '#0d0d11',
-          850: '#141419',
-          800: '#1a1a22',
+          900: '#0a0d13',
+          850: '#0f141d',
+          800: '#151c28',
           750: '#22222c',
           700: '#2a2a36',
           600: '#383848',
@@ -117,37 +117,37 @@ export default {
           glow: 'rgba(254, 215, 170, 0.35)',
         },
 
-        // Metallic Typography & Accents in Cream & Chrome White
+        // Metallic Typography & Accents in Machine Titanium & Platinum
         metallic: {
           chrome: '#ffffff',
-          silver: '#fff7ed',
-          pewter: '#ffedd5',
-          steel:  '#fed7aa',
+          silver: '#f8fafc',
+          pewter: '#e2e8f0',
+          steel:  '#cbd5e1',
           carbon: '#94a3b8',
         },
 
-        // Dark compatibility mapping
+        // Dark compatibility mapping to Machine Carbon
         dark: {
-          950: '#08080a',
-          900: '#0d0d11',
-          850: '#141419',
-          800: '#1a1a22',
-          750: '#22222c',
-          700: '#2a2a36',
-          600: '#383848',
+          950: '#06070a',
+          900: '#0a0d13',
+          850: '#0f141d',
+          800: '#151c28',
+          750: '#1e2636',
+          700: '#283348',
+          600: '#334155',
         },
 
-        // Cyber & Electric Highlights in Molten Copper & Warm Cream
+        // Cyber & Electric Highlights in Electric Cyan & Cobalt
         cyber: {
-          blue: '#ffedd5',
-          neon: '#ffffff',
-          cyan: '#fed7aa',
-          copper: '#ea7e3b',
-          accent: '#fff7ed',
-          purple: '#d97736',
+          blue: '#0284c7',
+          neon: '#00f0ff',
+          cyan: '#00f0ff',
+          copper: '#00f0ff',
+          accent: '#38bdf8',
+          purple: '#0369a1',
           muted: '#94a3b8',
-          glow: 'rgba(234, 126, 59, 0.45)',
-          copperGlow: 'rgba(234, 126, 59, 0.55)',
+          glow: 'rgba(0, 240, 255, 0.5)',
+          copperGlow: 'rgba(0, 240, 255, 0.6)',
         }
       },
       fontFamily: {

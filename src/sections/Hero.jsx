@@ -123,7 +123,7 @@ export const Hero = ({ onOpenResume }) => {
         { label: "PRECISION ASSEMBLED", val: "7 Verified 3D CAD Enclosures" },
         { label: "KINEMATICS & TOLERANCE", val: "±0.05mm Fit & Flange Clearances" },
       ],
-      waveformColor: "#ea7e3b",
+      waveformColor: "#00f0ff",
     },
     vlsi: {
       title: "DIGITAL SILICON & RTL DESIGN",
@@ -135,7 +135,7 @@ export const Hero = ({ onOpenResume }) => {
         { label: "DIGITAL LOGIC", val: "FSM State Machines & ALU Pipelines" },
         { label: "TARGET FREQUENCY", val: "Synchronous 240MHz Clock Domains" },
       ],
-      waveformColor: "#ffedd5",
+      waveformColor: "#38bdf8",
     },
     embedded: {
       title: "EMBEDDED FIRMWARE & DSP SYSTEMS",
@@ -147,7 +147,7 @@ export const Hero = ({ onOpenResume }) => {
         { label: "DIGITAL SIGNAL DSP", val: "I2S Microphones & Noise Filtering" },
         { label: "SENSOR INTEGRATION", val: "MPU6050 6-DOF IMU & Ultrasonic Bus" },
       ],
-      waveformColor: "#e63956",
+      waveformColor: "#10b981",
     },
   };
 
@@ -158,14 +158,27 @@ export const Hero = ({ onOpenResume }) => {
       id="hero"
       className="relative min-h-screen flex flex-col justify-between pt-24 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
-      {/* Top Grid & Crosshair Alignment Watermarks */}
-      <div className="absolute top-20 left-6 text-[9px] font-mono text-titanium-500/60 pointer-events-none hidden md:block select-none">
-        <div>[SYS_LATITUDE: 13.0827° N // CHENNAI_NODE]</div>
-        <div>CALIBRATION: MECH + ELEC DUAL_BUS</div>
+      {/* High-Resolution Mechatronics Robotic Arm Background Graphic */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/mechatronics-bg.jpg"
+          alt="Mechatronics Robotic Architecture"
+          className="w-full h-full object-cover object-right lg:object-center opacity-30 filter contrast-125 brightness-95"
+        />
+        {/* Multilayer gradient vignettes so text and cards pop with crystal clarity */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06070a] via-[#06070a]/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06070a] via-transparent to-[#06070a]/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(0,240,255,0.12),transparent_70%)]" />
       </div>
-      <div className="absolute top-20 right-6 text-[9px] font-mono text-titanium-500/60 pointer-events-none hidden md:block text-right select-none">
+
+      {/* Top Grid & Crosshair Alignment Watermarks */}
+      <div className="absolute top-20 left-6 text-[9px] font-mono text-titanium-500/60 pointer-events-none hidden md:block select-none z-10">
+        <div>[SYS_LATITUDE: 13.0827° N // CHENNAI_NODE]</div>
+        <div>CALIBRATION: MECHATRONICS FUSION // DUAL_BUS</div>
+      </div>
+      <div className="absolute top-20 right-6 text-[9px] font-mono text-titanium-500/60 pointer-events-none hidden md:block text-right select-none z-10">
         <div>ENG_IDENTITY: SAKTHI_KAILASH</div>
-        <div>STATUS: ALL SUBSYSTEMS NOMINAL</div>
+        <div>STATUS: ALL 6-AXIS ACTUATORS ONLINE</div>
       </div>
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10 my-auto">
@@ -173,19 +186,19 @@ export const Hero = ({ onOpenResume }) => {
         {/* LEFT COLUMN: Strategic Identity, Bio & CTAs (7 cols)    */}
         {/* ======================================================== */}
         <div className="lg:col-span-7 text-left space-y-6">
-          {/* Industrial Copper Theme Capsule Badge from Theme Blueprint */}
+          {/* Mechatronics Engineering Theme Capsule Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-copper-950/90 via-graphite-900 to-copper-950/90 border border-copper-500/50 text-xs font-mono shadow-[0_0_20px_rgba(234,126,59,0.25)]"
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-copper-950/90 via-graphite-900 to-copper-950/90 border border-copper-500/50 text-xs font-mono shadow-[0_0_20px_rgba(0,240,255,0.3)]"
           >
-            <span className="w-2 h-2 rounded-full bg-copper-400 animate-pulse shadow-[0_0_8px_#ea7e3b]" />
+            <span className="w-2 h-2 rounded-full bg-copper-400 animate-pulse shadow-[0_0_8px_#00f0ff]" />
             <span className="text-white font-bold tracking-wide">
-              1. Industrial Copper Theme
+              Mechatronics Engineering Edition
             </span>
             <span className="text-cream-300 font-mono text-[11px] hidden sm:inline">
-              (Black + Copper + Cream)
+              (Titanium Carbon + Electric Cyan)
             </span>
           </motion.div>
 
@@ -408,7 +421,7 @@ export const Hero = ({ onOpenResume }) => {
                 cx="200"
                 cy="200"
                 r="180"
-                stroke="#ea7e3b"
+                stroke="#00f0ff"
                 strokeWidth="1.5"
                 strokeDasharray="6 8"
                 fill="none"
@@ -417,7 +430,7 @@ export const Hero = ({ onOpenResume }) => {
                 cx="200"
                 cy="200"
                 r="165"
-                stroke="#fed7aa"
+                stroke="#38bdf8"
                 strokeWidth="1"
                 strokeDasharray="2 6"
                 fill="none"
@@ -430,7 +443,7 @@ export const Hero = ({ onOpenResume }) => {
                   y1="15"
                   x2="200"
                   y2="28"
-                  stroke="#ea7e3b"
+                  stroke="#00f0ff"
                   strokeWidth="2"
                   transform={`rotate(${i * 30} 200 200)`}
                 />
@@ -469,7 +482,7 @@ export const Hero = ({ onOpenResume }) => {
               <div
                 className="absolute inset-0 pointer-events-none opacity-40 transition-opacity duration-300"
                 style={{
-                  background: `radial-gradient(circle at ${glintPos.x}% ${glintPos.y}%, rgba(234, 126, 59, 0.22) 0%, transparent 60%)`,
+                  background: `radial-gradient(circle at ${glintPos.x}% ${glintPos.y}%, rgba(0, 240, 255, 0.25) 0%, transparent 60%)`,
                 }}
               />
 

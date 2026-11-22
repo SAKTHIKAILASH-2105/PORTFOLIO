@@ -56,7 +56,7 @@ export const LoadingScreen = ({ onComplete }) => {
       <motion.div
         exit={{ opacity: 0, scale: 1.02 }}
         transition={{ duration: 0.5, ease: 'easeInOut' }}
-        className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#08080a] text-white"
+        className="fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-[#06070a] text-white"
       >
         {/* Subtle blueprint grid pattern */}
         <div className="absolute inset-0 bg-blueprint-grid opacity-30 pointer-events-none" />
@@ -92,15 +92,15 @@ export const LoadingScreen = ({ onComplete }) => {
             SAKTHI KAILASH
           </h2>
           <p className="text-xs font-mono text-copper-300 tracking-widest mt-1 flex items-center justify-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-cream-200 animate-pulse shadow-[0_0_8px_#ffedd5]" />
-            MECHATRONICS // INDUSTRIAL COPPER EDITION
+            <span className="w-1.5 h-1.5 rounded-full bg-cream-200 animate-pulse shadow-[0_0_8px_#00f0ff]" />
+            MECHATRONICS // ELECTRIC TITANIUM EDITION
           </p>
 
           {/* Dual Copper & Cream Progress Bar */}
           <div className="mt-8">
             <div className="h-2 w-full bg-graphite-900 rounded-full overflow-hidden border border-titanium-700/80 p-0.5 shadow-inner">
               <motion.div
-                className="h-full bg-gradient-to-r from-copper-600 via-copper-500 to-cream-100 rounded-full shadow-[0_0_14px_#ea7e3b]"
+                className="h-full bg-gradient-to-r from-copper-600 via-copper-500 to-cream-100 rounded-full shadow-[0_0_14px_#00f0ff]"
                 style={{ width: `${progress}%` }}
                 transition={{ ease: 'easeOut', duration: 0.1 }}
               />
