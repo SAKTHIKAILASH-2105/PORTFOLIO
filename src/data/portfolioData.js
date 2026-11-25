@@ -26,7 +26,7 @@ export const personalInfo = {
     github: "https://github.com/SAKTHIKAILASH-2105?tab=repositories",
     linkedin: "https://www.linkedin.com/in/mr-sakthi-kailash-p-b35982383",
     email: "sakthikailash500@gmail.com",
-    resumeUrl: "#resume", // Can link to a PDF file in public folder, e.g. "/resume-sakthi-kailash.pdf"
+    resumeUrl: "/Sakthi_Kailash_Resume.pdf",
   }
 };
 
